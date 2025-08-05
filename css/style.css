@@ -1,0 +1,135 @@
+:root {
+  --primary-color: #000000;   /* Preto para fundos escuros e texto sobre fundos claros */
+  --secondary-color: #876E3E;  /* Dourado para títulos de destaque, links e detalhes de luxo */
+  --tertiary-color: #ffffff;    /* Branco para texto sobre fundos escuros e áreas de respiro */
+  
+  --text-light: #f1f1f1;      /* Um branco suave para textos menos importantes */
+  --text-dark: #333333;       /* Um cinza escuro para corpo de texto, mais suave que o preto puro */
+
+  --font-heading: 'Playfair Display', Georgia, serif; /* Fonte elegante para títulos principais (H1, H2) */
+  --font-body: 'Sora', system-ui, -apple-system, sans-serif; /* Fonte moderna para todo o resto */
+ 
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+
+  --spacing-xs: 0.5rem;  /* 8px */
+  --spacing-sm: 1rem;    /* 16px */
+  --spacing-md: 1.5rem;  /* 24px */
+  --spacing-lg: 2.5rem;  /* 40px */
+  --spacing-xl: 4rem;    /* 64px */
+  
+
+  --border-radius: 6px;
+  --transition-speed: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,ol,li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: var(--transition-speed);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background-color: var(--tertiary-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: var(--font-heading);
+  color: var(--secondary-color); /* Título em dourado */
+  font-size: 3rem;
+  font-weight: 700; /* Usa a versão mais pesada da Playfair */
+}
+
+/* Estilo para parágrafos */
+p {
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  line-height: 1.6;
+}
+
+/* Estilo para links */
+a:hover {
+  color: var(--tertiary-color);
+}
+
+/* Estilo para botões */
+button {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+button:hover {
+  background-color: var(--primary-color);
+}
+
+/* Estilo Conteudo Header */
+header {
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  padding: var(--spacing-sm);
+  text-align: center;
+  /* position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999; */
+}
+
+.container-header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 9rem;
+    height: auto; /* Ajuste a altura conforme necessário */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: center;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu li {
+    margin: 0 1rem;
+}
