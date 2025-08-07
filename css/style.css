@@ -1,56 +1,87 @@
 :root {
-  --primary-color: #000000;   /* Preto para fundos escuros e texto sobre fundos claros */
-  --secondary-color: #876e3e;  /* Dourado para títulos de destaque, links e detalhes de luxo */
-  --tertiary-color: #ffffff;    /* Branco para texto sobre fundos escuros e áreas de respiro */
+  --primary-color: #000000;
+  /* Preto para fundos escuros e texto sobre fundos claros */
+  --secondary-color: #876e3e;
+  /* Dourado para títulos de destaque, links e detalhes de luxo */
+  --tertiary-color: #ffffff;
+  /* Branco para texto sobre fundos escuros e áreas de respiro */
 
-  --background-color: #f7f1e1; /* Um cinza muito claro para o fundo geral, mais suave que o branco puro */
+  --background-color: #f7f1e1;
+  /* Um cinza muito claro para o fundo geral, mais suave que o branco puro */
 
 
-  --background-section: #f7f1e1; /* Um cinza muito claro para seções específicas, como rodapés ou áreas de conteúdo secundário */
-  --background-card: #EAE8E3;   /* Um cinza claro para cartões de produtos, mais suave que o branco puro */
+  --background-section: #f7f1e1;
+  /* Um cinza muito claro para seções específicas, como rodapés ou áreas de conteúdo secundário */
+  --background-card: #EAE8E3;
+  /* Um cinza claro para cartões de produtos, mais suave que o branco puro */
 
-  --text-link:#B89B77; /* Um dourado mais suave para links, que combina com o tema geral */
-  --text-light: #f1f1f1;      /* Um branco suave para textos menos importantes */
-  --text-dark: #333333;       /* Um cinza escuro para corpo de texto, mais suave que o preto puro */
+  --text-link: #B89B77;
+  /* Um dourado mais suave para links, que combina com o tema geral */
+  --text-light: #f1f1f1;
+  /* Um branco suave para textos menos importantes */
+  --text-dark: #333333;
+  /* Um cinza escuro para corpo de texto, mais suave que o preto puro */
 
-  --font-heading: 'Playfair Display', Georgia, serif; /* Fonte elegante para títulos principais (H1, H2) */
-  --font-body: 'Sora', system-ui, -apple-system, sans-serif; /* Fonte moderna para todo o resto */
- 
+  --font-heading: 'Playfair Display', Georgia, serif;
+  /* Fonte elegante para títulos principais (H1, H2) */
+  --font-body: 'Sora', system-ui, -apple-system, sans-serif;
+  /* Fonte moderna para todo o resto */
+
   --weight-light: 300;
   --weight-regular: 400;
   --weight-semibold: 600;
   --weight-bold: 700;
 
 
-  --spacing-xs: 0.5rem;  /* 8px */
-  --spacing-sm: 1rem;    /* 16px */
-  --spacing-md: 1.5rem;  /* 24px */
-  --spacing-lg: 2.5rem;  /* 40px */
-  --spacing-xl: 4rem;    /* 64px */
+  --spacing-xs: 0.5rem;
+  /* 8px */
+  --spacing-sm: 1rem;
+  /* 16px */
+  --spacing-md: 1.5rem;
+  /* 24px */
+  --spacing-lg: 2.5rem;
+  /* 40px */
+  --spacing-xl: 4rem;
+  /* 64px */
 
-  --font-size-xs:0.8rem;
+  --font-size-xs: 0.8rem;
   --font-size-md: 1rem;
   --font-size-lg: 1.5rem;
   --font-size-xl: 3rem;
-  
+
 
   --border-radius: 6px;
   --transition-speed: 0.3s ease;
+
+  --cor-rolex: #006f62;
+  --cor-patek: #1e3a8a;
+  --cor-cartier: #b22222;
+
+  --sombra-card: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --sombra-card-hover: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-ul,ol,li {
-    list-style: none;
+section {
+  background-color: var(--background-section);
+  border-radius: var(--border-radius);
+  margin: 40px auto;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
-    transition: var(--transition-speed);
+  text-decoration: none;
+  transition: var(--transition-speed);
 }
 
 body {
@@ -63,9 +94,11 @@ body {
 
 h1 {
   font-family: var(--font-heading);
-  color: var(--secondary-color); /* Título em dourado */
+  color: var(--secondary-color);
+  /* Título em dourado */
   font-size: 3rem;
-  font-weight: 700; /* Usa a versão mais pesada da Playfair */
+  font-weight: 700;
+  /* Usa a versão mais pesada da Playfair */
 }
 
 /* Estilo para parágrafos */
@@ -75,10 +108,7 @@ p {
   line-height: 1.6;
 }
 
-/* Estilo para links */
-a:hover {
-  color: var(--tertiary-color);
-}
+
 
 /* Estilo para botões */
 
@@ -93,7 +123,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 999;
-  box-shadow: 12px 33px 59px -22px rgba(135,110,62,0.51);
+  box-shadow: 12px 33px 59px -22px rgba(135, 110, 62, 0.51);
 }
 
 header.scrolled {
@@ -103,46 +133,48 @@ header.scrolled {
 }
 
 header.scrolled .logo img {
-  height: 50px; /* Ajuste a altura conforme necessário */
+  height: 50px;
+  /* Ajuste a altura conforme necessário */
   transition: height 0.3s ease;
 }
 
 .container-header {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-    width: 9rem;
-    height: auto; /* Ajuste a altura conforme necessário */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 9rem;
+  height: auto;
+  /* Ajuste a altura conforme necessário */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .menu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
 
 }
 
 .menu ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-size: var(--font-size-md);
-    
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-md);
+
 }
 
 .menu i {
@@ -174,10 +206,10 @@ header.scrolled .logo img {
 }
 
 /* Search Bar */
-.search { 
+.search {
   display: flex;
   align-items: center;
-  
+
 }
 
 .search input {
@@ -218,7 +250,7 @@ header.scrolled .logo img {
   align-items: center;
   position: relative;
   cursor: pointer;
-} 
+}
 
 .cart i {
   font-size: 1.5rem;
@@ -240,15 +272,15 @@ header.scrolled .logo img {
 /* Main Content */
 
 main {
-  margin-top: 9.5rem; /* Espaço para o header fixo */
+  margin-top: 7rem;
+  /* Espaço para o header fixo */
   padding: var(--spacing-lg);
 }
 
 .hero {
-  background-color: var(--background-section);
   padding: var(--spacing-lg);
-  border-radius: var(--border-radius);
   text-align: center;
+
   margin-bottom: var(--spacing-lg);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -271,6 +303,7 @@ main {
 }
 
 .grid-item {
+  position: relative;
   background-color: var(--background-section);
   padding: var(--spacing-lg);
   border-radius: var(--border-radius);
@@ -290,20 +323,29 @@ main {
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-.grid-item button {
-  background-color: var(--secondary-color);
-  color: var(--tertiary-color);
+.read-more {
+  position: absolute;
+  width: 50%;
+  top: 90%;
+  left: 0%;
+  background-color: var(--tertiary-color);
+  color: var(--secondary-color);
   border: none;
   padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--border-radius);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-size-md);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease;
 }
 
-.grid-item button:hover {
-  background-color: var(--primary-color);
+.read-more:hover {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+
+
 }
+
 
 /* Oferta Especial */
 
@@ -320,7 +362,7 @@ main {
 .oferta_especial-content {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: 1.6rem;
   justify-content: space-between;
   align-items: center;
   background-color: var(--secondary-color);
@@ -365,6 +407,12 @@ main {
   transition: background-color 0.3s ease;
 }
 
+
+.oferta_especial-content strong {
+  font-weight: var(--weight-bold);
+  color: var(--text-light);
+}
+
 .oferta_especial-product {
   display: flex;
   flex-direction: column;
@@ -389,7 +437,371 @@ main {
   object-fit: cover;
 }
 
+/* Estilo Coleções */
+
+.colecoes-luxo {
+  padding: 0 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-secao {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  color: var(--secondary-color);
+}
+
+.subtitulo-secao {
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  color: #666;
+}
+
+/* Container principal - Grid */
+.colecoes-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 1.5rem;
+}
+
+/* Estilos para os cards */
+.colecao-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--sombra-card);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+  background-color: var(--cor-fundo-card);
+  display: flex;
+  flex-direction: column;
+
+}
+
+.colecao-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--sombra-card-hover);
+}
+
+.colecao-imagem-wrapper {
+  position: relative;
+  padding-top: 65%;
+  overflow: hidden;
+}
+
+.colecao-imagem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.colecao-card:hover .colecao-imagem {
+  transform: scale(1.05);
+}
+
+.colecao-info {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.marca {
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.rolex .marca {
+  color: var(--cor-rolex);
+}
+
+.patek .marca {
+  color: var(--cor-patek);
+}
+
+.cartier .marca {
+  color: var(--cor-cartier);
+}
+
+.colecao-info h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.8rem;
+  margin: 10px 0 5px;
+}
+
+.colecao-info p {
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Estilos do botão */
+.botao-explorar {
+  display: inline-block;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  border-radius: 50px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-align: center;
+  align-self: flex-start;
+}
+
+.rolex .botao-explorar {
+  background-color: var(--cor-rolex);
+  color: white;
+}
+
+.patek .botao-explorar {
+  background-color: var(--cor-patek);
+  color: white;
+}
+
+.cartier .botao-explorar {
+  background-color: var(--cor-cartier);
+  color: white;
+}
+
+.botao-explorar:hover {
+  background-color: #333;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para as logos e o layout de grid */
+.marca-divisor {
+  display: none;
+  /* Esconde as logos por padrão em dispositivos móveis */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.marca-divisor img {
+  max-width: 150px;
+  height: auto;
+  opacity: 0.6;
+  filter: grayscale(100%);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.marca-divisor:hover img {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+
+/* Marcas Parceiras */
+
+.marcas-parceiras {
+  padding: 1rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+  text-align: center;
+}
+
+.marcas-parceiras-container {
+  position: relative;
+  padding: 0 40px; /* Ajuste esse valor como quiser */
+  overflow: hidden;
+  width: 100%;
+  height: 150px;
+}
+
+
+.swiper-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap !important;
+}
+
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: auto !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marcas-parceiras-item {
+  display: flex;
+  height: auto!important;
+  flex: 0 0 auto;  
+  width: 80px;  
+  margin: 0 10px;
+
+}
+
+.marcas-parceiras-item img {
+  max-width: 150px;
+  height: auto;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.marcas-parceiras-item img:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--tertiary-color);
+}
+
+.autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: var(--swiper-theme-color);
+  fill: none;
+  stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  top: 50%;
+  width: 44px;
+  transform: translateY(-50%);
+  z-index: 10;
+  color:var(--secondary-color)!important; /* ou o dourado da tua paleta */
+}
+
+/* Estilos para diferencial da loja */
+
+.diferencial {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.titulo-secao-diferencial {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
+
+
+.diferencial-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.diferencial-item {
+  padding: 20px;
+  text-align: center;
+  border-radius: var(--border-radius);
+  box-shadow: var(--sombra-card);
+  transition: box-shadow 0.3s ease;
+}
+
+.diferencial-item p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.diferencial-item:hover {
+  box-shadow: var(--sombra-card-hover);
+}
+
+.diferencial-item img {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+} 
 
 
 
 
+
+
+
+
+
+
+/* Layout de 3 colunas em telas maiores (desktops) */
+@media (min-width: 1024px) {
+  .colecoes-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 40px;
+  }
+
+  .marca-divisor {
+    display: flex;
+    /* Exibe as logos em telas grandes */
+  }
+
+  /* Posicionamento dos Cards e Logos */
+  .colecao-card.rolex {
+    grid-column: 1 / 2;
+    grid-row: 1;
+  }
+
+  .marca-divisor.rolex {
+    grid-column: 2 / 3;
+    grid-row: 1;
+  }
+
+  .colecao-card.patek {
+    grid-column: 3 / 4;
+    grid-row: 1;
+  }
+
+  /* Segunda linha */
+  .marca-divisor.patek {
+    grid-column: 1 / 2;
+    grid-row: 2;
+  }
+
+  .colecao-card.cartier {
+    grid-column: 2 / 3;
+    grid-row: 2;
+  }
+
+  .marca-divisor.cartier {
+    grid-column: 3 / 4;
+    grid-row: 2;
+  }
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .colecoes-container {
+    gap: 30px;
+  }
+
+  .subtitulo-secao {
+    margin-bottom: 30px;
+  }
+}
