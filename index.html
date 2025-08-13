@@ -13,6 +13,10 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+
+    <!----- Font Awesome 7.0-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!---- Fontes Google Fonts ------>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -300,6 +304,7 @@
             </div>
         </section>
 
+        <!--------------------- Produtos em Destaque ------------------>
         <section class="produtos-destaques">
             <h2 class="titulo-secao-destaques">Produtos em Destaque</h2>
             <div class="produtos-container">
@@ -512,7 +517,7 @@
                     </div>
                     <h3>Consultoria Exclusiva</h3>
                     <p>
-                        Entre em contato com nossos especialistas via **WhatsApp ou e-mail** para uma consultoria
+                        Entre em contato com nossos especialistas via <strong>WhatsApp ou e-mail</strong> para uma consultoria
                         personalizada. Nossa equipe está à sua disposição para apresentar detalhes das peças e auxiliar
                         em sua escolha.
                     </p>
@@ -520,43 +525,117 @@
 
                 <div class="step">
                     <div class="icon-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-truck">
-                            <rect x="1" y="3" width="15" height="13"></rect>
-                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                            <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                            <circle cx="18.5" cy="18.5" r="2.5"></circle>
-                        </svg>
+                        <i class="fa-solid fa-truck-fast"></i>
                     </div>
                     <h3>Logística de Valor</h3>
                     <p>
-                        Sua peça é entregue com o máximo sigilo e segurança. Utilizamos **serviços de carro-forte ou
-                        malotes aéreos**, garantindo que seu relógio chegue em perfeitas condições e com a discrição que
+                        Sua peça é entregue com o máximo sigilo e segurança. Utilizamos <strong>serviços de carro-forte ou
+                        malotes aéreos</strong>, garantindo que seu relógio chegue em perfeitas condições e com a discrição que
                         você exige.
                     </p>
                 </div>
 
                 <div class="step">
                     <div class="icon-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-credit-card">
-                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                            <line x1="1" y1="10" x2="23" y2="10"></line>
-                        </svg>
+                        <i class="bi bi-cash-coin"></i>
                     </div>
                     <h3>Transações Discretas</h3>
                     <p>
                         Priorizamos a sua segurança e privacidade. Oferecemos opções de pagamento seguras e exclusivas,
-                        incluindo **transferências em agência ou criptomoedas**, para uma transação sem rastros e
+                        incluindo <strong>transferências em agência ou criptomoedas</strong>, para uma transação sem rastros e
                         totalmente segura.
                     </p>
                 </div>
             </div>
         </section>
 
+        <!------------------ Fale Conosco  ---------------------->
+        <section class="fale-conosco">
+            <div class="grid-contact-form">
+                <div class="adress-section-contact">
+                    <h2 class="title-contact">Você nos Encontra por aqui:</h2>
+                    <div class="adress-contact">
+                        <div class="adress-contact-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <p>Av. Paulista, 1001 - Bela Vista, SP</p>
+                        </div>
+
+                        <div class="adress-contact-item">
+                            <i class="bi bi-telephone"></i>
+                            <p>(11) 1234-5678</p>
+                        </div>
+
+                        <div class="adress-contact-item">
+                            <i class="bi bi-envelope"></i>
+                            <p>4sDdP@example.com</p>
+                        </div>
+                    </div>
+                    <div class="social-contact">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="form-section-contact">
+                    <form action="#" method="post" class="contact-form">
+                        <h2 class="title-form-contact">Ou mande uma mensagem que nós respondemos!</h2>
+                        <div class="form-group">
+                            <label for="name">Nome:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem:</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+
     </main>
+
+
+    <!------------------ Footer  ---------------------->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="./assets/images/logo/branco-no-transparente.webp" alt="Logo Momentum Store">
+            </div>
+            
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="#">Termos de Uso</a></li>
+                <li><a href="#">Devoluções e Trocas</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2026 Momentum Store. Todos os direitos reservados.</p>
+        </div>
+        
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
