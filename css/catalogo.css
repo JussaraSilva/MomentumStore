@@ -1,0 +1,234 @@
+/* Estilos Gerais para o Catálogo */
+.catalogo-container {
+    margin-top: 5.5rem;
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    flex-wrap: wrap; /* Permite que o conteúdo se ajuste em telas menores */
+}
+
+/* Estilos para a Seção de Filtros */
+.filtro-lateral {
+    background-color: #f8f8f8;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+}
+
+.filtro-grupo {
+    margin-bottom: 1.5rem;
+}
+
+.filtro-grupo h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+}
+
+.filtro-grupo label {
+    display: block;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.filtro-grupo input[type="checkbox"] {
+    margin-right: 0.8rem;
+}
+
+/* Estilos para o Catálogo de Produtos */
+.produtos-catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    flex-grow: 1; /* Permite que o catálogo ocupe o espaço restante */
+}
+
+.produto-catalogo {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.produto-catalogo:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.selo-garantia {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: auto;
+}
+
+.product-img-container {
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.product-img-container .img-principal {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.produto-catalogo:hover .img-principal {
+    transform: scale(1.1);
+}
+
+.product-information {
+    padding: 1rem;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-information h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.informacoes-adicionais {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.preco {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 1rem;
+}
+
+.btn-comprar {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-comprar:hover {
+    background-color: #0056b3;
+}
+
+/* Borda para os produtos */
+
+.produto-catalogo.audemars {
+  border-top: 5px solid var(--cor-audemars);
+}
+
+.produto-catalogo.rolex {
+  border-top: 5px solid var(--cor-rolex);
+}
+
+.produto-catalogo.patek {
+  border-top: 5px solid var(--cor-patek);
+}
+
+.produto-catalogo.cartier {
+  border-top: 5px solid var(--cor-cartier);
+}
+
+.produto-catalogo.tag-heuer {
+  border-top: 5px solid var(--cor-tag-heuer);
+}
+
+.produto-catalogo.vacheron-constantin {
+  border-top: 5px solid var(--cor-vacheron-constantin);
+}
+
+.produto-catalogo.breitling {
+  border-top: 5px solid var(--cor-breitling);
+}
+
+.produto-catalogo.omega {
+  border-top: 5px solid var(--cor-omega);
+}
+.produto-catalogo.jaeger-lecoultre {
+  border-top: 5px solid var(--cor-jaeger-lecoultre);
+}
+.produto-catalogo.zenith {
+  border-top: 5px solid var(--cor-zenith);
+}
+.produto-catalogo.iwc {
+  border-top: 5px solid var(--cor-iwc);
+}
+.produto-catalogo.hublot {
+  border-top: 5px solid var(--cor-hublot);
+}
+.produto-catalogo.panerai {
+  border-top: 5px solid var(--cor-panerai);
+}
+.produto-catalogo.bulgari {
+  border-top: 5px solid var(--cor-bulgari);
+}
+.produto-catalogo.tudor {
+  border-top: 5px solid var(--cor-tudor);
+}
+.produto-catalogo.longines {
+  border-top: 5px solid var(--cor-longines);
+}
+
+.produto-catalogo.tag-heuer {
+  border-top: 5px solid var(--cor-tag-heuer);
+}
+
+.produto-catalogo.bvlgari {
+  border-top: 5px solid var(--cor-bvlgari);
+}
+
+/* Marcas novas para adicionar */
+
+.produto-catalogo.fossil {
+  border-top: 5px solid var(--cor-fossil);
+}
+.produto-catalogo.casio {
+  border-top: 5px solid var(--cor-casio);
+}
+.produto-catalogo.g-shock {
+  border-top: 5px solid var(--cor-g-shock);
+}
+.produto-catalogo.swatch {
+  border-top: 5px solid var(--cor-swatch);
+}
+.produto-catalogo.montblanc {
+  border-top: 5px solid var(--cor-montblanc);
+}
+.produto-catalogo.bell-ross {
+  border-top: 5px solid var(--cor-bell-ross);
+}
+.produto-catalogo.ferrari {
+  border-top: 5px solid var(--cor-ferrari);
+}
+.produto-catalogo.louis-vuitton {
+  border-top: 5px solid var(--cor-louis-vuitton);
+}
+
+.produto-catalogo.seiko {
+  border-top: 5px solid var(--cor-seiko);
+}

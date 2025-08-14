@@ -56,14 +56,24 @@
   --cor-rolex: #006f62;
   --cor-patek: #1e3a8a;
   --cor-cartier: #b22222;
-  --cor-audemars: #b0c4de; /* Exemplo: Azul Claro para Audemars Piguet */
-  --cor-cartier: #d4af37; /* Exemplo: Dourado para Cartier */
-  --cor-rolex: #a9a9a9; /* Exemplo: Cinza Escuro para Rolex */
-  --cor-patek: #c0c0c0; /* Exemplo: Prata para Patek Philippe */
-  --cor-tag-heuer: #ff4500; /* Exemplo: Laranja Avermelhado para Tag Heuer */
-  --cor-vacheron-constantin: #4682b4; /* Exemplo: Azul Aço para Vacheron Constantin */
-  --cor-breitling: #ffd700; /* Exemplo: Amarelo Ouro para Breitling */
-  --cor-iwc: #00008b; /* Exemplo: Azul Escuro para IWC */
+  --cor-audemars: #b0c4de;  
+  --cor-tag-heuer: #ff4500;
+  --cor-vacheron-constantin: #4682b4;
+  --cor-omega: #004852;          /* Azul profundo característico da Omega */
+  --cor-breitling: #003366;      /* Azul naval tradicional da Breitling */
+  --cor-jaeger-lecoultre: #8b4513; /* Marrom elegante para Jaeger-LeCoultre */
+  --cor-hublot: #000000;          /* Preto marcante do design Hublot */
+  --cor-iwc: #0f4c81;            /* Azul IWC Schaffhausen */
+  --cor-panerai: #006400;        /* Verde militar Panerai */
+  --cor-tudor: #e32636;          /* Vermelho Tudor (herança Rolex) */
+  --cor-zenith: #4169e1;         /* Azul royal Zenith */
+  --cor-bvlgari: #8a2be2;        /* Roxo luxuoso Bvlgari */
+  --cor-longines: #daa520;       /* Dourado clássico Longines */
+
+  /* Cores alternativas (opcionais) */
+  --cor-breitling-alt: #ffd700;  /* Amarelo ouro para edições especiais */
+  --cor-hublot-alt: #ff0000;     /* Vermelho para edições limitadas */
+  --cor-zenith-alt: #c0c0c0;     /* Prata para modelos Elite */
 
   --sombra-card: 0 10px 30px rgba(0, 0, 0, 0.1);
   --sombra-card-hover: 0 15px 40px rgba(0, 0, 0, 0.2);
@@ -136,18 +146,6 @@ header {
   box-shadow: 12px 33px 59px -22px rgba(135, 110, 62, 0.51);
 }
 
-header.scrolled {
-  background-color: #ece7d8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-header.scrolled .logo img {
-  height: 50px;
-  /* Ajuste a altura conforme necessário */
-  transition: height 0.3s ease;
-}
-
 .container-header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -156,7 +154,7 @@ header.scrolled .logo img {
 }
 
 .logo {
-  width: 4rem;
+  width: 6rem;
   height: auto;
   /* Ajuste a altura conforme necessário */
   display: flex;
@@ -193,26 +191,49 @@ header.scrolled .logo img {
 
 .menu li {
   display: flex;
-  padding: var(--spacing-xs) var(--spacing-sm);
   flex-direction: row;
   gap: var(--spacing-xs);
   margin: 0 1rem;
+
 }
 
 .menu li a {
   color: var(--secondary-color);
   font-weight: var(--weight-semibold);
   transition: var(--transition-speed);
+  padding: var(--spacing-xs);
 }
 
-.menu li a:hover {
-  padding: var(--spacing-xs) var(--spacing-sm);
+.menu li:hover a {
   background-color: var(--secondary-color);
   color: var(--tertiary-color);
-  gap: var(--spacing-md);
+
   border-radius: var(--border-radius);
   border: 0 1px 0 1px solid var(--tertiary-color);
   transition: var(--transition-speed);
+}
+
+
+header.scrolled {
+  background-color: #242114;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.scrolled .logo img {
+  height: 3rem;
+  /* Ajuste a altura conforme necessário */
+  transition: height 0.3s ease;
+}
+
+header.scrolled .menu ul li a {
+  color: var(--tertiary-color);
+  transition: color 0.3s ease;
+}
+
+header.scrolled .menu-header i {
+  color: var(--tertiary-color);
+  transition: color 0.3s ease;
 }
 
 /* Search Bar */
@@ -278,6 +299,20 @@ header.scrolled .logo img {
   font-size: var(--font-size-xs);
   font-weight: var(--weight-bold);
 }
+
+/* Estilo para Menu Ativo */
+
+.menu li.active a {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+  border-radius: var(--border-radius);
+}
+
+.menu li.active a:hover {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+}
+
 
 /* Main Content */
 
@@ -362,7 +397,8 @@ main {
 .autoridade-loja-video {
   position: relative;
   width: 100%;
-  height: 600px; /* Ajuste a altura conforme necessário */
+  height: 600px;
+  /* Ajuste a altura conforme necessário */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -376,8 +412,10 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Garante que o vídeo cubra toda a área sem distorcer */
-  z-index: -1; /* Coloca o vídeo por trás de todo o conteúdo */
+  object-fit: cover;
+  /* Garante que o vídeo cubra toda a área sem distorcer */
+  z-index: -1;
+  /* Coloca o vídeo por trás de todo o conteúdo */
 }
 
 .autoridade-loja-video .background-overlay {
@@ -386,13 +424,16 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Escurece o vídeo para o texto se destacar */
-  z-index: 0; /* Fica entre o vídeo e o texto */
+  background: rgba(0, 0, 0, 0.5);
+  /* Escurece o vídeo para o texto se destacar */
+  z-index: 0;
+  /* Fica entre o vídeo e o texto */
 }
 
 .autoridade-loja-video .content-container {
   position: relative;
-  z-index: 1; /* Garante que o conteúdo fique acima do overlay */
+  z-index: 1;
+  /* Garante que o conteúdo fique acima do overlay */
   max-width: 800px;
   padding: 20px;
 }
@@ -402,7 +443,8 @@ main {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adiciona sombra para melhorar a legibilidade */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  /* Adiciona sombra para melhorar a legibilidade */
 }
 
 .autoridade-loja-video p {
@@ -410,7 +452,8 @@ main {
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 30px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adiciona sombra para melhorar a legibilidade */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  /* Adiciona sombra para melhorar a legibilidade */
 }
 
 .btn-saiba-mais {
@@ -690,13 +733,14 @@ main {
   background-color: #f5f2e7;
   padding: 1rem 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
 .marcas-parceiras-container {
   position: relative;
-  padding: 0 40px; /* Ajuste esse valor como quiser */
+  padding: 0 40px;
+  /* Ajuste esse valor como quiser */
   overflow: hidden;
   width: 100%;
   height: 150px;
@@ -721,9 +765,9 @@ main {
 
 .marcas-parceiras-item {
   display: flex;
-  height: auto!important;
-  flex: 0 0 auto;  
-  width: 80px;  
+  height: auto !important;
+  flex: 0 0 auto;
+  width: 80px;
   margin: 0 10px;
 
 }
@@ -777,7 +821,8 @@ main {
   width: 44px;
   transform: translateY(-50%);
   z-index: 10;
-  color:var(--secondary-color)!important; /* ou o dourado da tua paleta */
+  color: var(--secondary-color) !important;
+  /* ou o dourado da tua paleta */
 }
 
 /* Estilos para diferencial da loja */
@@ -794,7 +839,7 @@ main {
 }
 
 
-.diferencial-container{
+.diferencial-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 10px;
@@ -828,7 +873,7 @@ main {
   max-width: 120px;
   height: auto;
   margin-bottom: 10px;
-} 
+}
 
 .diferencial-item:hover img {
   transform: scale(1.5);
@@ -971,12 +1016,16 @@ main {
 
 .selo-garantia {
   position: absolute;
-  top: 0; /* Coloca o selo no topo do card, na posição 0 */
+  top: 0;
+  /* Coloca o selo no topo do card, na posição 0 */
   left: 90%;
-  transform: translateX(-50%); /* Centraliza o selo horizontalmente */
-  width: 50px; /* Ajuste o tamanho da imagem conforme necessário */
+  transform: translateX(-50%);
+  /* Centraliza o selo horizontalmente */
+  width: 50px;
+  /* Ajuste o tamanho da imagem conforme necessário */
   height: auto;
-  z-index: 10; /* Garante que o selo fique em primeiro plano */
+  z-index: 10;
+  /* Garante que o selo fique em primeiro plano */
 }
 
 
@@ -1023,8 +1072,10 @@ main {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.step span, .step i {
-  color: #af9b57; /* Cor dourada/bronze para luxo */
+.step span,
+.step i {
+  color: #af9b57;
+  /* Cor dourada/bronze para luxo */
   font-size: var(--font-size-xl);
 }
 
@@ -1050,7 +1101,7 @@ main {
 }
 
 .grid-contact-form {
-  
+
 
   display: grid;
   grid-template-columns: 1.5fr 3fr;
@@ -1064,7 +1115,7 @@ main {
   background-color: var(--background-color);
   text-align: left;
   font-size: 0.9rem;
-  color: var(--text-dark);  
+  color: var(--text-dark);
   display: flex;
   flex-direction: column;
   border-radius: 10px 0 0 10px;
@@ -1083,9 +1134,9 @@ main {
 
 .adress-contact-item {
   display: flex;
-  
+
   gap: 5px;
-  
+
 }
 
 .adress-contact-item i {
@@ -1129,7 +1180,7 @@ main {
   margin-bottom: 20px;
 }
 
-.contact-form  {
+.contact-form {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
@@ -1191,7 +1242,7 @@ footer {
   gap: 20px;
   justify-items: center;
   align-items: center;
-  
+
 
 }
 
@@ -1292,21 +1343,23 @@ footer a:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Layout de 3 colunas em telas maiores (desktops) */
 @media (min-width: 1024px) {
+
+  .menu li span {
+    display: none; /* Esconde o texto */
+  }
+  
+  .menu i {
+    display: inline-block; /* Mostra os ícones */
+    font-size: 1.5rem; /* Ajuste o tamanho conforme necessário */
+  }
+  
+  .menu li {
+    margin: 0 0.5rem; /* Reduz a margem para telas pequenas */
+  }
+
+
   .colecoes-container {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto;

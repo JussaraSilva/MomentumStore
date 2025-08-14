@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--- Folha de estilo padrão -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!----- Folha de Estilo Inidividual-->
+
+    <link rel="stylesheet" href="./css/catalogo.css">
+
+    <!----- Bootstrap Icons 1.13.1-->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!----- Icon Material Icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+    <!----- Font Awesome 7.0-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!---- Fontes Google Fonts ------>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sora:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <title>Momentum Store</title>
+</head>
+
+<body>
+    <!------------------ Header  ---------------------->
+    <header>
+        <div class="container-header">
+            <div class="logo">
+                <img src="./assets/images/logo/dourada-fundo-transparente.webp" alt="Logo Momentum Store">
+            </div>
+
+            <div class="menu-header">
+                <nav class="menu">
+                    <!-- Adicionado um ID para facilitar a manipulação com JavaScript -->
+                    <ul id="menu-list">
+                        <!-- 'active' class adicionada para o estado inicial -->
+                        <!-- Adicionado 'aria-current="page"' para acessibilidade -->
+                        <li class="active">
+                            <i class="bi bi-house-door-fill"></i>
+                            <a href="index.html" aria-current="page">Home</a>
+                        </li>
+                        <li class="">
+                            <i class="bi bi-smartwatch"></i>
+                            <a href="catalogo.html">Catálogo</a>
+                        </li>
+                        <li class="">
+                            <i class="bi bi-chat-square-dots"></i>
+                            <a href="#">Contato</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="search">
+                    <input type="text" placeholder="buscar relógios...">
+                    <button type="submit"><i class="bi bi-search"></i></button>
+                </div>
+                <div class="cart">
+                    <a href="#"><i class="bi bi-cart-fill"></i></a>
+                    <span class="cart-count">5</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!------------------ Main  - Catalogo de Produtos cards ---------------------->
+    <main class="catalogo-container">
+        <aside class="filtro-lateral">
+            <h2>Filtros</h2>
+            <div class="filtro-grupo">
+                <h3>Marca</h3>
+                <label><input type="checkbox" name="marca" value="audemars"> Audemars Piguet</label>
+                <label><input type="checkbox" name="marca" value="cartier"> Cartier</label>
+                <label><input type="checkbox" name="marca" value="rolex"> Rolex</label>
+                <label><input type="checkbox" name="marca" value="patek"> Patek Philippe</label>
+                <label><input type="checkbox" name="marca" value="tag-heuer"> Tag Heuer</label>
+                <label><input type="checkbox" name="marca" value="vacheron-constantin"> Vacheron Constantin</label>
+                <label><input type="checkbox" name="marca" value="breitling"> Breitling</label>
+                <label><input type="checkbox" name="marca" value="iwc"> IWC</label>
+                <label><input type="checkbox" name="marca" value="iwc"> Omega</label>
+                <label><input type="checkbox" name="marca" value="iwc"> Panerai</label>
+                <label><input type="checkbox" name="marca" value="iwc"> Tudor</label>
+                <label><input type="checkbox" name="marca" value="iwc"> Zenith</label>
+                <label><input type="checkbox" name="marca" value="iwc"> bvlgari</label>
+                <label><input type="checkbox" name="marca" value="iwc"> Longines</label>
+            </div>
+            <div class="filtro-grupo">
+                <h3>Estilo</h3>
+                <label><input type="checkbox" name="estilo" value="esportivo"> Esportivo</label>
+                <label><input type="checkbox" name="estilo" value="classico"> Clássico</label>
+                <label><input type="checkbox" name="estilo" value="casual"> Casual</label>
+                
+                <label><input type="checkbox" name="estilo" value="luxo"> Luxo</label>
+            </div>
+        </aside>
+
+        <section class="produtos-catalogo">
+
+            <article class="produto-catalogo produto-1 audemars esportivo">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Audemars Piguet/Audemars_Piguet_Royal_Oak_Offshore_Diver.webp"
+                        alt="Relógio Audemars Piguet Royal Oak Offshore Diver" class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Audemars Piguet Royal Oak Offshore Diver</h3>
+                    <p class="informacoes-adicionais">Pulseira de borracha, resistência à água 300m</p>
+                    <p class="preco">R$ 120.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-2 cartier classico">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Cartier/Cartier_Santos_de_Cartier.webp"
+                        alt="Relógio Cartier Santos de Cartier" class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Cartier Santos de Cartier</h3>
+                    <p class="informacoes-adicionais">Caixa de aço, design quadrado</p>
+                    <p class="preco">R$ 65.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-3 rolex esportivo">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Rolex/Rolex_Daytona_Oysterflex.webp"
+                        alt="Relógio Rolex Daytona Oysterflex" class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Rolex Daytona Oysterflex</h3>
+                    <p class="informacoes-adicionais">Cronógrafo, pulseira de borracha preta</p>
+                    <p class="preco">R$ 150.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-4 patek classico">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Patek Philippe/Patek_Philippe_Nautilus.webp"
+                        alt="Relógio Patek Philippe Nautilus" class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Patek Philippe Nautilus</h3>
+                    <p class="informacoes-adicionais">Caixa e pulseira em aço, mostrador azul</p>
+                    <p class="preco">R$ 250.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-5 tag-heuer esportivo">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Tag Heuer/Tag_Heuer_Carrera_Calibre_Heuer_02.webp"
+                        alt="Relógio Tag Heuer Carrera Calibre Heuer 02" class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Tag Heuer Carrera Calibre Heuer 02</h3>
+                    <p class="informacoes-adicionais">Cronógrafo automático, caixa de aço</p>
+                    <p class="preco">R$ 55.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-6 vacheron-constantin classico">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Vacheron Constantin/Vacheron_Constantin_Patrimony.webp"
+                        alt="Relógio Vacheron Constantin Patrimony" class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Vacheron Constantin Patrimony</h3>
+                    <p class="informacoes-adicionais">Caixa de ouro rosa, design minimalista</p>
+                    <p class="preco">R$ 180.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-7 omega esportivo">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Omega/Omega_Seamaster_Planet_Ocean.webp"
+                        alt="Relógio Omega Seamaster Planet Ocean" class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Omega Seamaster Planet Ocean</h3>
+                    <p class="informacoes-adicionais">Resistência à água 600m, mostrador preto</p>
+                    <p class="preco">R$ 45.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-8 breitling esportivo">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Breitling/Breitling_Navitimer.webp"
+                        alt="Relógio Breitling Navitimer" class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Breitling Navitimer</h3>
+                    <p class="informacoes-adicionais">Cronógrafo, régua de cálculo circular</p>
+                    <p class="preco">R$ 38.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-9 jaeger-lecoultre classico">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Jaeger-LeCoultre/Jaeger_LeCoultre_Reverso.webp"
+                        alt="Relógio Jaeger-LeCoultre Reverso" class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Jaeger-LeCoultre Reverso</h3>
+                    <p class="informacoes-adicionais">Caixa reversível, design Art Déco</p>
+                    <p class="preco">R$ 85.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-10 hublot esportivo">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Hublot/Hublot_Big_Bang.webp" alt="Relógio Hublot Big Bang"
+                        class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Hublot Big Bang</h3>
+                    <p class="informacoes-adicionais">Caixa de titânio e cerâmica, design moderno</p>
+                    <p class="preco">R$ 95.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-11 iwc classico">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/IWC/IWC_Portugieser.webp" alt="Relógio IWC Portugieser"
+                        class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>IWC Portugieser</h3>
+                    <p class="informacoes-adicionais">Mostrador minimalista, movimento automático</p>
+                    <p class="preco">R$ 72.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-12 panerai esportivo">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Panerai/Panerai_Luminor_Marina.webp"
+                        alt="Relógio Panerai Luminor Marina" class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Panerai Luminor Marina</h3>
+                    <p class="informacoes-adicionais">Ponte do escape, resistência à água 300m</p>
+                    <p class="preco">R$ 68.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-13 tudor esportivo">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Tudor/Tudor_Black_Bay.webp" alt="Relógio Tudor Black Bay"
+                        class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Tudor Black Bay</h3>
+                    <p class="informacoes-adicionais">Mostrador preto, pulseira de aço</p>
+                    <p class="preco">R$ 28.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-14 zenith classico">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Zenith/Zenith_El_Primero.webp"
+                        alt="Relógio Zenith El Primero" class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Zenith El Primero</h3>
+                    <p class="informacoes-adicionais">Cronógrafo de alta frequência, mostrador tricolor</p>
+                    <p class="preco">R$ 52.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-15 bvlgari luxo">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Bvlgari/Bvlgari_Octo_Finissimo.webp"
+                        alt="Relógio Bvlgari Octo Finissimo" class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Bvlgari Octo Finissimo</h3>
+                    <p class="informacoes-adicionais">Design ultra-fino, caixa de titânio</p>
+                    <p class="preco">R$ 110.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+            <article class="produto-catalogo produto-16 longines classico">
+                <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
+                    class="selo-garantia">
+                <div class="product-img-container">
+                    <img src="./assets/images/products-images/Longines/Longines_Master_Collection.webp"
+                        alt="Relógio Longines Master Collection" class="img-principal">
+                </div>
+                <div class="product-information">
+                    <h3>Longines Master Collection</h3>
+                    <p class="informacoes-adicionais">Mostrador azul, indicador de data</p>
+                    <p class="preco">R$ 22.000,00</p>
+                    <button class="btn-comprar">
+                        <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+
+
+    <!------------------ Footer  ---------------------->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="./assets/images/logo/branco-no-transparente.webp" alt="Logo Momentum Store">
+            </div>
+
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="#">Termos de Uso</a></li>
+                <li><a href="#">Devoluções e Trocas</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2026 Momentum Store. Todos os direitos reservados.</p>
+        </div>
+
+    </footer>
+
+
+
+    <!------------------ Script JS  ---------------------->
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

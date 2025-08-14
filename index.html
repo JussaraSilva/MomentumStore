@@ -38,21 +38,23 @@
 
             <div class="menu-header">
                 <nav class="menu">
-                    <ul>
-                        <li>
+                    <!-- Adicionado um ID para facilitar a manipulação com JavaScript -->
+                    <ul id="menu-list">
+                        <!-- 'active' class adicionada para o estado inicial -->
+                        <!-- Adicionado 'aria-current="page"' para acessibilidade -->
+                        <li class="active">
                             <i class="bi bi-house-door-fill"></i>
-                            <a href="#">Home</a>
+                            <a href="index.html" aria-current="page">Home</a>
                         </li>
                         <li>
                             <i class="bi bi-smartwatch"></i>
-                            <a href="#">Catálogo</a>
+                            <a href="catalogo.html">Catálogo</a>
                         </li>
                         <li>
                             <i class="bi bi-chat-square-dots"></i>
                             <a href="#">Contato</a>
                         </li>
                     </ul>
-
                 </nav>
                 <div class="search">
                     <input type="text" placeholder="buscar relógios...">
