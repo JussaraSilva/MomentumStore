@@ -38,3 +38,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+// Menu Hamburguer
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById("hamburger-btn");
+  const menu = document.querySelector(".menu");
+
+  if (hamburger && menu) {
+    // Abre/fecha o menu
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation(); // evita fechar ao clicar no botão
+      menu.classList.toggle("active");
+    });
+
+    // Fecha se clicar fora
+    document.addEventListener("click", (e) => {
+      if (menu.classList.contains("active") && !menu.contains(e.target)) {
+        menu.classList.remove("active");
+      }
+    });
+  }
+});
+
+
