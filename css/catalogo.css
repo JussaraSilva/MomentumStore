@@ -7,13 +7,43 @@
     flex-wrap: wrap; /* Permite que o conteúdo se ajuste em telas menores */
 }
 
+
+/* botão filtrar (esconde em desktop) */
+.btn-filtro {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.12);
+}
+
+/* botão fechar (esconde em desktop) */
+.btn-fechar {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
 /* Estilos para a Seção de Filtros */
 .filtro-lateral {
-    background-color: #f8f8f8;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    min-width: 250px;
+  flex: 0 0 200px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 12px;
+  height: fit-content;
+  position: relative;
 }
 
 .filtro-grupo {
@@ -39,10 +69,10 @@
 
 /* Estilos para o Catálogo de Produtos */
 .produtos-catalogo {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    flex-grow: 1; /* Permite que o catálogo ocupe o espaço restante */
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
 }
 
 .produto-catalogo {
@@ -231,4 +261,127 @@
 
 .produto-catalogo.seiko {
   border-top: 5px solid var(--cor-seiko);
+}
+
+/* container com apenas 1 resultado */
+/* Quando só houver 1 resultado */
+.produtos-catalogo.single-result {
+  display: flex;
+  justify-content: center;
+}
+
+.produtos-catalogo.single-result .produto-catalogo {
+  width: 100%;
+  max-width: 1000px; /* limite opcional pra não ficar gigante em telas enormes */
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Imagem ocupa toda a largura do card */
+.produtos-catalogo.single-result .product-img-container img {
+  width: auto;
+  max-width: 80%;
+  max-height: 300px;  /* controla altura em desktop */
+  margin: 20px auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Menos espaçamento no bloco de infos */
+.produtos-catalogo.single-result .produto-info h3 {
+  font-size: 1.6rem;
+  margin: 10px 0 5px;
+}
+
+.produtos-catalogo.single-result .produto-info p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.produtos-catalogo.single-result .produto-preco {
+  margin: 8px 0 15px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #000;
+}
+
+
+/* Media Querys Responsividade */
+
+@media screen and (max-width: 768px) {
+  /* Altera a direção do container para uma coluna */
+  .catalogo-container {
+    flex-direction: column;
+  }
+
+  /* Mostra e estiliza o botão de filtro */
+  .btn-filtro {
+    display: inline-flex;
+    top: var(--header-height, 130px); /* Usa a variável ou um valor padrão */
+    position: fixed;
+    left: 5px;
+    top: 130px;
+    z-index: 1400; /* Garante que fique acima de tudo */
+    height: 45px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    transform-origin: left center;
+    transition: transform 0.18s ease, opacity 0.18s ease;
+  }
+
+  /* Faz o painel lateral se comportar como um off-canvas */
+  .filtro-lateral {
+    position: fixed;
+    top: var(--header-height, 0);
+    height: calc(100vh - var(--header-height, 0) - var(--footer-height, 0));
+    left: -300px; /* Esconde o painel para a esquerda */
+    width: 260px;
+    height: 100%;
+    border-radius: 0;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  /* Mostra o painel quando a classe 'ativo' é adicionada */
+  .filtro-lateral.ativo {
+    left: 0;
+  }
+
+  /* Mostra o botão de fechar quando a tela é menor */
+  .btn-fechar {
+    display: block;
+  }
+
+  /* Esconde o botão de filtro quando o painel está aberto */
+  .btn-filtro.esconder {
+    transform: translateX(-8px) scale(0.96);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Garante que o overlay esteja abaixo do botão de filtro */
+  .overlay.ativo {
+    z-index: 1300;
+  }
+}
+
+@media (max-width: 420px) {
+  /* Ajustes específicos para telas muito pequenas */
+  .catalogo-container {
+    gap: 40px;
+  }
+
+  /* Ajusta o padding e a posição do botão de filtro para telas menores */
+  .btn-filtro {
+    padding: 8px 10px;
+    left: 5px; /* Use um valor positivo para melhor usabilidade */
+    top: var(--header-height, 130px);
+    
+  }
 }

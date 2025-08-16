@@ -116,6 +116,10 @@ a {
   transition: var(--transition-speed);
 }
 
+button {
+  border: none;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--text-dark);
@@ -285,6 +289,7 @@ header.scrolled .menu-header i {
 
 .search button:hover {
   background-color: var(--primary-color);
+  padding: var(--spacing-xs) var(--spacing-sm);
   color: var(--tertiary-color);
   transition: var(--transition-speed);
 }
@@ -594,10 +599,14 @@ main {
 /* Container principal - Grid */
 .colecoes-container {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  justify-items: center;
+  align-items: center;
   gap: 40px;
   padding: 1.5rem;
 }
+
 
 /* Estilos para os cards */
 .colecao-card {
@@ -711,8 +720,7 @@ main {
 
 /* Estilos para as logos e o layout de grid */
 .marca-divisor {
-  display: none;
-  /* Esconde as logos por padrão em dispositivos móveis */
+  
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -1424,6 +1432,17 @@ footer a:hover {
   .oferta_especial-content {
     padding: var(--spacing-xs);
   }
+  
+  /* Content Colecoes */
+  
+  .colecoes-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .marca-divisor {
+    display: none;
+  }
+  
 
   .autoridade-loja-video {
     height: 100%;

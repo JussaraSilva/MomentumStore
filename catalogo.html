@@ -85,7 +85,15 @@
     </header>
     <!------------------ Main  - Catalogo de Produtos cards ---------------------->
     <main class="catalogo-container">
+                <!-- botão só visível em tablet/mobile -->
+            <button id="abrirFiltros" class="btn-filtro">
+                <i class="bi bi-filter-square-fill"></i>
+                Filtrar
+            </button>
         <aside class="filtro-lateral">
+            <button id="fecharFiltros" class="btn-fechar">
+                <i class="bi bi-x-square-fill"></i>
+            </button>
             <h2>Filtros</h2>
             <div class="filtro-grupo">
                 <h3>Marca</h3>
@@ -113,6 +121,9 @@
                 <label><input type="checkbox" name="estilo" value="luxo"> Luxo</label>
             </div>
         </aside>
+        <!-- coloque isso dentro do main, ao lado do aside -->
+        <div id="overlay" class="overlay" aria-hidden="true"></div>
+
 
         <section class="produtos-catalogo">
 

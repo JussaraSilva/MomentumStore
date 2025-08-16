@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <!--- Folha de estilo padrão -->
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <!----- Folha de Estilo Inidividual-->
+
+  <link rel="stylesheet" href="./css/produto_page.css" />
+
+  <!----- Bootstrap Icons 1.13.1-->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+  <!----- Icon Material Icons-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!----- Font Awesome 7.0-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!---- Fontes Google Fonts ------>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sora:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+
+  <title>Momentum Store - Produto</title>
+</head>
+
+<body>
+  <!------------------ Header  ---------------------->
+  <header>
+    <div class="container-header">
+      <div class="logo">
+        <img src="./assets/images/logo/dourada-fundo-transparente.webp" alt="Logo Momentum Store" />
+      </div>
+
+      <div class="hamburger" id="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="menu-header">
+        <nav class="menu">
+          <!-- Adicionado um ID para facilitar a manipulação com JavaScript -->
+          <ul id="menu-list">
+            <!-- 'active' class adicionada para o estado inicial -->
+            <!-- Adicionado 'aria-current="page"' para acessibilidade -->
+            <li class="active">
+              <i class="bi bi-house-door-fill"></i>
+              <a href="index.html" aria-current="page">Home</a>
+            </li>
+            <li class="">
+              <i class="bi bi-smartwatch"></i>
+              <a href="catalogo.html">Catálogo</a>
+            </li>
+            <li class="">
+              <i class="bi bi-chat-square-dots"></i>
+              <a href="#">Contato</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="search">
+          <input type="text" placeholder="buscar relógios..." />
+          <button type="submit"><i class="bi bi-search"></i></button>
+        </div>
+        <div class="cart">
+          <a href="#"><i class="bi bi-cart-fill"></i></a>
+          <span class="cart-count">5</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!------------------ Main  - Página do Produtos ---------------------->
+  <main class="produto-detalhe">
+    <section class="produto-galeria">
+      <!-- container da imagem principal -->
+      <div class="img-zoom-container">
+        <img id="imgPrincipal" src="/assets/images/products-images/Audemars Piguet/img_lb_blue_ceramic2.webp" alt="Produto" />
+        <div id="lupa">
+          <img id="imgZoom" src="/assets/images/products-images/Audemars Piguet/img_lb_blue_ceramic-zoom.webp" />
+        </div>
+      </div>
+
+      <!-- miniaturas -->
+      <div class="miniaturas">
+        <img src="/assets/images/products-images/Audemars Piguet/img_lb_blue_ceramic.webp" alt="thumb" class="thumb active" />
+        <img src="/assets/images/products-images/Audemars Piguet/img_lb_blue_ceramic.webp" alt="thumb" class="thumb" />
+        <img src="/assets/images/products-images/Audemars Piguet/img_lb_blue_ceramic.webp" alt="thumb" class="thumb" />
+      </div>
+    </section>
+
+    <section class="produto-info">
+      <h1 class="produto-titulo">Nome do Produto</h1>
+      <p class="produto-preco">R$ 199,90</p>
+      <p class="produto-descricao">
+        Aqui entra uma descrição detalhada do produto, suas especificações e
+        diferenciais. Exemplo: material, tamanho, garantia, etc.
+      </p>
+      <button class="btn-comprar">Adicionar ao carrinho</button>
+    </section>
+  </main>
+
+  <!------------------ Footer  ---------------------->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="./assets/images/logo/branco-no-transparente.webp" alt="Logo Momentum Store" />
+      </div>
+
+      <div class="footer-menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Catálogo</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-twitter"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <ul>
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">Termos de Uso</a></li>
+        <li><a href="#">Devoluções e Trocas</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Momentum Store. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!------------------ Script JS  ---------------------->
+  <script src="./js/produto_page.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>

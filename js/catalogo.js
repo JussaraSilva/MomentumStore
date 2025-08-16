@@ -103,6 +103,99 @@ document.addEventListener("DOMContentLoaded", () => {
     aplica();
   });
 
+
+function aplica() {
+  const marcas = selecionadas(marcaChecks);
+  const estilos = estilosSelecionados();
+
+  let visiveis = [];
+
+  cards.forEach(({ card, brandSlug, estilosDoCard }) => {
+    const matchMarca  = marcas.length === 0  || marcas.includes(brandSlug);
+    const matchEstilo = estilos.length === 0 || estilos.some(e => estilosDoCard.includes(e));
+    const visivel = matchMarca && matchEstilo;
+
+    card.classList.toggle("is-hidden", !visivel);
+    card.setAttribute("aria-hidden", String(!visivel));
+
+    if (visivel) visiveis.push(card);
+  });
+
+  // aplica estilo especial se só houver 1 resultado
+  catalogo.classList.toggle("single-result", visiveis.length === 1);
+
+  // opcional: também jogar a classe direto no card único
+  if (visiveis.length === 1) {
+    visiveis[0].classList.add("highlight-card");
+  } else {
+    cards.forEach(({ card }) => card.classList.remove("highlight-card"));
+  }
+}
+
   // Debug rápido (abra o console pra ver)
   // console.table(cards.map(c => ({brand: c.brandSlug, estilos: c.estilosDoCard.join(",")})));
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btnAbrir = document.getElementById('abrirFiltros');
+  const btnFechar = document.getElementById('fecharFiltros');
+  const filtro = document.querySelector('.filtro-lateral');
+  const overlay = document.querySelector('.overlay'); // Assumindo que o overlay já existe no HTML
+
+  // Funções para adicionar/remover classes
+  function abrirFiltro() {
+    if (!filtro) return;
+    filtro.classList.add('ativo');
+    overlay.classList.add('ativo');
+    btnAbrir && btnAbrir.classList.add('esconder');
+    filtro.setAttribute('aria-hidden', 'false');
+    btnAbrir && btnAbrir.setAttribute('aria-expanded', 'true');
+    // Adiciona listener para fechar com 'Esc'
+    document.addEventListener('keydown', onKeyDownClose);
+  }
+
+  function fecharFiltro() {
+    if (!filtro) return;
+    filtro.classList.remove('ativo');
+    overlay.classList.remove('ativo');
+    btnAbrir && btnAbrir.classList.remove('esconder');
+    filtro.setAttribute('aria-hidden', 'true');
+    btnAbrir && btnAbrir.setAttribute('aria-expanded', 'false');
+    // Remove listener para fechar com 'Esc'
+    document.removeEventListener('keydown', onKeyDownClose);
+  }
+
+  function onKeyDownClose(e) {
+    if (e.key === 'Escape' || e.key === 'Esc') fecharFiltro();
+  }
+
+  // Lógica para calcular a altura do header e footer
+  // e atualizar variáveis CSS
+  function ajustarAlturaFiltro() {
+    const header = document.querySelector('header, .site-header, .main-header, .header');
+    const footer = document.querySelector('footer, .site-footer, .main-footer, .footer');
+    
+    // Altura do header em pixels
+    const headerHeight = header ? header.offsetHeight : 0;
+    
+    // Altura do footer em pixels
+    const footerHeight = footer ? footer.offsetHeight : 0;
+
+    // Atualiza as variáveis CSS no elemento root (<html>)
+    document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+    document.documentElement.style.setProperty('--footer-height', `${footerHeight}px`);
+  }
+
+  // Listeners
+  if (btnAbrir) btnAbrir.addEventListener('click', abrirFiltro);
+  if (btnFechar) btnFechar.addEventListener('click', fecharFiltro);
+  if (overlay) overlay.addEventListener('click', fecharFiltro);
+
+  // Atualiza a altura em resize e load
+  window.addEventListener('resize', ajustarAlturaFiltro);
+  window.addEventListener('load', ajustarAlturaFiltro);
+  ajustarAlturaFiltro(); // Chama a função na inicialização
+});
+
+
