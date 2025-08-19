@@ -1,33 +1,42 @@
 :root {
+  /* --- CORES PRINCIPAIS REFINADAS --- */
+  /* Mantivemos o preto, mas o uso dele será mais estratégico. */
   --primary-color: #000000;
-  /* Preto para fundos escuros e texto sobre fundos claros */
-  --secondary-color: #876e3e;
-  /* Dourado para títulos de destaque, links e detalhes de luxo */
+
+  /* O dourado foi levemente dessaturado para um tom mais "champagne", que é moderno e sofisticado. */
+  --secondary-color: #c0b283;
+
+  /* O branco continua sendo a cor para respiro e textos sobre fundos escuros. */
   --tertiary-color: #ffffff;
-  /* Branco para texto sobre fundos escuros e áreas de respiro */
 
-  --background-color: #f7f1e1;
-  /* Um cinza muito claro para o fundo geral, mais suave que o branco puro */
+  /* --- FUNDOS MODERNIZADOS --- */
+  /* Trocamos o fundo bege por um branco "quebrado" (off-white) mais neutro. Isso limpa a interface e faz as imagens dos produtos se destacarem mais. */
+  --background-color: #f8f8f8;
 
-  --background-secondary-dark: #242114;
+  /* Um cinza-chumbo profundo para seções escuras. É menos harsh que o preto puro. */
+  --background-secondary-dark: #1a1a1a;
 
-  --background-section: #f8f7f444;
-  /* Um cinza muito claro para seções específicas, como rodapés ou áreas de conteúdo secundário */
-  --background-card: #b4a069;
-  /* Um cinza claro para cartões de produtos, mais suave que o branco puro */
+  /* Cor para containers e seções, com uma leve tonalidade para se diferenciar do fundo principal. */
+  --background-section: #ffffff;
 
-  --text-link: #b89b77;
-  /* Um dourado mais suave para links, que combina com o tema geral */
-  --text-light: #f1f1f1;
-  /* Um branco suave para textos menos importantes */
-  --text-dark: #333333;
-  /* Um cinza escuro para corpo de texto, mais suave que o preto puro */
+  /* Cor para cards. O branco puro com uma sombra sutil é mais moderno que um card colorido. */
+  --background-card: #ffffff;
 
+  /* --- TEXTOS E LINKS COM MELHOR CONTRASTE --- */
+  /* Usamos o dourado refinado para links, garantindo consistência. */
+  --text-link: var(--secondary-color);
+
+  /* Um cinza muito claro para textos de suporte em fundos escuros. */
+  --text-light: #e0e0e0;
+
+  /* Cinza escuro para o corpo do texto, excelente para legibilidade sem o peso do preto total. */
+  --text-dark: #2d2d2d;
+
+  /* --- FONTES (SUA ESCOLHA JÁ É EXCELENTE) --- */
   --font-heading: "Playfair Display", Georgia, serif;
-  /* Fonte elegante para títulos principais (H1, H2) */
   --font-body: "Sora", system-ui, -apple-system, sans-serif;
-  /* Fonte moderna para todo o resto */
 
+  /* --- PESOS E ESPAÇAMENTOS (MANTIDOS, ÓTIMA ESTRUTURA) --- */
   --weight-light: 300;
   --weight-regular: 400;
   --weight-semibold: 600;
@@ -44,50 +53,97 @@
   --spacing-xl: 4rem;
   /* 64px */
 
+  /* --- TAMANHOS E BORDAS REFINADOS --- */
   --font-size-xs: 0.8rem;
   --font-size-md: 1rem;
-  --font-size-lg: 1.5rem;
-  --font-size-xl: 3rem;
+  --font-size-lg: 1.6rem;
+  /* Aumentado para maior hierarquia */
+  --font-size-xl: 2.8rem;
+  /* Levemente reduzido para elegância */
 
-  --border-radius: 6px;
+  --border-radius: 8px;
+  /* Um pouco mais arredondado para um toque moderno */
   --transition-speed: 0.3s ease;
 
+  /* --- SOMBRAS MAIS SUAVES E REALISTAS --- */
+  /* Uma sombra mais sutil para o estado padrão. */
+  --sombra-card: 0 4px 15px rgba(0, 0, 0, 0.05);
+  /* Uma sombra um pouco mais pronunciada para interação (hover). */
+  --sombra-card-hover: 0 8px 25px rgba(0, 0, 0, 0.1);
+
+  /* --- CORES DAS MARCAS (MANTIDAS) --- */
+  /* Essas cores são ótimas para detalhes específicos, como tags de produtos ou páginas de marca. */
   --cor-rolex: #006f62;
   --cor-patek: #1e3a8a;
+
   --cor-cartier: #b22222;
+
   --cor-audemars: #b0c4de;
+
   --cor-tag-heuer: #ff4500;
+
   --cor-vacheron-constantin: #4682b4;
+
   --cor-omega: #004852;
+
   /* Azul profundo característico da Omega */
+
   --cor-breitling: #003366;
+
   /* Azul naval tradicional da Breitling */
+
   --cor-jaeger-lecoultre: #8b4513;
+
   /* Marrom elegante para Jaeger-LeCoultre */
+
   --cor-hublot: #000000;
+
   /* Preto marcante do design Hublot */
+
   --cor-iwc: #0f4c81;
+
   /* Azul IWC Schaffhausen */
+
   --cor-panerai: #006400;
+
   /* Verde militar Panerai */
+
   --cor-tudor: #e32636;
+
   /* Vermelho Tudor (herança Rolex) */
+
   --cor-zenith: #4169e1;
+
   /* Azul royal Zenith */
+
   --cor-bvlgari: #8a2be2;
+
   /* Roxo luxuoso Bvlgari */
+
   --cor-longines: #daa520;
+
   /* Dourado clássico Longines */
 
+
+
   /* Cores alternativas (opcionais) */
+
   --cor-breitling-alt: #ffd700;
+
   /* Amarelo ouro para edições especiais */
+
   --cor-hublot-alt: #ff0000;
+
   /* Vermelho para edições limitadas */
+
   --cor-zenith-alt: #c0c0c0;
+
   /* Prata para modelos Elite */
 
+
+
   --sombra-card: 0 10px 30px rgba(0, 0, 0, 0.1);
+
   --sombra-card-hover: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -720,7 +776,7 @@ main {
 
 /* Estilos para as logos e o layout de grid */
 .marca-divisor {
-  
+
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -1432,17 +1488,17 @@ footer a:hover {
   .oferta_especial-content {
     padding: var(--spacing-xs);
   }
-  
+
   /* Content Colecoes */
-  
+
   .colecoes-container {
     grid-template-columns: 1fr;
   }
-  
+
   .marca-divisor {
     display: none;
   }
-  
+
 
   .autoridade-loja-video {
     height: 100%;
@@ -1498,6 +1554,7 @@ footer a:hover {
     display: inline-block;
     margin-top: 20px;
   }
+
   .footer-links li {
     gap: 5px;
   }

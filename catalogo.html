@@ -131,7 +131,7 @@
                 <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
                     class="selo-garantia">
                 <div class="product-img-container">
-                    <img src="https://www.ap-watches.com/ap-watches/fotos/audemars-piguet-royal-oak-offshore-diver-42mm-1603716258.png"
+                    <img src="https://dynamicmedia.audemarspiguet.com/is/image/audemarspiguet/watch-611?size=716,0&fmt=avif-alpha&dpr=off"
                         alt="Relógio Audemars Piguet Royal Oak Offshore Diver" class="img-principal">
                 </div>
                 <div class="product-information">
@@ -284,11 +284,11 @@
                 <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
                     class="selo-garantia">
                 <div class="product-img-container">
-                    <img src="https://lojafrattina.vtexassets.com/unsafe/1440x0/center/middle/filters:quality(100)/https%3A%2F%2Flojafrattina.vtexassets.com%2Farquivos%2Fids%2F159507%2FF004633_1.png%3Fv%3D638659203650300000" alt="Relógio Hublot Big Bang"
+                    <img src="https://www.hublot.com/sites/default/files/styles/watch_item_desktop_1x_scale_no_crop_600_6000_/public/2025-03/hublot-big-bang-20-all-black-431.CI_.1340.RX_.png?itok=eWIXymb6" alt="Big Bang 20th Anniversary All Black"
                         class="img-principal">
                 </div>
                 <div class="product-information">
-                    <h3>Hublot Big Bang</h3>
+                    <h3>Big Bang 20th Anniversary All Black</h3>
                     <p class="informacoes-adicionais">Caixa de titânio e cerâmica, design moderno</p>
                     <p class="preco">R$ 95.000,00</p>
                     <button class="btn-comprar">
@@ -356,7 +356,7 @@
                         alt="Relógio Zenith El Primero" class="img-principal">
                 </div>
                 <div class="product-information">
-                    <h3>Zenith El Primero</h3>
+                    <h3>Zenith El Primero - Chronomaster Sport</h3>
                     <p class="informacoes-adicionais">Cronógrafo de alta frequência, mostrador tricolor</p>
                     <p class="preco">R$ 52.000,00</p>
                     <button class="btn-comprar">
@@ -441,7 +441,43 @@
     </footer>
 
 
+<!--- Função que manda as informações do produto para a page de produto-->
 
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const produtos = document.querySelectorAll('.produto-catalogo');
+
+            produtos.forEach(produto => {
+                // Adiciona um cursor de ponteiro para indicar que é clicável
+                produto.style.cursor = 'pointer';
+
+                produto.addEventListener('click', (e) => {
+                    // Impede que o clique no botão "Adicionar ao Carrinho" navegue para a página do produto
+                    if (e.target.closest('.btn-comprar')) {
+                        return;
+                    }
+
+                    // 1. Coleta as informações do card clicado
+                    const nome = produto.querySelector('h3').textContent;
+                    const preco = produto.querySelector('.preco').textContent;
+                    const descricao = produto.querySelector('.informacoes-adicionais').textContent;
+                    const imagemPrincipal = produto.querySelector('.img-principal').src;
+
+                    // 2. Codifica as informações para serem usadas na URL
+                    const params = new URLSearchParams({
+                        nome: nome,
+                        preco: preco,
+                        desc: descricao,
+                        img: imagemPrincipal
+                    });
+                    
+                    // 3. Redireciona para a página do produto com os parâmetros
+                    // Certifique-se de que o nome do arquivo é 'produto.html' ou mude conforme necessário
+                    window.location.href = `produto_page.html?${params.toString()}`;
+                });
+            });
+        });
+</script>
     <!------------------ Script JS  ---------------------->
     <script src="./js/catalogo.js"></script>
     <script src="./js/script.js"></script>

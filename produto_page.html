@@ -82,34 +82,39 @@
     </div>
   </header>
   <!------------------ Main  - Página do Produtos ---------------------->
-  <main class="produto-detalhe">
-    <section class="produto-galeria">
-      <!-- container da imagem principal -->
-      <div class="img-zoom-container">
-        <img id="imgPrincipal" src="/assets/images/products-images/Audemars Piguet/img_lb_blue_ceramic2.webp" alt="Produto" />
-        <div id="lupa">
-          <img id="imgZoom" src="/assets/images/products-images/Audemars Piguet/img_lb_blue_ceramic-zoom.webp" />
+  <main class="produto-page">
+    <div class="product-container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img id="mainProductImage" src="" alt="Imagem principal do produto">
+            </div>
+            <div id="thumbnailContainer" class="thumbnail-images">
+                </div>
         </div>
-      </div>
 
-      <!-- miniaturas -->
-      <div class="miniaturas">
-        <img src="/assets/images/products-images/Audemars Piguet/img_lb_blue_ceramic.webp" alt="thumb" class="thumb active" />
-        <img src="/assets/images/products-images/Audemars Piguet/img_lb_blue_ceramic.webp" alt="thumb" class="thumb" />
-        <img src="/assets/images/products-images/Audemars Piguet/img_lb_blue_ceramic.webp" alt="thumb" class="thumb" />
-      </div>
-    </section>
+        <div class="product-details">
+            <h1 id="productTitle" class="product-title"></h1>
+            <p id="productDescription" class="product-description"></p>
+            <div class="product-price">
+                <span id="productPrice"></span>
+            </div>
+            
+            <div class="quantity-selector">
+                <label for="quantity">Quantidade:</label>
+                <div class="quantity-input">
+                    <button class="quantity-btn minus">-</button>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1">
+                    <button class="quantity-btn plus">+</button>
+                </div>
+            </div>
 
-    <section class="produto-info">
-      <h1 class="produto-titulo">Nome do Produto</h1>
-      <p class="produto-preco">R$ 199,90</p>
-      <p class="produto-descricao">
-        Aqui entra uma descrição detalhada do produto, suas especificações e
-        diferenciais. Exemplo: material, tamanho, garantia, etc.
-      </p>
-      <button class="btn-comprar">Adicionar ao carrinho</button>
-    </section>
-  </main>
+            <div class="action-buttons">
+                <button class="btn btn-primary">Adicionar ao carrinho</button>
+                <button class="btn btn-secondary">Comprar</button>
+            </div>
+        </div>
+    </div>
+</main>
 
   <!------------------ Footer  ---------------------->
   <footer>
