@@ -9,6 +9,7 @@
 /* Container Principal do Produto */
 .product-container {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
     max-width: 1100px;
     width: 100%;
@@ -16,7 +17,70 @@
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+
+
 }
+
+.back-button a {
+    position: absolute;
+    top: 140px;
+    left: 10px;
+    background: transparent;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    
+}
+
+.back-button a {
+    color: var(--secondary-color);
+    
+}
+
+.back-button a:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: 2px solid var(--secondary-color);
+}
+
+
+
+/* Estilos para os botões de next e previous das miniaturas */
+
+.controls-thumbs {
+    position: relative;
+    width: 100%;
+    display: flex;
+    top: 50%;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.thumb-btn-next, .thumb-btn-prev {
+    border: none;
+    
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.thumb-btn-next:hover, .thumb-btn-prev:hover {
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+}
+
+
+
+
+
+
 
 /* Coluna da Galeria de Imagens (Esquerda) */
 .product-gallery {
@@ -34,7 +98,8 @@
 
 .main-image img {
     max-width: 100%;
-    height: auto;
+    height: 500px;
+    object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
@@ -43,6 +108,7 @@
     display: flex;
     justify-content: center;
     gap: 10px;
+    
 }
 
 .thumbnail {
@@ -186,11 +252,46 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
+
 /* Media Query para Responsividade */
 @media (max-width: 768px) {
+
+    .produto-page {
+        margin: 9rem auto;
+    }
+
     .product-container {
+        width: 100%;
         flex-direction: column;
     }
+
+    .product-gallery {
+        width: 100%;
+        
+    
+    }
+
+    .controls-thumbs {
+        display: none;
+    }
+
+    .main-image {
+        margin-left: 1.5rem;
+    }
+
+    .thumbnail-images {
+        position: absolute;
+        display: flex;
+        left: 18%;
+        top: 30%;
+        transform: translateX(-50%);
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
     .product-details {
         padding: 25px;
     }

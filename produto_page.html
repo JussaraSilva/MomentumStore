@@ -83,10 +83,26 @@
   </header>
   <!------------------ Main  - Página do Produtos ---------------------->
   <main class="produto-page">
-    <div class="product-container">
+    <div class="back-button">
+        <a href="catalogo.html">
+          <i class="bi bi-arrow-left-circle-fill"></i>
+          Voltar
+        </a>
+    </div>
+    <div class="product-container">      
         <div class="product-gallery">
             <div class="main-image">
-                <img id="mainProductImage" src="" alt="Imagem principal do produto">
+                <div class="controls-thumbs">
+                  <button id="prevBtn-thumb" class="thumb-btn-prev">
+                    <i class="bi bi-chevron-left"></i>
+                  </button>
+                  <button id="nextBtn-thumb" class="thumb-btn-next">
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
+                </div>
+                <div class="container-imgGallery">
+                  <img id="mainProductImage" src="" alt="Imagem principal do produto">
+                </div>                
             </div>
             <div id="thumbnailContainer" class="thumbnail-images">
                 </div>

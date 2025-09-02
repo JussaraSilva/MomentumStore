@@ -1,3 +1,8 @@
+// Controle Miniaturas - Button Next e Prev
+
+
+
+
 // --- FUNÇÃO PARA ATIVAR A GALERIA DE IMAGENS ---
 // Reutilizada do código anterior, sem mudanças
 function ativarFuncionalidadeGaleria() {
@@ -72,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 6. Ativa a funcionalidade de clique nas miniaturas
             ativarFuncionalidadeGaleria();
+            ativarButtonMiniaturas();
         })
         .catch(error => {
             // Exibe o erro no console para depuração
@@ -79,3 +85,21 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('productTitle').textContent = "Erro ao carregar os dados do produto.";
         });
 });
+
+function ativarButtonMiniaturas() {
+    const prevBtn = document.getElementById('prevBtn-thumb');
+    const nextBtn = document.getElementById('nextBtn-thumb');
+    const thumbnailContainer = document.getElementById('thumbnailContainer');
+
+    prevBtn.addEventListener('click', () => {
+        const activeThumb = document.querySelector('.thumbnail.active');
+        const prevThumb = activeThumb.previousElementSibling || thumbnailContainer.lastElementChild;
+        prevThumb.click();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        const activeThumb = document.querySelector('.thumbnail.active');
+        const nextThumb = activeThumb.nextElementSibling || thumbnailContainer.firstElementChild;
+        nextThumb.click();
+    });
+}
