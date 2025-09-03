@@ -36,7 +36,7 @@
         rel="stylesheet">
 
 
-    <title>Momentum Store</title>
+    <title>Momentum Store - Catálogo</title>
 </head>
 
 <body>
@@ -44,7 +44,7 @@
     <header>
         <div class="container-header">
             <div class="logo">
-                <img src="./assets/images/logo/dourada-fundo-transparente.webp" alt="Logo Momentum Store">
+                <img src="./assets/images/logo/dourada-fundo-transparente.webp" alt="Logo Momentum Store" />
             </div>
 
             <div class="hamburger" id="hamburger-btn">
@@ -62,22 +62,22 @@
                             <i class="bi bi-house-door-fill"></i>
                             <a href="index.html" aria-current="page">Home</a>
                         </li>
-                        <li class="">
+                        <li>
                             <i class="bi bi-smartwatch"></i>
                             <a href="catalogo.html">Catálogo</a>
                         </li>
-                        <li class="">
+                        <li>
                             <i class="bi bi-chat-square-dots"></i>
-                            <a href="#">Contato</a>
+                            <a href="contato.html">Contato</a>
                         </li>
                     </ul>
                 </nav>
                 <div class="search">
-                    <input type="text" placeholder="buscar relógios...">
+                    <input type="text" placeholder="buscar relógios..." />
                     <button type="submit"><i class="bi bi-search"></i></button>
                 </div>
                 <div class="cart">
-                    <a href="#"><i class="bi bi-cart-fill"></i></a>
+                    <a href="carrinho.html"><i class="bi bi-cart-fill"></i></a>
                     <!-- <span class="cart-count">5</span> -->
                 </div>
             </div>
@@ -131,7 +131,7 @@
                 <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
                     class="selo-garantia">
                 <div class="product-img-container">
-                    <img src="https://dynamicmedia.audemarspiguet.com/is/image/audemarspiguet/standup-784?fmt=avif-alpha&dpr=off"
+                    <img src="https://empireluxury.vn/wp-content/uploads/2024/11/dong-ho-audemars-piguet-royal-oak-selfwinding-tourbillon-chronograph-26622ce-oo-d062ca-01-sao-chep-1.jpg"
                         alt="Relógio Audemars Piguet Royal Oak Offshore Diver" class="img-principal">
                 </div>
                 <div class="product-information">
@@ -216,7 +216,7 @@
                 <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
                     class="selo-garantia">
                 <div class="product-img-container">
-                    <img src="https://www.vacheron-constantin.com/dam/rcq/vac/23/06/51/5/2306515.png.transform.vacdetail.png"
+                    <img src="https://burdeens.com/cdn/shop/files/C00144667_71236821.jpg?v=1718058216&width=3500"
                         alt="Relógio Vacheron Constantin Patrimony" class="img-principal">
                 </div>
                 <div class="product-information">
@@ -233,7 +233,7 @@
                 <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
                     class="selo-garantia">
                 <div class="product-img-container">
-                    <img src="https://www.joyeriatorrico.com/wp-content/uploads/relojes/om-215-33-44-21-03-001-1.webp"
+                    <img src="https://taniajoias.com.br/admin/upload/item/23292465103001-OMEGA-Seamaster-Planet-Ocean-600m-Co-Axial-455mm-imagem-164.png"
                         alt="Relógio Omega Seamaster Planet Ocean" class="img-principal">
                 </div>
                 <div class="product-information">
@@ -284,7 +284,7 @@
                 <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
                     class="selo-garantia">
                 <div class="product-img-container">
-                    <img src="https://www.hublot.com/sites/default/files/styles/watch_item_desktop_1x_scale_no_crop_600_6000_/public/2025-03/hublot-big-bang-20-all-black-431.CI_.1340.RX_.png?itok=eWIXymb6" alt="Big Bang 20th Anniversary All Black"
+                    <img src="https://img.chrono24.com/images/uhren/42461407-e33ap4msxzqqmlyhzgqk2jjz-ExtraLarge.jpg" alt="Big Bang 20th Anniversary All Black"
                         class="img-principal">
                 </div>
                 <div class="product-information">
@@ -352,7 +352,7 @@
                 <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia de Originalidade"
                     class="selo-garantia">
                 <div class="product-img-container">
-                    <img src="https://lojafrattina.vtexassets.com/unsafe/768x0/center/middle/filters:quality(100)/https%3A%2F%2Flojafrattina.vtexassets.com%2Farquivos%2Fids%2F157136%2Ff006276.png%3Fv%3D638346224189230000"
+                    <img src="https://www.gregoryjewellers.com.au/wp-content/uploads/2021/01/03.3100.3600.69.M3100-white.jpg"
                         alt="Relógio Zenith El Primero" class="img-principal">
                 </div>
                 <div class="product-information">
@@ -403,8 +403,6 @@
 
     </main>
 
-
-
     <!------------------ Footer  ---------------------->
     <footer>
         <div class="footer-content">
@@ -443,41 +441,41 @@
 
 <!--- Função que manda as informações do produto para a page de produto-->
 
-<script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const produtos = document.querySelectorAll('.produto-catalogo');
+    <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const produtos = document.querySelectorAll('.produto-catalogo');
 
-            produtos.forEach(produto => {
-                // Adiciona um cursor de ponteiro para indicar que é clicável
-                produto.style.cursor = 'pointer';
+                produtos.forEach(produto => {
+                    // Adiciona um cursor de ponteiro para indicar que é clicável
+                    produto.style.cursor = 'pointer';
 
-                produto.addEventListener('click', (e) => {
-                    // Impede que o clique no botão "Adicionar ao Carrinho" navegue para a página do produto
-                    if (e.target.closest('.btn-comprar')) {
-                        return;
-                    }
+                    produto.addEventListener('click', (e) => {
+                        // Impede que o clique no botão "Adicionar ao Carrinho" navegue para a página do produto
+                        if (e.target.closest('.btn-comprar')) {
+                            return;
+                        }
 
-                    // 1. Coleta as informações do card clicado
-                    const nome = produto.querySelector('h3').textContent;
-                    const preco = produto.querySelector('.preco').textContent;
-                    const descricao = produto.querySelector('.informacoes-adicionais').textContent;
-                    const imagemPrincipal = produto.querySelector('.img-principal').src;
+                        // 1. Coleta as informações do card clicado
+                        const nome = produto.querySelector('h3').textContent;
+                        const preco = produto.querySelector('.preco').textContent;
+                        const descricao = produto.querySelector('.informacoes-adicionais').textContent;
+                        const imagemPrincipal = produto.querySelector('.img-principal').src;
 
-                    // 2. Codifica as informações para serem usadas na URL
-                    const params = new URLSearchParams({
-                        nome: nome,
-                        preco: preco,
-                        desc: descricao,
-                        img: imagemPrincipal
+                        // 2. Codifica as informações para serem usadas na URL
+                        const params = new URLSearchParams({
+                            nome: nome,
+                            preco: preco,
+                            desc: descricao,
+                            img: imagemPrincipal
+                        });
+                        
+                        // 3. Redireciona para a página do produto com os parâmetros
+                        // Certifique-se de que o nome do arquivo é 'produto.html' ou mude conforme necessário
+                        window.location.href = `produto_page.html?${params.toString()}`;
                     });
-                    
-                    // 3. Redireciona para a página do produto com os parâmetros
-                    // Certifique-se de que o nome do arquivo é 'produto.html' ou mude conforme necessário
-                    window.location.href = `produto_page.html?${params.toString()}`;
                 });
             });
-        });
-</script>
+    </script>
     <!------------------ Script JS  ---------------------->
     <script src="./js/catalogo.js"></script>
     <script src="./js/script.js"></script>

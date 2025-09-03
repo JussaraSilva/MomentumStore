@@ -1,0 +1,204 @@
+
+/* Garante que o conteúdo fique visível acima do background */
+
+.main-content {
+    margin-top: 8rem ;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.header {
+    background: var(--background-secondary-dark);
+    color: var(--tertiary-color);
+    padding: var(--spacing-sm) 0;
+    text-align: center;
+}
+
+.header h1 {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-bold);
+    font-size: var(--font-size-lg);
+}
+
+.main-content {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-title {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: var(--font-size-md);
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.card {
+    background: var(--background-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--sombra-card);
+    padding: var(--spacing-md);
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-card-hover);
+}
+
+.contact-form-card {
+    display: grid;
+    gap: var(--spacing-md);
+    grid-column: 1 / -1;
+    text-align: left;
+}
+
+.contact-form-card form input,
+.contact-form-card form textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);
+    background-color: var(--background-color);
+    color: var(--text-dark);
+}
+
+.contact-form-card form button {
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    font-weight: var(--weight-semibold);
+    transition: background-color var(--transition-speed);
+}
+
+.contact-form-card form button:hover {
+    background-color: #a09276;
+}
+
+.contact-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-option .icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-option h3 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-option p {
+    margin-bottom: var(--spacing-md);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--background-secondary-dark);
+    color: var(--tertiary-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: var(--weight-semibold);
+    transition: background-color var(--transition-speed);
+}
+
+.btn:hover {
+    background: var(--primary-color);
+}
+
+.social-media-card {
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.social-icons a {
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    transition: color var(--transition-speed);
+}
+
+.social-icons a:hover {
+    color: var(--secondary-color);
+}
+
+/* FAQ Section */
+.faq-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.faq-item {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
+.faq-question {
+    font-weight: var(--weight-semibold);
+    color: var(--primary-color);
+}
+
+
+.faq-question::marker {
+    font-size: var(--font-size-md);
+    font-weight: var(--weight-semibold);
+    color: var(--primary-color);
+}
+
+.faq-answer {
+    color: var(--text-dark);
+    margin: 1rem 0 0 1rem;
+}
+
+
+
+.map-container {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--sombra-card);
+    height: 450px;
+}
+
+.map-container iframe {
+    border: none;
+}
