@@ -11,7 +11,7 @@
 
   <!----- Folha de Estilo Inidividual-->
 
-  <link rel="stylesheet" href="./css/produto_page.css" />
+  <link rel="stylesheet" href="./css/carrinho.css" />
 
   <!----- Bootstrap Icons 1.13.1-->
 
@@ -82,53 +82,112 @@
     </div>
   </header>
   <!------------------ Main  - Página do Produtos ---------------------->
-  <main class="produto-page">
-    <div class="back-button">
+  
+  <main class="main-carrinho">
+    <div class="container-carrinho">
+      <div class="grid-carrinho">
+            <div class="meu-carrinho carrinho-left">
+              <div class="titulo-carrinho">
+                <h2>Meu Carrinho</h2>
+              </div>
+                  <div class="barratitulos-carrinho">
+                    <div class="item-titulo">
+                      <h3>Nome do Produto</h3>
+                    </div>
+                    <div class="preco-titulo">
+                      <h3>Preço</h3>
+                    </div>
+                    <div class="quantidade-titulo">
+                      <h3>Quantidade</h3>
+                    </div>
+                    <div class="total-titulo">
+                      <h3>Subtotal</h3>
+                    </div>
+                  </div>
+
+              <div class="item-carrinho">
+                <div class="info-produto">
+                    <div class="imagem-item">
+                      <img src="./assets/images/products-images/rolex/rolex_oystersteel.webp" alt="Rolex Oystersteel">
+                    </div>
+
+                    <div class="details-produto">
+                      <div class="nome-item" id="nome-produto">
+                        <a id="nome-produto">Audemars Piguet Royal Oak Offshore Diver</a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="preco-item">
+                    <span class="preco-produto" id="preco-produto">R$ 150.000,00</span>
+                  </div>
+                
+                
+                <div class="quantidade-item" id="quantidade-item">
+                  <div class="quantidade-seletor">
+                    <div class="quantidade-input">
+                      <button class="aumentar-item" id="aumentar-cart">+</button>             
+                      <input type="number" id="quantity" name="quantity" value="1">
+                      <button class="diminuir-item" id="diminuir-cart">-</button>
+                    </div>  
+                  </div>
+                  
+                </div>
+                <div class="excluir-item" id="excluir-item">
+                  <i class="bi bi-trash3-fill" id="excluir-item"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="resumo-pedido carrinho-right">
+            <div class="titulo-resumo">
+              <h2>Resumo do Pedido</h2>
+            </div>
+            <div class="resumo-item" id="resumo-item">
+              <div class="item-resumo item-subtotal">
+                <strong>Subtotal:</strong>
+                <span class="preco-subtotal" id="preco-subtotal">R$ 150.000,00</span>
+              </div>
+              <div class="item-resumo item-entrega">
+                <strong>Entrega:</strong>
+                <span class="preco-entrega" id="preco-entrega">Grátis</span>
+              </div>
+              <div class="item-resumo item-total">
+                <strong>Total:</strong>
+                <span class="preco-total" id="preco-total">R$ 150.000,00</span>
+              </div>
+            </div>
+            <div class="container-finalizar">
+              <button id="btn-finalizarCompra">Finalizar Compra</button>
+            </div>
+            <span class="checkout-seguro">
+              <i class="bi bi-shield-check"></i>
+              <small>Informações de pagamento criptografadas</small>
+            </span>
+            </div>
+      </div>
+
+      
+      </div>
+      <!-- Informações Adicionais de compra-->
+      <div class="adicionais-compra">
+        <div class="titulo-informacoes">
+          <h2>Informações Adicionais de Compra</h2>
+        </div>
+        <div class="container-addProduto">
+          <p>Quer adicionar mais produtos ao seu carrinho?</p>
         <a href="catalogo.html">
-          <i class="bi bi-arrow-left-circle-fill"></i>
-          Voltar
-        </a>
-    </div>
-    <div class="product-container">      
-        <div class="product-gallery">
-            <div class="main-image">
-                <div class="controls-thumbs">
-                  <button id="prevBtn-thumb" class="thumb-btn-prev">
-                    <i class="bi bi-chevron-left"></i>
-                  </button>
-                  <button id="nextBtn-thumb" class="thumb-btn-next">
-                    <i class="bi bi-chevron-right"></i>
-                  </button>
-                </div>
-                <div class="container-imgGallery">
-                  <img id="mainProductImage" src="" alt="Imagem principal do produto">
-                </div>                
-            </div>
-            <div id="thumbnailContainer" class="thumbnail-images">
-                </div>
+          <i class="bi bi-arrow-return-right"></i>
+          Ir para o Catálogo</a>
         </div>
-
-        <div class="product-details">
-            <h1 id="productTitle" class="product-title"></h1>
-            <p id="productDescription" class="product-description"></p>
-            <div class="product-price">
-                <span id="productPrice"></span>
-            </div>
-            
-            <div class="quantity-selector">
-                <label for="quantity">Quantidade:</label>
-                <div class="quantity-input">
-                    <button class="quantity-btn minus">-</button>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="100">
-                    <button class="quantity-btn plus">+</button>
-                </div>
-            </div>
-
-            <div class="action-buttons">
-                <button class="btn btn-primary">Adicionar ao carrinho</button>
-                <button class="btn btn-secondary">Comprar</button>
-            </div>
+        <div class="suporte-compra">
+          <p>Alguma duvida? Entre em contato conosco</p>
+          <a href="contato.html">
+            <i class="bi bi-person-raised-hand"></i>
+            Contato</a>
         </div>
+      </div>
+
     </div>
   </main>
 

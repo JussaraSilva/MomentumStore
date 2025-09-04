@@ -8,7 +8,6 @@
 function ativarFuncionalidadeGaleria() {
     const thumbnails = document.querySelectorAll('.thumbnail');
     const mainImage = document.getElementById('mainProductImage');
-
     thumbnails.forEach(thumb => {
         thumb.addEventListener('click', function() {
             document.querySelector('.thumbnail.active')?.classList.remove('active');
