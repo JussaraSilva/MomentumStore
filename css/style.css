@@ -9,6 +9,9 @@
   /* O branco continua sendo a cor para respiro e textos sobre fundos escuros. */
   --tertiary-color: #ffffff;
 
+
+  --color-light: #d1d1d1;
+
   /* --- FUNDOS MODERNIZADOS --- */
   /* Trocamos o fundo bege por um branco "quebrado" (off-white) mais neutro. Isso limpa a interface e faz as imagens dos produtos se destacarem mais. */
   --background-color: #f8f8f8;

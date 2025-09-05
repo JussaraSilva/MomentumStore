@@ -1,0 +1,148 @@
+[
+  {
+    "id": 1,
+    "nome": "Audemars Piguet Royal Oak Offshore Diver",
+    "img": "https://empireluxury.vn/wp-content/uploads/2024/11/dong-ho-audemars-piguet-royal-oak-selfwinding-tourbillon-chronograph-26622ce-oo-d062ca-01-sao-chep-1.jpg",
+    "preco": 120000,
+    "marca": "audemars",
+    "estilo": "esportivo",
+    "informacoes": "Pulseira de borracha, resistência à água 300m"
+  },
+  {
+    "id": 2,
+    "nome": "Cartier Santos de Cartier",
+    "img": "https://www.blackvenomwatch.com/upload/images/Collection/Diamond_Collection/Cartier/Santos/CA_WSSA0030_1731/CA_WSSA0030_1731.png",
+    "preco": 65000,
+    "marca": "cartier",
+    "estilo": "classico",
+    "informacoes": "Caixa de aço, design quadrado"
+  },
+  {
+    "id": 3,
+    "nome": "Rolex Daytona Oysterflex",
+    "img": "https://media.rolex.com/image/upload/q_auto:eco/f_auto/t_v7-majesty/c_limit,w_3840/v1/catalogue/2025/upright-c/m126589rbr-0001",
+    "preco": 150000,
+    "marca": "rolex",
+    "estilo": "esportivo",
+    "informacoes": "Cronógrafo, pulseira de borracha preta"
+  },
+  {
+    "id": 4,
+    "nome": "Patek Philippe Nautilus",
+    "img": "https://res.cloudinary.com/wc-photo/image/upload/c_fill,w_3000,h_3000,g_auto/f_auto/q_auto/v1/product/ad921d60486366258809553a3db49a4a/da0bb79b03a1f9e3984221187f4f09f6?_a=BAVAfVDW0",
+    "preco": 250000,
+    "marca": "patek",
+    "estilo": "classico",
+    "informacoes": "Caixa e pulseira em aço, mostrador azul"
+  },
+  {
+    "id": 5,
+    "nome": "Tag Heuer Carrera Calibre Heuer 02",
+    "img": "https://prosteps.cloudimg.io/v7/https://tilroy.s3.eu-west-1.amazonaws.com/701/product/WBP5110.BA0013.png?w=378&h=378&org_if_sml=0&optipress=2&fit_enlarge=1&sharp=0&func=fit",
+    "preco": 55000,
+    "marca": "tag-heuer",
+    "estilo": "esportivo",
+    "informacoes": "Cronógrafo automático, caixa de aço"
+  },
+  {
+    "id": 6,
+    "nome": "Vacheron Constantin Patrimony",
+    "img": "https://burdeens.com/cdn/shop/files/C00144667_71236821.jpg?v=1718058216&width=3500",
+    "preco": 180000,
+    "marca": "vacheron-constantin",
+    "estilo": "classico",
+    "informacoes": "Caixa de ouro rosa, design minimalista"
+  },
+  {
+    "id": 7,
+    "nome": "Omega Seamaster Planet Ocean",
+    "img": "https://taniajoias.com.br/admin/upload/item/23292465103001-OMEGA-Seamaster-Planet-Ocean-600m-Co-Axial-455mm-imagem-164.png",
+    "preco": 45000,
+    "marca": "omega",
+    "estilo": "esportivo",
+    "informacoes": "Resistência à água 600m, mostrador preto"
+  },
+  {
+    "id": 8,
+    "nome": "Breitling Navitimer",
+    "img": "https://www-breitling.eu.saleor.cloud/media/thumbnails/products/a17329371l1a1-soldier_0cdc1820_thumbnail_2048.webp",
+    "preco": 38000,
+    "marca": "breitling",
+    "estilo": "esportivo",
+    "informacoes": "Cronógrafo, régua de cálculo circular"
+  },
+  {
+    "id": 9,
+    "nome": "Jaeger-LeCoultre Reverso",
+    "img": "https://lojafrattina.vtexassets.com/unsafe/768x0/center/middle/filters:quality(100)/https%3A%2F%2Flojafrattina.vtexassets.com%2Farquivos%2Fids%2F159981%2F407154c7e85e44ad299963d893785d2b49365fb8.webp.webp%3Fv%3D638799789768930000",
+    "preco": 85000,
+    "marca": "jaeger-lecoultre",
+    "estilo": "classico",
+    "informacoes": "Caixa reversível, design Art Déco"
+  },
+  {
+    "id": 10,
+    "nome": "Big Bang 20th Anniversary All Black",
+    "img": "https://img.chrono24.com/images/uhren/42461407-e33ap4msxzqqmlyhzgqk2jjz-ExtraLarge.jpg",
+    "preco": 95000,
+    "marca": "hublot",
+    "estilo": "esportivo",
+    "informacoes": "Caixa de titânio e cerâmica, design moderno"
+  },
+  {
+    "id": 11,
+    "nome": "IWC Portugieser",
+    "img": "https://iwcstore.vteximg.com.br/arquivos/ids/157838-1000-1000/IW371605_1_transparent_.png?v=638198501652030000",
+    "preco": 72000,
+    "marca": "iwc",
+    "estilo": "classico",
+    "informacoes": "Mostrador minimalista, movimento automático"
+  },
+  {
+    "id": 12,
+    "nome": "Panerai Luminor Marina",
+    "img": "https://panerai.vtexassets.com/arquivos/ids/158352/watch-luminor-marina-day-front-pam01564_1.png?v=638518222941600000",
+    "preco": 68000,
+    "marca": "panerai",
+    "estilo": "esportivo",
+    "informacoes": "Ponte do escape, resistência à água 300m"
+  },
+  {
+    "id": 13,
+    "nome": "Tudor Black Bay",
+    "img": "https://media.tudorwatch.com/image/upload/q_auto/f_auto/t_tdr-cover-watch/c_limit,w_1920/v1/catalogue/2025/upright-cb-with-drop-shadow/tudor-m79000n-0002",
+    "preco": 28000,
+    "marca": "tudor",
+    "estilo": "esportivo",
+    "informacoes": "Mostrador preto, pulseira de aço"
+  },
+  {
+    "id": 14,
+    "nome": "Zenith El Primero - Chronomaster Sport",
+    "img": "https://www.gregoryjewellers.com.au/wp-content/uploads/2021/01/03.3100.3600.69.M3100-white.jpg",
+    "preco": 52000,
+    "marca": "zenith",
+    "estilo": "classico",
+    "informacoes": "Cronógrafo de alta frequência, mostrador tricolor"
+  },
+  {
+    "id": 15,
+    "nome": "Bvlgari Octo Finissimo",
+    "img": "https://media.bulgari.com/image/upload/c_pad,h_851,w_1090/q_auto/f_auto/1385689.png",
+    "preco": 110000,
+    "marca": "bvlgari",
+    "estilo": "luxo",
+    "informacoes": "Design ultra-fino, caixa de titânio"
+  },
+  {
+    "id": 16,
+    "nome": "Longines Master Collection",
+    "img": "https://api.ecom.longines.com/media/catalog/product/w/a/watch-collection-longines-master-collection-l2-793-5-72-2-1733408802-thumbnail.png?w=2560",
+    "preco": 22000,
+    "marca": "longines",
+    "estilo": "classico",
+    "informacoes": "Mostrador azul, indicador de data"
+  }
+]
+
+
