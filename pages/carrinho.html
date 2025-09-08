@@ -7,11 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
   <!--- Folha de estilo padrão -->
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
 
   <!----- Folha de Estilo Inidividual-->
 
-  <link rel="stylesheet" href="./css/carrinho.css" />
+  <link rel="stylesheet" href="../css/carrinho.css" />
 
   <!----- Bootstrap Icons 1.13.1-->
 
@@ -40,46 +40,46 @@
 <body>
   <!------------------ Header  ---------------------->
   <header>
-    <div class="container-header">
-      <div class="logo">
-        <img src="./assets/images/logo/dourada-fundo-transparente.webp" alt="Logo Momentum Store" />
-      </div>
+        <div class="container-header">
+            <div class="logo">
+                <img src="../assets/images/logo/dourada-fundo-transparente.webp" alt="Logo Momentum Store" />
+            </div>
 
-      <div class="hamburger" id="hamburger-btn">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="menu-header">
-        <nav class="menu">
-          <!-- Adicionado um ID para facilitar a manipulação com JavaScript -->
-          <ul id="menu-list">
-            <!-- 'active' class adicionada para o estado inicial -->
-            <!-- Adicionado 'aria-current="page"' para acessibilidade -->
-            <li class="active">
-              <i class="bi bi-house-door-fill"></i>
-              <a href="index.html" aria-current="page">Home</a>
-            </li>
-            <li class="">
-              <i class="bi bi-smartwatch"></i>
-              <a href="catalogo.html">Catálogo</a>
-            </li>
-            <li class="">
-              <i class="bi bi-chat-square-dots"></i>
-              <a href="contato.html">Contato</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="search">
-          <input type="text" placeholder="buscar relógios..." />
-          <button type="submit"><i class="bi bi-search"></i></button>
+            <div class="hamburger" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-header">
+                <nav class="menu">
+                    <!-- Adicionado um ID para facilitar a manipulação com JavaScript -->
+                    <ul id="menu-list">
+                        <!-- 'active' class adicionada para o estado inicial -->
+                        <!-- Adicionado 'aria-current="page"' para acessibilidade -->
+                        <li class="active">
+                            <i class="bi bi-house-door-fill"></i>
+                            <a href="/index.html" aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-smartwatch"></i>
+                            <a href="./catalogo.html">Catálogo</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-chat-square-dots"></i>
+                            <a href="./contato.html">Contato</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="search">
+                    <input type="text" placeholder="buscar relógios..." />
+                    <button type="submit"><i class="bi bi-search"></i></button>
+                </div>
+                <div class="cart">
+                    <a href="./carrinho.html"><i class="bi bi-cart-fill"></i></a>
+                    <span class="cart-count"></span>
+                </div>
+            </div>
         </div>
-        <div class="cart">
-          <a href="carrinho.html"><i class="bi bi-cart-fill"></i></a>
-          <!-- <span class="cart-count">5</span> -->
-        </div>
-      </div>
-    </div>
   </header>
   <!------------------ Main  - Página do Produtos ---------------------->
   
@@ -90,7 +90,9 @@
               <div class="titulo-carrinho">
                 <h2>Meu Carrinho</h2>
               </div>
-                  <div class="barratitulos-carrinho">
+
+              <!-- Barra de títulos -->
+              <div class="barratitulos-carrinho">
                     <div class="item-titulo">
                       <h3>Nome do Produto</h3>
                     </div>
@@ -103,46 +105,17 @@
                     <div class="total-titulo">
                       <h3>Subtotal</h3>
                     </div>
-                  </div>
+              </div>
 
-              <div class="item-carrinho">
-                <div class="info-produto">
-                    <div class="imagem-item">
-                      <img src="./assets/images/products-images/rolex/rolex_oystersteel.webp" alt="Rolex Oystersteel">
-                    </div>
+              <!-- Mensagem de carrinho vazio -->
+              <div class="carrinho-vazio" style="display: none;">
+                <p>Seu carrinho está vazio</p>
+                <a href="catalogo.html">Continuar comprando</a>
+              </div>
 
-                    <div class="details-produto">
-                      <div class="nome-item" id="nome-produto">
-                        <a id="nome-produto">Audemars Piguet Royal Oak Offshore Diver</a>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="preco-item">
-                    <span id="preco-produto">R$150.000,00</span>
-                  </div>
-                
-                
-                <div class="quantidade-item" id="quantidade-item">
-                  <div class="quantidade-seletor">
-                    <div class="quantidade-input">
-                      <button class="aumentar-item" id="aumentar-cart">+</button>             
-                      <input type="number" id="quantity" value="1" min="1">
-                      <button class="diminuir-item" id="diminuir-cart">-</button>
-                    </div>  
-                  </div>
-
-                  
-                  
-                </div>
-
-                <div class="subtotal-produto">
-                  <span id="preco-subtotal">R$150.000,00</span>
-                </div>
-
-                <div class="excluir-item" id="excluir-item">
-                  <i class="bi bi-trash3-fill" id="excluir-item"></i>
-                </div>
+              <!-- Container para os itens dinâmicos -->
+              <div class="itens-container">
+                <!-- Os itens do carrinho serão inseridos aqui -->
               </div>
             </div>
 
@@ -153,7 +126,7 @@
             <div class="resumo-item" id="resumo-item">
               <div class="item-resumo item-subtotal">
                 <strong>Subtotal:</strong>
-                <span class="preco-subtotal" id="preco-subtotal">R$ 150.000,00</span>
+                <span class="preco-subtotal" id="preco-subtotal">R$ 0,00</span>
               </div>
               <div class="item-resumo item-entrega">
                 <strong>Entrega:</strong>
@@ -161,7 +134,7 @@
               </div>
               <div class="item-resumo item-total">
                 <strong>Total:</strong>
-                <span class="preco-total" id="preco-total">R$ 150.000,00</span>
+                <span class="preco-total" id="preco-total">R$ 0,00</span>
               </div>
             </div>
             <div class="container-finalizar">
@@ -174,29 +147,26 @@
             </div>
       </div>
 
-      <!-- /* Informações Adicionais de compra */ -->
-        <div class="adicionais-compra">
-          <div class="titulo-informacoes">
-            <h2>Informações Adicionais de Compra</h2>
-          </div>
-          <div class="container-addProduto">
-            <p>Quer adicionar mais produtos ao seu carrinho?</p>
+      <!-- Informações Adicionais de compra -->
+      <div class="adicionais-compra">
+        <div class="titulo-informacoes">
+          <h2>Informações Adicionais de Compra</h2>
+        </div>
+        <div class="container-addProduto">
+          <p>Quer adicionar mais produtos ao seu carrinho?</p>
           <a href="catalogo.html">
             <i class="bi bi-arrow-return-right"></i>
-            Ir para o Catálogo</a>
-          </div>
-          <div class="suporte-compra">
-            <p>Alguma duvida? Entre em contato conosco</p>
-            <a href="contato.html">
-              <i class="bi bi-person-raised-hand"></i>
-              Contato</a>
-          </div>
+            Ir para o Catálogo
+          </a>
         </div>
-      
+        <div class="suporte-compra">
+          <p>Alguma dúvida? Entre em contato conosco</p>
+          <a href="contato.html">
+            <i class="bi bi-person-raised-hand"></i>
+            Contato
+          </a>
+        </div>
       </div>
-      <!-- Informações Adicionais de compra-->
-      
-
     </div>
   </main>
 
@@ -235,8 +205,9 @@
   </footer>
 
   <!------------------ Script JS  ---------------------->
-  <script src="./js/carrinho.js"></script>
-  <script src="./js/script.js"></script>
+  <script src="../js/carrinho.js"></script>
+  <script src="../js/carrinho-utils.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 
 </html>

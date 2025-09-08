@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "nome": "Audemars Piguet Royal Oak Offshore Diver",
         "preco": "R$ 120.000,00",
         "descricao": "O Audemars Piguet Royal Oak Offshore Diver é um relógio esportivo de alta performance. Sua pulseira de borracha e caixa de aço o tornam ideal para atividades aquáticas. Com resistência de 300 metros, este modelo une a robustez necessária para mergulhos com o design icônico e sofisticado da linha Royal Oak.",
@@ -12,6 +13,7 @@
         ]
     },
     {
+        "id": 2,
         "nome": "Cartier Santos de Cartier",
         "preco": "R$ 65.000,00",
         "descricao": "O Cartier Santos de Cartier é uma peça de design atemporal. Sua caixa de aço e formato quadrado são uma homenagem ao modelo original criado para o aviador Alberto Santos-Dumont. O relógio exala sofisticação e se destaca com sua combinação de modernidade e elegância clássica, sendo uma escolha versátil para qualquer ocasião.",
@@ -24,6 +26,7 @@
         ]
     },
     {
+        "id": 3,
         "nome": "Rolex Daytona Oysterflex",
         "preco": "R$ 150.000,00",
         "descricao": "O Rolex Daytona Oysterflex é um cronógrafo icônico, projetado para atender às exigências de pilotos profissionais. Seu mostrador detalhado e a pulseira de borracha preta Oysterflex proporcionam conforto e durabilidade, enquanto a funcionalidade de cronometragem de alta precisão garante desempenho superior em todas as circunstâncias, sendo um símbolo de sucesso.",
@@ -36,9 +39,10 @@
         ]
     },
     {
+        "id": 4,
         "nome": "Patek Philippe Nautilus",
         "preco": "R$ 250.000,00",
-        "descricao": "O Patek Philippe Nautilus é um ícone de luxo e sofisticação. Com sua caixa e pulseira em aço e um mostrador azul hipnotizante, ele representa a fusão perfeita entre elegância esportiva e alta relojoaria. Reconhecido por seu design distinto, é um dos modelos mais desejados do mundo, combinando funcionalidade e status de forma inigualável.",
+        "descricao": "O Patek Philippe Nautilus é um ícone de luxo e sofisticação. Com sua caixa e pulseira em aço e um mostrador azul hipnotizante, ele representa a fusão perfeita entre elegância esportiva e alta relojoaria. Reconhecido por seu design distinto, é um dos modelos mais desejados do mundo, combinando funcionalidade and status de forma inigualável.",
         "imgPrincipal": "https://res.cloudinary.com/wc-photo/image/upload/c_fill,w_3000,h_3000,g_auto/f_auto/q_auto/v1/product/ad921d60486366258809553a3db49a4a/da0bb79b03a1f9e3984221187f4f09f6?_a=BAVAfVDW0",
         "thumbs": [
             "https://patek-res.cloudinary.com/dfsmedia/0906caea301d42b3b8bd23bd656d1711/202634-51902",
@@ -48,6 +52,7 @@
         ]
     },
     {
+        "id": 5,
         "nome": "Tag Heuer Carrera Calibre Heuer 02",
         "preco": "R$ 55.000,00",
         "descricao": "O Tag Heuer Carrera Calibre Heuer 02 é um cronógrafo automático que celebra o espírito do automobilismo. Com sua caixa de aço e mostrador de fácil leitura, ele combina a tradição da relojoaria com um visual esportivo e moderno. É um relógio robusto e preciso, ideal para quem busca performance e estilo em uma só peça.",
@@ -60,6 +65,7 @@
         ]
     },
     {
+        "id": 6,
         "nome": "Vacheron Constantin Patrimony",
         "preco": "R$ 180.000,00",
         "descricao": "O Vacheron Constantin Patrimony é a quintessência da elegância e do minimalismo na alta relojoaria. Com uma caixa de ouro rosa e um design limpo e atemporal, ele é a prova de que a beleza está na simplicidade. O relógio é perfeito para colecionadores que valorizam a herança e o artesanato impecável de uma das mais antigas manufaturas de relógios.",
@@ -72,9 +78,10 @@
         ]
     },
     {
+        "id": 7,
         "nome": "Omega Seamaster Planet Ocean",
         "preco": "R$ 45.000,00",
-        "descricao": "O Omega Seamaster Planet Ocean é um relógio de mergulho robusto e confiável, projetado para suportar as condições mais extremas. Com sua resistência à água de 600 metros e um mostrador claro, é a ferramenta perfeita para exploradores subaquáticos. O relógio combina a herança de mergulho da Omega com tecnologia de ponta, oferecendo precisão e durabilidade.",
+        "descricao": "O Omega Seamaster Planet Ocean é um relógio de mergulho robusto and confiável, projetado para suportar as condições mais extremas. Com sua resistência à água de 600 metros e um mostrador claro, é a ferramenta perfeita para exploradores subaquáticos. O relógio combina a herança de mergulho da Omega com tecnologia de ponta, oferecendo precisão e durabilidade.",
         "imgPrincipal": "https://www.joyeriatorrico.com/wp-content/uploads/relojes/om-215-33-44-21-03-001-1.webp",
         "thumbs": [
             "https://www.omegawatches.com/media/catalog/product/cache/27561d87cabc1d073dc1289ae67fb76249136f7e3280804d48932240bf135b59/o/m/omega-two-piece-strap-98000412_94521893-slider-d4c745.png",
@@ -84,6 +91,7 @@
         ]
     },
     {
+        "id": 8,
         "nome": "Breitling Navitimer",
         "preco": "R$ 38.000,00",
         "descricao": "O Breitling Navitimer é um clássico da aviação, famoso por sua régua de cálculo circular que permite aos pilotos realizar cálculos de voo. Com um design robusto e um mostrador complexo, este relógio é um verdadeiro instrumento de precisão. Ele é a escolha ideal para quem aprecia a história da aviação e a engenharia de alta qualidade.",
@@ -96,6 +104,7 @@
         ]
     },
     {
+        "id": 9,
         "nome": "Jaeger-LeCoultre Reverso",
         "preco": "R$ 85.000,00",
         "descricao": "O Jaeger-LeCoultre Reverso é uma obra-prima de design and engenharia, conhecida por sua caixa reversível. Criado originalmente para jogadores de polo, o relógio permite que o usuário vire o mostrador para proteger o vidro. Seu estilo Art Déco e o artesanato suíço impecável fazem dele um ícone de elegância e funcionalidade, perfeito para colecionadores.",
@@ -108,9 +117,10 @@
         ]
     },
     {
+        "id": 10,
         "nome": "Big Bang 20th Anniversary All Black",
         "preco": "R$ 95.000,00",
-        "descricao": "O Hublot Big Bang é conhecido por sua abordagem ousada e moderna à relojoaria. Com uma caixa de titânio e cerâmica e um design robusto, ele é um símbolo de inovação. Este modelo representa a filosofia da Hublot de combinar materiais incomuns e design contemporâneo para criar relógios únicos, ideais para quem busca um visual marcante.",
+        "descricao": "O Hublot Big Bang é conhecido por sua abordagem ousada e moderna à relojoaria. Com uma caixa de titânio e cerâmica e um design robusto, ele é um símbolo de inovação. Este modelo represents a filosofia da Hublot de combinar materiais incomuns e design contemporâneo para criar relógios únicos, ideais para quem busca um visual marcante.",
         "imgPrincipal": "https://www.hublot.com/sites/default/files/styles/watch_item_desktop_1x_scale_no_crop_600_6000_/public/2025-03/hublot-big-bang-20-all-black-431.CI_.1340.RX_.png?itok=eWIXymb6",
         "thumbs": [
             "https://www.hublot.com/sites/default/files/styles/global_laptop_1x/public/2025-03/Big-Bang-20th-Anniversary-All-Black-Ceramic-43-mm-PR-2_0.jpg?itok=VYRnvVMA",
@@ -120,6 +130,7 @@
         ]
     },
     {
+        "id": 11,
         "nome": "IWC Portugieser",
         "preco": "R$ 72.000,00",
         "descricao": "O IWC Portugieser é um clássico atemporal que une um design minimalista com um movimento de alta precisão. Seus números arábicos e os ponteiros de folha de salgueiro são assinaturas que o tornam imediatamente reconhecível. É a escolha perfeita para quem busca um relógio elegante, funcional e com uma rica história, mantendo um visual clássico e moderno ao mesmo tempo.",
@@ -132,6 +143,7 @@
         ]
     },
     {
+        "id": 12,
         "nome": "Panerai Luminor Marina",
         "preco": "R$ 68.000,00",
         "descricao": "O Panerai Luminor Marina é um relógio de mergulho com uma herança militar e um design inconfundível. Sua caixa robusta e a icônica ponte de proteção da coroa garantem durabilidade e resistência à água de 300 metros. Com um mostrador luminoso e de fácil leitura, ele combina funcionalidade com um visual único e histórico, sendo uma peça de destaque.",
@@ -144,9 +156,10 @@
         ]
     },
     {
+        "id": 13,
         "nome": "Tudor Black Bay",
         "preco": "R$ 28.000,00",
-        "descricao": "O Tudor Black Bay é um relógio de mergulho moderno que homenageia a rica história da marca. Com um mostrador preto clássico e uma robusta pulseira de aço, ele é uma escolha versátil e elegante. O Black Bay é conhecido por sua construção de alta qualidade e design atemporal, sendo uma opção popular para quem busca um relógio de luxo acessível.",
+        "descricao": "O Tudor Black Bay é um relógio de mergulho moderno que homenageia a rica história da marca. Com um mostrador preto clássico and uma robusta pulseira de aço, ele é uma escolha versátil e elegante. O Black Bay é conhecido por sua construção de alta qualidade e design atemporal, sendo uma opção popular para quem busca um relógio de luxo acessível.",
         "imgPrincipal": "https://media.tudorwatch.com/image/upload/q_auto/f_auto/t_tdr-cover-watch/c_limit,w_1920/v1/catalogue/2025/upright-cb-with-drop-shadow/tudor-m79000n-0002",
         "thumbs": [
             "https://media.tudorwatch.com/image/upload/q_auto/f_auto/t_tdr-cover-bracelet/c_limit,w_500/v1/catalogue/2025/bracelet-c/tudor-m7941a1a0nu-0002",
@@ -156,9 +169,10 @@
         ]
     },
     {
+        "id": 14,
         "nome": "Zenith El Primero - Chronomaster Sport",
         "preco": "R$ 52.000,00",
-        "descricao": "O Zenith El Primero é um cronógrafo de alta frequência, famoso por ser o primeiro movimento automático de cronógrafo integrado da história. Seu mostrador tricolor e a precisão do movimento o tornam uma peça cobiçada por colecionadores. O relógio é uma prova da engenharia e inovação da Zenith, sendo uma opção clássica com um legado histórico.",
+        "descricao": "O Zenith El Primero é um cronógrafo de alta frequência, famoso por ser o primeiro movimento automático de cronógrafo integrado da história. Seu mostrador tricolor e a precisão do movimento o tornam uma peça cobiçada por colecionadores. O relógio é uma prova da engenharia e inovação da Zenith, sendo uma opção clássica with um legado histórico.",
         "imgPrincipal": "https://lojafrattina.vtexassets.com/unsafe/768x0/center/middle/filters:quality(100)/https%3A%2F%2Flojafrattina.vtexassets.com%2Farquivos%2Fids%2F157136%2Ff006276.png%3Fv%3D638346224189230000",
         "thumbs": [
             "https://images-staging.zenith-watches.com/website-zenith-pre-prod/dd64810d-ba35-4931-b35c-c80cf212d15a_El+Primero_3600.png?im=Resize=(1400,1400),aspect=fill;Crop=(0,0,1400,1400),gravity=Center",
@@ -168,6 +182,7 @@
         ]
     },
     {
+        "id": 15,
         "nome": "Bvlgari Octo Finissimo",
         "preco": "R$ 110.000,00",
         "descricao": "O Bvlgari Octo Finissimo é um marco da relojoaria moderna, famoso por seu design ultra-fino e sua caixa de titânio. Inspirado em arquitetura, este modelo desafia os limites da engenharia para criar um relógio elegante e extremamente leve. Sua estética contemporânea o torna uma escolha sofisticada para quem busca uma peça de alta relojoaria com um toque de design único.",
@@ -180,9 +195,10 @@
         ]
     },
     {
+        "id": 16,
         "nome": "Longines Master Collection",
         "preco": "R$ 22.000,00",
-        "descricao": "O Longines Master Collection é um relógio que celebra a tradição relojoeira suíça. Com seu mostrador azul e um design clássico, ele incorpora a elegância e a precisão que a marca é conhecida por entregar. A peça é uma opção refinada e acessível para quem busca um relógio automático com acabamento impecável e um toque de luxo, ideal para o uso diário ou ocasiões especiais.",
+        "descricao": "O Longines Master Collection é um relógio que celebra a tradição relojoeira suíça. Com seu mostrador azul e um design clássico, ele incorpora a elegância e a precisão que a marca é conhecida por entregar. A peça is uma opção refinada e acessível para quem busca um relógio automático com acabamento impecável e um toque de luxo, ideal para o uso diário ou ocasiões especiais.",
         "imgPrincipal": "https://api.ecom.longines.com/media/catalog/product/w/a/watch-collection-longines-master-collection-l2-793-5-72-2-1733408802-thumbnail.png?w=2560",
         "thumbs": [
             "https://api.ecom.longines.com/media/catalog/product/l/o/longines-master-collection-l2-793-4-09-2-bottom-detailed-view-2142x2000-51-1733406680.jpg?&w=560",

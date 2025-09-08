@@ -1,10 +1,4 @@
-// Controle Miniaturas - Button Next e Prev
-
-
-
-
 // --- FUNÇÃO PARA ATIVAR A GALERIA DE IMAGENS ---
-// Reutilizada do código anterior, sem mudanças
 function ativarFuncionalidadeGaleria() {
     const thumbnails = document.querySelectorAll('.thumbnail');
     const mainImage = document.getElementById('mainProductImage');
@@ -18,87 +12,94 @@ function ativarFuncionalidadeGaleria() {
 }
 
 // --- FUNÇÃO PRINCIPAL QUE CARREGA A PÁGINA ---
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     // 1. Pega o nome do produto da URL
     const params = new URLSearchParams(window.location.search);
     const nomeProdutoUrl = params.get('nome');
 
-    // Se não houver nome na URL, exibe a mensagem de erro e sai
     if (!nomeProdutoUrl) {
         document.getElementById('productTitle').textContent = "Produto não encontrado.";
         return;
     }
 
-    // 2. Carrega o banco de dados do arquivo JSON
-    fetch('produtos.json')
-        .then(response => {
-            // Verifica se a resposta foi bem-sucedida
-            if (!response.ok) {
-                throw new Error('Erro ao carregar o arquivo de dados. Status: ' + response.status);
+    try {
+        // 2. Carrega o banco de dados do arquivo JSON
+        const res = await fetch("../data/produtos.json");
+        if (!res.ok) {
+            throw new Error("Erro ao carregar o arquivo de dados. Status: " + res.status);
+        }
+        const bancoDeDadosProdutos = await res.json();
+
+        // 3. Busca o produto no banco de dados carregado
+        const produto = bancoDeDadosProdutos.find(p => p.nome === nomeProdutoUrl);
+
+        if (!produto) {
+            document.getElementById('productTitle').textContent = "Produto não encontrado.";
+            return;
+        }
+
+        // 4. SALVA O PRODUTO NA VARIÁVEL GLOBAL
+        window.produtoPage = produto;
+
+        // DISPARE UM EVENTO QUANDO OS DADOS ESTIVEREM PRONTOS
+        document.dispatchEvent(new CustomEvent("produto:carregado", {
+            detail: { produto }
+        }));
+
+        // 5. Preenche os elementos do HTML com os dados do produto
+        document.title = produto.nome;
+        document.getElementById('productTitle').textContent = produto.nome;
+        document.getElementById('productDescription').textContent = produto.descricao;
+        document.getElementById('productPrice').textContent = produto.preco;
+        
+        const mainImage = document.getElementById('mainProductImage');
+        mainImage.src = produto.imgPrincipal;
+        mainImage.alt = produto.nome;
+
+        // 6. Preenche a galeria de miniaturas (thumbs)
+        const thumbnailContainer = document.getElementById('thumbnailContainer');
+        thumbnailContainer.innerHTML = ''; 
+
+        const todasImagens = [produto.imgPrincipal, ...(produto.thumbs || [])];
+
+        todasImagens.forEach((imgSrc, index) => {
+            const thumb = document.createElement('img');
+            thumb.src = imgSrc;
+            thumb.alt = `Thumbnail ${index + 1} de ${produto.nome}`;
+            thumb.classList.add('thumbnail');
+            if (index === 0) {
+                thumb.classList.add('active'); 
             }
-            return response.json();
-        })
-        .then(bancoDeDadosProdutos => {
-            // 3. Busca o produto no banco de dados carregado
-            const produto = bancoDeDadosProdutos.find(p => p.nome === nomeProdutoUrl);
-
-            if (!produto) {
-                document.getElementById('productTitle').textContent = "Produto não encontrado.";
-                return;
-            }
-
-            // 4. Preenche os elementos do HTML com os dados do produto
-            document.title = produto.nome;
-            document.getElementById('productTitle').textContent = produto.nome;
-            document.getElementById('productDescription').textContent = produto.descricao;
-            document.getElementById('productPrice').textContent = produto.preco;
-            
-            const mainImage = document.getElementById('mainProductImage');
-            mainImage.src = produto.imgPrincipal;
-            mainImage.alt = produto.nome;
-
-            // 5. Preenche a galeria de miniaturas (thumbs)
-            const thumbnailContainer = document.getElementById('thumbnailContainer');
-            thumbnailContainer.innerHTML = ''; 
-
-            const todasImagens = [produto.imgPrincipal, ...produto.thumbs];
-
-            todasImagens.forEach((imgSrc, index) => {
-                const thumb = document.createElement('img');
-                thumb.src = imgSrc;
-                thumb.alt = `Thumbnail ${index + 1} de ${produto.nome}`;
-                thumb.classList.add('thumbnail');
-                if (index === 0) {
-                    thumb.classList.add('active'); 
-                }
-                thumbnailContainer.appendChild(thumb);
-            });
-
-            // 6. Ativa a funcionalidade de clique nas miniaturas
-            ativarFuncionalidadeGaleria();
-            ativarButtonMiniaturas();
-        })
-        .catch(error => {
-            // Exibe o erro no console para depuração
-            console.error('Erro:', error);
-            document.getElementById('productTitle').textContent = "Erro ao carregar os dados do produto.";
+            thumbnailContainer.appendChild(thumb);
         });
+
+        // 7. Ativa a funcionalidade de clique nas miniaturas
+        ativarFuncionalidadeGaleria();
+        ativarButtonMiniaturas();
+
+    } catch (error) {
+        console.error("Erro:", error);
+        document.getElementById('productTitle').textContent = "Erro ao carregar os dados do produto.";
+    }
 });
 
+// --- CONTROLE DOS BOTÕES DE NAVEGAÇÃO DAS MINIATURAS ---
 function ativarButtonMiniaturas() {
     const prevBtn = document.getElementById('prevBtn-thumb');
     const nextBtn = document.getElementById('nextBtn-thumb');
     const thumbnailContainer = document.getElementById('thumbnailContainer');
 
+    if (!prevBtn || !nextBtn || !thumbnailContainer) return;
+
     prevBtn.addEventListener('click', () => {
         const activeThumb = document.querySelector('.thumbnail.active');
-        const prevThumb = activeThumb.previousElementSibling || thumbnailContainer.lastElementChild;
-        prevThumb.click();
+        const prevThumb = activeThumb?.previousElementSibling || thumbnailContainer.lastElementChild;
+        prevThumb?.click();
     });
 
     nextBtn.addEventListener('click', () => {
         const activeThumb = document.querySelector('.thumbnail.active');
-        const nextThumb = activeThumb.nextElementSibling || thumbnailContainer.firstElementChild;
-        nextThumb.click();
+        const nextThumb = activeThumb?.nextElementSibling || thumbnailContainer.firstElementChild;
+        nextThumb?.click();
     });
 }

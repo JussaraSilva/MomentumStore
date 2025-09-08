@@ -38,6 +38,7 @@
     background-color: var(--secondary-color);
 }
 
+
 .item-carrinho {
     position: relative;
     display: grid;
@@ -128,14 +129,14 @@
     font-weight: 500;
 }
 
-#quantity {
+.quantity {
     width: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-color: rgb(233, 236, 238);
-    padding: 0.7rem;
+    padding: 0.75rem;
     border: 1px solid var(--color-light);
     font-size: 1rem;
     font-weight: 500;
@@ -269,4 +270,181 @@ input[type=number] {
 .adicionais-compra h2 {
     margin-bottom: var(--spacing-xs);
     text-align: center;
+}
+
+.subtotal-labelMobile,
+    .preco-labelMobile {
+        display: none; /* Esconde os rótulos de mobile */
+    }
+
+
+
+
+/* Media Query */
+
+
+/* Tablet */
+
+/* Media Query para telas de 769px a 1024px (Tablets) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    
+    .grid-carrinho {
+        grid-template-columns: 1fr; /* Volta para 2 colunas */
+        gap: var(--spacing-md);
+    }
+
+    .carrinho-left {
+        padding: var(--spacing-md);
+    }
+    
+    .barratitulos-carrinho {
+        display: grid; /* Mostra a barra de títulos novamente */
+        grid-template-columns: 2fr 1fr 1fr 1fr; /* Reajusta as colunas da barra de títulos */
+        padding: var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+
+    .item-carrinho {
+        display: grid; /* Volta para o layout de grade */
+        grid-template-columns: 2fr 1fr 1fr 1fr; /* Reajusta as colunas dos itens */
+        align-items: center;
+        padding: var(--spacing-sm);
+        gap: var(--spacing-xs);
+    }
+
+    .info-produto {
+        flex-direction: row; /* Volta a imagem e os detalhes para a mesma linha */
+    }
+
+    .imagem-item {
+        width: 8rem; /* Reduz o tamanho da imagem */
+        max-width: none;
+    }
+
+    .details-produto .nome-item a {
+        font-size: var(--font-size-md); /* Ajusta o tamanho da fonte */
+    }
+
+    .preco-item,
+    .quantidade-item,
+    .subtotal-produto {
+        justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    }
+
+    .subtotal-produto {
+        display: block; /* Remove o display flex quebrava a linha no mobile */
+        white-space: nowrap; /* Garante que o texto não quebre */
+    }
+
+    .subtotal-labelMobile,
+    .preco-labelMobile {
+        display: none; /* Esconde os rótulos de mobile */
+    }
+
+    .excluir-item {
+        position: absolute;
+        top: 20%; 
+        right: 0.1rem;
+        transform: translateY(-20%);
+    }
+    
+}
+/* Media Query para telas menores que 768px (smartphones e tablets) */
+@media screen and (max-width: 768px) {
+
+    .titulo-carrinho {
+        font-size: var(--font-size-md);
+    }
+
+    .container-carrinho {
+        padding: 0;
+    }
+    
+    .grid-carrinho {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .barratitulos-carrinho {
+        display: none !important; /* Esconde a barra de títulos em dispositivos menores */
+    }
+
+    .item-carrinho {
+        display: flex; /* Altera para layout flex */
+        flex-direction: column; /* Empilha os itens verticalmente */
+        align-items: center; /* Centraliza os itens */
+        text-align: center; /* Centraliza o texto */
+        padding: var(--spacing-md);
+        border: 1px solid var(--color-light); /* Adiciona uma borda para separar os itens */
+        margin-bottom: var(--spacing-md);
+        position: relative;
+    }
+
+    .info-produto {
+        flex-direction: column; /* Empilha a imagem e os detalhes do produto */
+        align-items: center;
+        text-align: center;
+    }
+    
+    .imagem-item {
+        width: 100%; /* A imagem ocupa 100% da largura do contêiner */
+        max-width: 150px; /* Limita o tamanho máximo da imagem para evitar que fique muito grande */
+        height: auto;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .details-produto {
+        gap: 0.5rem; /* Ajusta o espaçamento */
+    }
+    
+    .details-produto .nome-item a {
+        font-size: 1.2rem; /* Aumenta a fonte para melhor leitura */
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .preco-item,
+    .quantidade-item,
+    .subtotal-produto {
+        width: 100%; /* Garante que os contêineres ocupem a largura total */
+        justify-content: center; /* Centraliza o conteúdo horizontalmente */
+        margin: var(--spacing-xs) 0;
+    }
+
+    .subtotal-produto {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        font-weight: var(--weight-bold);
+    }
+    
+    /* Nova regra para evitar a quebra de linha */
+    .no-wrap {
+        white-space: nowrap;
+    }
+
+    /* Estilos para os rótulos */
+    .preco-labelMobile,
+    .subtotal-labelMobile {
+        font-weight: var(--weight-semibold);
+        margin-right: var(--spacing-xs); /* Adiciona espaço entre o rótulo e o valor */
+    }
+
+    .quantidade-input {
+        flex-grow: 1; /* Permite que o seletor de quantidade se expanda */
+        justify-content: center; /* Centraliza os botões e o input */
+    }
+
+    .quantidade-item {
+        margin-top: var(--spacing-sm);
+    }
+
+    .excluir-item {
+        position: static; /* Remove o posicionamento absoluto */
+        margin-top: var(--spacing-sm);
+    }
+
+    .carrinho-right {
+        margin-top: var(--spacing-md); /* Adiciona espaço entre o carrinho e o resumo */
+    }
 }

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!--- Folha de estilo padrão -->
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!----- Folha de Estilo Inidividual-->
+
+    <link rel="stylesheet" href="../css/checkout.css" />
+
+    <!----- Bootstrap Icons 1.13.1-->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+    <!----- Icon Material Icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!----- Font Awesome 7.0-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!---- Fontes Google Fonts ------>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sora:wght@300;400;600;700&display=swap"
+        rel="stylesheet" />
+
+    <title>Momentum Store - Finalizar Compra</title>
+</head>
+
+<body>
+    <!------------------ Header  ---------------------->
+    <header>
+        <div class="container-header">
+            <div class="logo">
+                <img src="../assets/images/logo/dourada-fundo-transparente.webp" alt="Logo Momentum Store" />
+            </div>
+
+            <div class="hamburger" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-header">
+                <nav class="menu">
+                    <!-- Adicionado um ID para facilitar a manipulação com JavaScript -->
+                    <ul id="menu-list">
+                        <!-- 'active' class adicionada para o estado inicial -->
+                        <!-- Adicionado 'aria-current="page"' para acessibilidade -->
+                        <li class="active">
+                            <i class="bi bi-house-door-fill"></i>
+                            <a href="/index.html" aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-smartwatch"></i>
+                            <a href="./catalogo.html">Catálogo</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-chat-square-dots"></i>
+                            <a href="./contato.html">Contato</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="search">
+                    <input type="text" placeholder="buscar relógios..." />
+                    <button type="submit"><i class="bi bi-search"></i></button>
+                </div>
+                <div class="cart">
+                    <a href="./carrinho.html"><i class="bi bi-cart-fill"></i></a>
+                    <span class="cart-count"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!------------------ Main  - Finalizar Compra ---------------------->
+    <main class="main-checkout">
+        <div class="container-checkout">
+            <div class="checkout-grid">
+                <div class="checkout-form">
+                    <h2 class="titulo-secao">Finalizar Compra</h2>
+                    <form action="" class="checkout-info">
+                        <!-- Campo para o nome completo -->
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" placeholder="Digite seu nome completo" />
+
+                        <!-- Campo para o e-mail -->
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" />
+
+                        <!-- Campo para o telefone -->
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Digite seu telefone" />
+
+                        <!-- Campo para a rua -->
+                        <label for="rua">Rua:</label>
+                        <input type="text" id="rua" name="rua" required>
+
+                        <!-- Campo para a cidade -->
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade" name="cidade" required>
+
+                        <!-- Campo para o código postal -->
+                        <label for="cep">Código Postal:</label>
+                        <input type="text" id="cep" name="cep" required>
+
+                        <!-- Botão para salvar informações do endereço -->
+                        
+                        <button class="btn btn-formCheckout" type="submit">Salvar Informações</button>
+                    </form>
+
+                    <div class="checkout-payment-info">
+                        <h2 class="titulo-secao">Informações de Pagamento</h2>
+                        <div class="payment-methods">
+                            <div class="payment-method">
+                                <input type="radio" id="credito" name="payment-method" value="credito">
+                                <label for="credito">Cartão de Crédito</label>
+
+                                <div class="payment-fields" id="credito-fields">
+                                    <div class="form-group">
+                                        <label for="credito-numero">Número do Cartão</label>
+                                        <input type="text" id="credito-numero" name="credito_numero"
+                                            placeholder="0000 0000 0000 0000" maxlength="19">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="credito-banderia">Bandeira do Cartão</label>
+                                        <select id="credito-bandeira" name="credito_bandeira">
+                                            <option value="">Selecione a bandeira</option>
+                                            <option value="visa">Visa</option>
+                                            <option value="mastercard">Mastercard</option>
+                                            <option value="amex">American Express</option>
+                                            <option value="elo">Elo</option>
+                                            <option value="hipercard">Hipercard</option>
+                                            <option value="diners">Diners Club</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="credito-titular">Nome do Titular</label>
+                                        <input type="text" id="credito-titular" name="credito_titular"
+                                            placeholder="Como está no cartão">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="credito-validade">Validade</label>
+                                        <input type="text" id="credito-validade" name="credito_validade"
+                                            placeholder="MM/AA" maxlength="5">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="credito-cvv">CVV</label>
+                                        <input type="text" id="credito-cvv" name="credito_cvv" placeholder="123"
+                                            maxlength="3">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="credito-parcelas">Parcelas</label>
+                                        <select id="credito-parcelas" name="credito_parcelas">
+                                            <option value="1">1x sem juros</option>
+                                            <option value="2">2x sem juros</option>
+                                            <option value="3">3x sem juros</option>
+                                            <option value="4">4x sem juros</option>
+                                            <option value="5">5x sem juros</option>
+                                            <option value="6">6x sem juros</option>
+                                            <option value="7">7x com juros</option>
+                                            <option value="8">8x com juros</option>
+                                            <option value="9">9x com juros</option>
+                                            <option value="10">10x com juros</option>
+                                            <option value="11">11x com juros</option>
+                                            <option value="12">12x com juros</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="payment-method">
+                                <input type="radio" id="debito" name="payment-method" value="debito">
+                                <label for="debito">Cartão de Débito</label>
+
+                                <div class="payment-fields" id="debito-fields">
+                                    <div class="form-group">
+                                        <label for="debito-numero">Número do Cartão</label>
+                                        <input type="text" id="debito-numero" name="debito_numero"
+                                            placeholder="0000 0000 0000 0000" maxlength="19">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="debito-titular">Nome do Titular</label>
+                                        <input type="text" id="debito-titular" name="debito_titular"
+                                            placeholder="Como está no cartão">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="debito-validade">Validade</label>
+                                        <input type="text" id="debito-validade" name="debito_validade"
+                                            placeholder="MM/AA" maxlength="5">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="debito-cvv">CVV</label>
+                                        <input type="text" id="debito-cvv" name="debito_cvv" placeholder="123"
+                                            maxlength="3">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="debito-banco">Banco Emissor</label>
+                                        <select id="debito-banco" name="debito_banco">
+                                            <option value="">Selecione seu banco</option>
+                                            <option value="itau">Itaú</option>
+                                            <option value="bradesco">Bradesco</option>
+                                            <option value="santander">Santander</option>
+                                            <option value="bb">Banco do Brasil</option>
+                                            <option value="caixa">Caixa Econômica</option>
+                                            <option value="nubank">Nubank</option>
+                                            <option value="inter">Inter</option>
+                                            <option value="outro">Outro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="payment-method">
+                                <input type="radio" id="pix" name="payment-method" value="pix">
+                                <label for="pix">Pix</label>
+
+                                <div class="payment-fields" id="pix-fields">
+                                    <div class="pix-info">
+                                        <p>Ao confirmar sua compra, será gerado um QR Code e um código Pix para
+                                            pagamento.</p>
+                                        <p>O prazo de confirmação é de até 30 minutos.</p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pix-tipo">Tipo de Chave Pix</label>
+                                        <select id="pix-tipo" name="pix_tipo">
+                                            <option value="">Selecione o tipo de chave</option>
+                                            <option value="cpf">CPF</option>
+                                            <option value="cnpj">CNPJ</option>
+                                            <option value="email">E-mail</option>
+                                            <option value="telefone">Telefone</option>
+                                            <option value="aleatoria">Chave Aleatória</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group" id="pix-chave-container">
+                                        <label for="pix-chave">Sua Chave Pix</label>
+                                        <input type="text" id="pix-chave" name="pix_chave"
+                                            placeholder="Informe sua chave Pix">
+                                    </div>
+
+                                    <div class="pix-benefits">
+                                        <h4>Vantagens do Pix:</h4>
+                                        <ul>
+                                            <li>Pagamento instantâneo</li>
+                                            <li>Sem taxas adicionais</li>
+                                            <li>Confirmado em até 30 minutos</li>
+                                            <li>Máxima segurança</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="checkout-resumo">
+                        <h2>Resumo do Pedido</h2>
+        
+                        <div class="resumo-items">
+                            <div class="resumo-item">
+                                <div class="item-image">
+                                    <img src="caminho/para/imagem-produto1.jpg" alt="Nome do Produto 1">
+                                </div>
+                                <div class="item-details">
+                                    <h3 class="item-name">Nome do Produto 1</h3>
+                                    <p class="item-price">R$ 99,90</p>
+                                    <div class="item-quantity">
+                                        <span>Quantidade: 2</span>
+                                    </div>
+                                </div>
+                                <div class="item-subtotal">
+                                    <p>R$ 199,80</p>
+                                </div>
+                            </div>
+                            
+                            <div class="resumo-item">
+                                <div class="item-image">
+                                    <img src="caminho/para/imagem-produto2.jpg" alt="Nome do Produto 2">
+                                </div>
+                                <div class="item-details">
+                                    <h3 class="item-name">Nome do Produto 2</h3>
+                                    <p class="item-price">R$ 49,90</p>
+                                    <div class="item-quantity">
+                                        <span>Quantidade: 1</span>
+                                    </div>
+                                </div>
+                                <div class="item-subtotal">
+                                    <p>R$ 49,90</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="resumo-totals">
+                            <div class="resumo-row">
+                                <span>Subtotal</span>
+                                <span>R$ 249,70</span>
+                            </div>
+                            <div class="resumo-row">
+                                <span>Frete</span>
+                                <span>R$ 15,90</span>
+                            </div>
+                            <div class="resumo-row discount">
+                                <span>Desconto</span>
+                                <span>- R$ 20,00</span>
+                            </div>
+                            <div class="resumo-row total">
+                                <strong>Total</strong>
+                                <strong>R$ 245,60</strong>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!------------------ Footer  ---------------------->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="./assets/images/logo/branco-no-transparente.webp" alt="Logo Momentum Store" />
+            </div>
+
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="#">Termos de Uso</a></li>
+                <li><a href="#">Devoluções e Trocas</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2026 Momentum Store. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!------------------ Script JS  ---------------------->
+    <script src="../js/carrinho.js"></script>
+    <script src="../js/carrinho-utils.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

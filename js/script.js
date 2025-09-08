@@ -61,4 +61,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+function atualizarContadorHeader() {
+  const cartCount = document.querySelector('.cart-count');
+  if (!cartCount) return;
+
+  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  const totalItens = carrinho.reduce((total, produto) => total + (produto.quantidade || 1), 0);
+  
+  cartCount.textContent = totalItens > 0 ? totalItens : '';
+  cartCount.style.display = totalItens > 0 ? 'flex' : 'none';
+}
+
+// Chama a função quando o carrinho é atualizado
+document.addEventListener('carrinho:updated', atualizarContadorHeader);
+
+// Chama também quando a página carrega
+document.addEventListener('DOMContentLoaded', atualizarContadorHeader);
+
+// Exporta a função
+window.atualizarContadorHeader = atualizarContadorHeader;
+
 

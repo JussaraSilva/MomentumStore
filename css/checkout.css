@@ -1,0 +1,82 @@
+.main-checkout {
+    margin-top: 7rem;
+}
+
+.container-checkout {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1000px;
+    gap: 2rem;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.checkout-form {
+    background-color: var(--background-secondary-dark);
+    color: var(--tertiary-color);
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 20px rgba(54, 54, 54, 0.822);
+    border-radius: var(--border-radius);
+}
+
+.titulo-secao {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xs);
+}
+
+.checkout-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--tertiary-color);
+    padding: var(--spacing-lg);
+    
+    border-radius: var(--border-radius);
+}
+
+.checkout-info label {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+.checkout-info input {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    box-shadow: 0 2px 15px rgba(8, 1, 1, 0.884);
+    background-color: var(--background-color);
+    color: var(--text-dark);
+}
+
+.checkout-info input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.checkout-info button {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    font-weight: var(--weight-semibold);
+    transition: background-color var(--transition-speed);
+}
+
+.checkout-info button:hover {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    transition: background-color var(--transition-speed);
+}

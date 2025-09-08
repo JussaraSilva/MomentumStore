@@ -10,19 +10,24 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // 1️⃣ Carrega produtos do JSON
-  const res = await fetch("catalogo.json");
+  const res = await fetch("../data/catalogo.json"); // ✅ certo // 🔴 Confere se é esse mesmo arquivo ou se tem que ser produtos.json
   const produtos = await res.json();
 
   // 2️⃣ Injeta produtos no DOM
   produtos.forEach(produto => {
+    const urlProduto = `produto_page.html?nome=${encodeURIComponent(produto.nome)}`;
     const produtoHTML = `
-      <article class="produto-catalogo ${produto.marca || ""} ${produto.estilo || ""}" data-id="${produto.id}">
+      <article class="produto-catalogo ${produto.marca || ""} ${produto.estilo || ""}" data-id="${produto.id}" data-preco="${produto.preco}">
         <img src="/assets/images/icons/selo-de-autencidade.webp" alt="Selo de Garantia" class="selo-garantia">
         <div class="product-img-container">
-          <img src="${produto.img}" alt="${produto.nome}" class="img-principal">
+          <a href="${urlProduto}">
+            <img src="${produto.img}" alt="${produto.nome}" class="img-principal">
+          </a>
         </div>
         <div class="product-information">
-          <h3>${produto.nome}</h3>
+          <h3>
+            <a href="${urlProduto}">${produto.nome}</a>
+          </h3>
           <p class="preco">R$ ${produto.preco.toLocaleString('pt-BR')}</p>
           <button class="btn-comprar" data-id="${produto.id}">
             <i class="bi bi-bag-check"></i> Adicionar ao Carrinho
@@ -37,6 +42,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   initFiltros();
   initOverlay();
 });
+
+
+
 
 function initFiltros() {
   const filtros   = document.querySelector(".filtro-lateral");
