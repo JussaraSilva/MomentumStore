@@ -5,7 +5,7 @@
 .container-checkout {
     display: flex;
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: 1200px;
     gap: 2rem;
     padding: 2rem;
     flex-wrap: wrap;
@@ -13,7 +13,7 @@
 
 .checkout-grid {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 6fr 2fr;
     gap: var(--spacing-md);
 }
 
@@ -27,7 +27,7 @@
 
 .titulo-secao {
     font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-xs);
+    
 }
 
 .checkout-info {
@@ -36,7 +36,7 @@
     gap: 0.5rem;
     color: var(--tertiary-color);
     padding: var(--spacing-lg);
-    
+    background-color: var(--background-secondary-dark);
     border-radius: var(--border-radius);
 }
 
@@ -76,7 +76,277 @@
 }
 
 .checkout-info button:hover {
-    background-color: var(--primary-color);
+    background-color: var(--cor-breitling);
     color: var(--tertiary-color);
     transition: background-color var(--transition-speed);
 }
+
+
+/* Estilos de informações de pagamento */
+
+/* Checkout Section */
+
+/* Container de Informações de Pagamento */
+.checkout-payment-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    color: var(--tertiary-color);
+    font-family: var(--font-body);
+}
+
+/* Título de Seção (Compartilhado entre as seções) */
+
+
+/* Seleção de Métodos de Pagamento */
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* O card de seleção do método de pagamento */
+.payment-method {
+    border: 1px solid var(--color-light);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    padding: var(--spacing-sm); /* Adicionado o padding aqui para englobar toda a opção */
+}
+
+/* Estado de hover */
+.payment-method:hover {
+    border-color: var(--secondary-color);
+    box-shadow: var(--sombra-card);
+}
+
+/* Estado de seleção do card pai com base no radio button */
+
+
+/* A opção interna que contém o input e a label */
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--tertiary-color);
+    font-size: var(--font-size-md);
+    transition: color var(--transition-speed);
+}
+
+/* Estilizando a label da opção selecionada */
+
+
+.payment-method input[type="radio"] {
+    display: none;
+}
+
+/* Campos do Formulário de Pagamento */
+.payment-fields {
+    display: none;
+    padding-top: var(--spacing-sm);
+    border-top: 1px dashed var(--color-light);
+    margin-top: var(--spacing-sm);
+}
+
+/* Mostra os campos quando o radio button dentro de .payment-method está selecionado */
+.payment-method:has(input[type="radio"]:checked) .payment-fields {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-group label {
+    font-size: var(--font-size-md);
+    color: var(--tertiary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Inputs de Texto e Select */
+.payment-fields input,
+.payment-fields select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    background-color: var(--background-color);
+    color: var(--text-dark);
+    box-shadow: 0 2px 15px rgba(8, 1, 1, 0.884);
+}
+
+.payment-fields input:focus,
+.payment-fields select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--secondary-color), 0 2px 15px rgba(8, 1, 1, 0.884);
+}
+
+/* Estilos específicos para a seção Pix */
+.pix-info {
+    background-color: var(--background-color);
+    border: 1px solid var(--color-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+    color: var(--text-dark);
+}
+
+.pix-benefits h4 {
+    color: var(--text-light);
+    font-weight: var(--weight-bold);
+    margin-top: 0;
+}
+
+.pix-benefits li {
+    color: var(--text-light);
+}
+
+/* Icone de check para a lista do Pix */
+.pix-benefits li::before {
+    content: '✓';
+    color: var(--secondary-color);
+    font-weight: var(--weight-bold);
+    margin-right: 0.5rem;
+}
+
+/* INTENSIFICA o estilo da opção selecionada */
+
+/* VERSÃO ELEGANTE E DISCRETA */
+.payment-method:has(input[type="radio"]:checked) {
+    border: 2px solid var(--secondary-color) !important;
+    background-color: rgba(26, 26, 26, 0.98) !important;
+    box-shadow: 
+        0 5px 20px rgba(192, 178, 131, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.payment-method:has(input[type="radio"]:checked) .payment-option {
+    color: var(--secondary-color) !important;
+    letter-spacing: 0.5px;
+}
+
+.payment-method:has(input[type="radio"]:checked) .payment-option::before {
+    content: '•';
+    color: var(--secondary-color);
+    font-size: 1.8em;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+
+
+/* Resumo do Pedido */
+
+.checkout-resumo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-light);
+    border-radius: var(--border-radius);
+    background-color: var(--background-secondary-dark);
+    box-shadow: var(--sombra-card);
+}
+
+.checkout-resumo h2 {
+    color: var(--tertiary-color);
+    text-align: center;
+    margin-bottom: var(--spacing-xs);
+}
+
+.resumo-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.resumo-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-light);
+}
+
+.header-produto {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-xs);
+}
+
+.item-image {
+    width: 100px;
+    height: 100px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: var(--background-color);
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    color: var(--text-light);
+}
+
+.item-details .item-name {
+    font-size: var(--font-size-md);
+    font-weight: var(--weight-semibold);
+    color: var(--text-light);
+}
+
+
+.item-image {
+    width: 200px;
+    height: 100px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: var(--background-color);
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.item-subtotal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-md);
+    font-weight: var(--weight-semibold);
+    color: var(--text-light);
+}
+
+/* Valores totais do resumo do pedido */
+
+.resumo-totals {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    box-shadow: var(--sombra-card);
+    color: var(--text-light);
+}
+
+
+
+
+
+
