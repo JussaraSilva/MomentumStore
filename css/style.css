@@ -148,6 +148,14 @@
   --sombra-card: 0 10px 30px rgba(0, 0, 0, 0.1);
 
   --sombra-card-hover: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+
+
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --color-warning: #d4b116;
+  --color-info: #17a2b8;
+
 }
 
 * {

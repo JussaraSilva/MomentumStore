@@ -5,6 +5,7 @@ function inicializarCarrinho() {
   const barratitulos = document.querySelector(".barratitulos-carrinho");
   const resumoSubtotal = document.getElementById("preco-subtotal");
   const resumoTotal = document.getElementById("preco-total");
+  const btnFinalizar = document.getElementById("btn-finalizarCompra"); // <- pega aqui dentro
 
   let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
@@ -23,11 +24,10 @@ function inicializarCarrinho() {
       return;
     }
     
-    itensContainer.innerHTML = ""; // limpa apenas os itens
+    itensContainer.innerHTML = "";
     let subtotal = 0;
 
     if (carrinho.length === 0) {
-      // Carrinho vazio: mostra mensagem, esconde barra de títulos
       carrinhoVazioMsg.style.display = "block";
       barratitulos.style.display = "none";
       resumoSubtotal.textContent = "R$ 0,00";
@@ -35,7 +35,6 @@ function inicializarCarrinho() {
       return;
     }
 
-    // Carrinho com produtos: esconde mensagem, mostra barra de títulos
     carrinhoVazioMsg.style.display = "none";
     barratitulos.style.display = "grid";
 
@@ -58,27 +57,25 @@ function inicializarCarrinho() {
           </div>
         </div>
 
-        
-            <div class="preco-item">
-              <span class="preco-labelMobile">Preço: </span>
-              <span>R$${produto.preco.toLocaleString("pt-BR", {minimumFractionDigits: 2})}</span>
-            </div>
+        <div class="preco-item">
+          <span class="preco-labelMobile">Preço: </span>
+          <span>R$${produto.preco.toLocaleString("pt-BR", {minimumFractionDigits: 2})}</span>
+        </div>
 
-            <div class="quantidade-item">
-              <div class="quantidade-seletor">
-                <div class="quantidade-input">
-                  <button class="aumentar-item">+</button>
-                  <input type="number" class="quantity" value="${produto.quantidade}" min="1">
-                  <button class="diminuir-item">-</button>
-                </div>
-              </div>
+        <div class="quantidade-item">
+          <div class="quantidade-seletor">
+            <div class="quantidade-input">
+              <button class="aumentar-item">+</button>
+              <input type="number" class="quantity" value="${produto.quantidade}" min="1">
+              <button class="diminuir-item">-</button>
             </div>
+          </div>
+        </div>
 
-              <div class="subtotal-produto">
-                <span class="subtotal-labelMobile">Subtotal: </span>
-                <span class="no-wrap">R$ ${(produto.preco * produto.quantidade).toLocaleString("pt-BR", {minimumFractionDigits: 2})}</span>
-              </div>
-        
+        <div class="subtotal-produto">
+          <span class="subtotal-labelMobile">Subtotal: </span>
+          <span class="no-wrap">R$ ${(produto.preco * produto.quantidade).toLocaleString("pt-BR", {minimumFractionDigits: 2})}</span>
+        </div>
 
         <div class="excluir-item">
           <i class="bi bi-trash3-fill"></i>
@@ -118,24 +115,34 @@ function inicializarCarrinho() {
       itensContainer.appendChild(item);
     });
 
-    // Atualiza resumo
     resumoSubtotal.textContent = `R$ ${subtotal.toLocaleString("pt-BR", {minimumFractionDigits: 2})}`;
     resumoTotal.textContent = `R$ ${subtotal.toLocaleString("pt-BR", {minimumFractionDigits: 2})}`;
   }
 
-  // Renderiza o carrinho quando a página carrega
   renderCarrinho();
 
-  // Escuta por atualizações
+  // Botão de finalizar compra com verificação de carrinho vazio
+  if (btnFinalizar) {
+    btnFinalizar.addEventListener("click", () => {
+      if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio. Adicione itens antes de finalizar a compra.");
+        return;
+      }
+      window.location.href = "checkout.html";
+    });
+  }
+
   document.addEventListener('carrinho:updated', (e) => {
     carrinho = e.detail.carrinho || JSON.parse(localStorage.getItem("carrinho")) || [];
     renderCarrinho();
   });
 }
 
-// Inicializa quando o DOM estiver pronto
+// Inicializa
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', inicializarCarrinho);
 } else {
   inicializarCarrinho();
 }
+
+

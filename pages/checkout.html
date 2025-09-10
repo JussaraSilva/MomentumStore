@@ -87,7 +87,8 @@
             <div class="checkout-grid">
                 <div class="checkout-form">
                     <h2 class="titulo-secao">Finalizar Compra</h2>
-                    <form action class="checkout-info">
+                    
+                    <form action="" class="checkout-info">
                         <h2>Informações de Entrega</h2>
                         <!-- Campo para o nome completo -->
                         <label for="name">Nome Completo</label>
@@ -115,18 +116,17 @@
 
                         <!-- Botão para salvar informações do endereço -->
 
-                        <button class="btn btn-formCheckout" type="submit">
-                            Salvar Informações
-                        </button>
+                        
                     </form>
 
                     <div class="checkout-payment-info">
-                        <h2 class="titulo-secao">Informações de
-                            Pagamento</h2>
+                        <h2 class="titulo-secao">Informações de Pagamento</h2>
+                        <p>Escolha a forma de pagamento de sua preferência:</p>
+
                         <div class="payment-methods">
                             <div class="payment-method">
                                 <label for="pagamento-credito">
-                                    <input type="radio" id="pagamento-credito" name="payment-method" value="credito" checked>
+                                    <input type="radio" id="pagamento-credito" name="payment-method" value="credito">
                                     Cartão de Crédito
                                 </label>                                
                                 <div class="payment-fields" id="credito-fields">
@@ -312,73 +312,42 @@
                                 </div>
                             </div>
                         </div>
+                        <button class="btn btn-formCheckout" type="submit">
+                            Salvar Informações
+                        </button>
                     </div>
                 </div>
 
                 <div class="checkout-resumo">
                     <h2>Resumo do Pedido</h2>
 
-                    <div class="resumo-items">
-                        <div class="resumo-item">
-                            <div class="header-produto">
-                                <div class="item-image">
-                                    <img src="../assets/images/logo-marcas/logo-breitling.webp" alt="Nome do Produto 1" />
-                                </div>
-                                <div class="item-details">
-                                    <h3 class="item-name">Audemars Piguet Royal Oak Offshore Diver</h3>
-                                    <strong class="containerPrice-item">Preço: <span class="item-price">R$99,90</span></strong>
-                                    <div class="item-quantity">
-                                        <span>Quantidade: 2</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="item-subtotal">
-                                <span class="legenda-item">Subtotal:</span>
-                                <p>R$ 199,80</p>
-                            </div>
-                        </div>
+                    <div class="resumo-items" id="resumo-checkout"></div>
 
-                        <div class="resumo-item">
-                            <div class="header-produto">
-                                <div class="item-image">
-                                    <img src="../assets/images/logo-marcas/logo-breitling.webp" alt="Nome do Produto 1" />
-                                </div>
-                                <div class="item-details">
-                                    <h3 class="item-name">Audemars Piguet Royal Oak Offshore Diver</h3>
-                                    <strong class="containerPrice-item">Preço: <span class="item-price">R$99,90</span></strong>
-                                    <div class="item-quantity">
-                                        <span>Quantidade: 2</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="item-subtotal">
-                                <span class="legenda-item">Subtotal:</span>
-                                <p>R$ 199,80</p>
-                            </div>
-                        </div>
+                    <div class="container-editarCart">
+                        <a href="carrinho.html">Editar Carrinho</a>
                     </div>
 
-                    <div class="resumo-totals">
-                        <div class="resumo-row">
-                            <span>Subtotal</span>
-                            <span>R$ 249,70</span>
+                    <div class="resumo-totals" id="resumo-checkout-totals">
+                        <div class="resumo-row subtotal">
+                            <span>Subtotal:</span>
+                            <span id="resumo-subtotal">R$ 0,00</span>
                         </div>
-                        <div class="resumo-row">
-                            <span>Frete</span>
-                            <span>R$ 15,90</span>
-                        </div>
-                        <div class="resumo-row discount">
-                            <span>Desconto</span>
-                            <span>- R$ 20,00</span>
+                        <div class="resumo-row frete">
+                            <span>Frete:</span>
+                            <span id="resumo-frete">R$ 0,00</span>
                         </div>
                         <div class="resumo-row total">
-                            <strong>Total</strong>
-                            <strong>R$ 245,60</strong>
+                            <strong>Total:</strong>
+                            <strong id="resumo-total">R$ 0,00</strong>
                         </div>
                     </div>
+
+                    <div class="checkout-finalizar">
+                        <button class="btn finalizarCompra" type="button" id="btn-finalizarCompra">Finalizar Compra</button>
+                    </div>
                 </div>
+
+                
             </div>
         </div>
     </main>

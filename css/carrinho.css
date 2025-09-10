@@ -179,7 +179,6 @@ input[type=number] {
     display: flex;
     height: 100%;
     flex-direction: column;
-    justify-content: space-between;
     gap: var(--spacing-md);
     background-color: var(--background-secondary-dark);
     color: var(--tertiary-color);
