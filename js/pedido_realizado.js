@@ -1,231 +1,190 @@
-// pedido_realizado.js
-document.addEventListener('DOMContentLoaded', () => {
-
-    // ----------------------------------------------------
-    // 1. CARREGAR DADOS DO LOCALSTORAGE
-    // ----------------------------------------------------
-    const dadosPessoais = JSON.parse(localStorage.getItem('dadosPessoais'));
-    const dadosPagamento = JSON.parse(localStorage.getItem('dadosPagamento'));
-    const carrinho = JSON.parse(localStorage.getItem('carrinho'));
-
-    // ----------------------------------------------------
-    // 2. PREENCHER INFORMAÇÕES PESSOAIS E DE PAGAMENTO
-    // ----------------------------------------------------
-    if (dadosPessoais) {
-        document.getElementById('nome-form').textContent = dadosPessoais.nome;
-        document.getElementById('email-form').textContent = dadosPessoais.email;
-        document.getElementById('endereco-form').textContent = `${dadosPessoais.rua}, ${dadosPessoais.cidade}, ${dadosPessoais.cep}`;
-        document.getElementById('telefone-form').textContent = dadosPessoais.telefone;
-        document.getElementById('enderecoEntrega-form').textContent = `${dadosPessoais.rua}, ${dadosPessoais.cidade}, ${dadosPessoais.cep}`;
-    }
-
-    if (dadosPagamento) {
-        let textoPagamento = '';
-        let detalhesPagamento = '';
-
-        if (dadosPagamento.metodo === 'credito') {
-            textoPagamento = 'Cartão de Crédito';
-            const numCartao = dadosPagamento.detalhes.numero;
-            const ultimosDigitos = numCartao.slice(-4);
-            detalhesPagamento = `**** **** **** ${ultimosDigitos}`;
-
-            document.getElementById('validade-form').textContent = dadosPagamento.detalhes.validade;
-            document.getElementById('cvv-form').textContent = dadosPagamento.detalhes.cvv;
-        } else if (dadosPagamento.metodo === 'debito') {
-            textoPagamento = 'Cartão de Débito';
-            const numCartao = dadosPagamento.detalhes.numero;
-            const ultimosDigitos = numCartao.slice(-4);
-            detalhesPagamento = `**** **** **** ${ultimosDigitos}`;
-
-            document.getElementById('validade-form').textContent = dadosPagamento.detalhes.validade;
-            document.getElementById('cvv-form').textContent = dadosPagamento.detalhes.cvv;
-        } else if (dadosPagamento.metodo === 'pix') {
-            textoPagamento = 'PIX';
-            detalhesPagamento = `Chave ${dadosPagamento.detalhes.tipo}: ${dadosPagamento.detalhes.chave}`;
-
-            const validadeElement = document.getElementById('validade-form');
-            if (validadeElement) validadeElement.parentElement.style.display = 'none';
-            const cvvElement = document.getElementById('cvv-form');
-            if (cvvElement) cvvElement.parentElement.style.display = 'none';
-        }
-
-        document.getElementById('pagamento-form').textContent = textoPagamento;
-        document.getElementById('cartao-form').textContent = detalhesPagamento;
-    }
-
-    // ----------------------------------------------------
-    // 3. PREENCHER DETALHES DO PEDIDO (CARRINHO)
-    // ----------------------------------------------------
-    const informacoesPedidoContainer = document.querySelector('.informacoes_pedido');
-    const quantidadeItensSpan = informacoesPedidoContainer.querySelector('.quantidade-itens');
-    const subtotalSpan = informacoesPedidoContainer.querySelector('.sub-total span:last-child');
-    const totalSpan = informacoesPedidoContainer.querySelector('.total-pedido .preco-total');
-
-    const primeiroDetalhePedido = informacoesPedidoContainer.querySelector('.detalhes-pedido');
-    if (primeiroDetalhePedido) {
-        primeiroDetalhePedido.innerHTML = '';
-        informacoesPedidoContainer.insertBefore(primeiroDetalhePedido, informacoesPedidoContainer.querySelector('.subtotal-pedido'));
-    }
-
-    let totalItens = 0;
-    let subtotal = 0;
-
-    if (carrinho && carrinho.length > 0) {
-        carrinho.forEach(produto => {
-            const precoProduto = produto.preco * produto.quantidade;
-            subtotal += precoProduto;
-            totalItens += produto.quantidade;
-
-            const produtoHTML = document.createElement('div');
-            produtoHTML.classList.add('detalhes-pedido');
-            produtoHTML.innerHTML = `
-                <div class="imagem-produto">
-                    <img src="${produto.imagem}" alt="Imagem do Produto">
-                </div>
-                <div class="nome_price-produto">
-                    <span>${produto.nome}</span>
-                    <span>Preço: <strong class="preco-produto">R$ ${precoProduto.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</strong></span>
-                </div>
-                <div class="quantidade-produto">
-                    <strong>Qtd: <span class="quantidade-items">${produto.quantidade}</span></strong>
-                </div>
-            `;
-            informacoesPedidoContainer.insertBefore(produtoHTML, informacoesPedidoContainer.querySelector('.subtotal-pedido'));
-        });
-
-        quantidadeItensSpan.textContent = `(${totalItens}) ${totalItens > 1 ? 'itens' : 'item'}`;
-        subtotalSpan.textContent = `R$ ${subtotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
-
-        const frete = 0;
-        const desconto = 0;
-        const totalFinal = subtotal + frete - desconto;
-
-        totalSpan.textContent = `R$ ${totalFinal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
-    } else {
-        quantidadeItensSpan.textContent = '(0) item';
-        const emptyMessage = document.createElement('p');
-        emptyMessage.textContent = 'Nenhum produto encontrado no pedido.';
-        informacoesPedidoContainer.insertBefore(emptyMessage, informacoesPedidoContainer.querySelector('.subtotal-pedido'));
-        subtotalSpan.textContent = 'R$ 0,00';
-        totalSpan.textContent = 'R$ 0,00';
-    }
-
-    // ----------------------------------------------------
-    // 4. LÓGICA DE VALIDAÇÃO E FINALIZAÇÃO
-    // ----------------------------------------------------
-
-    const avisoPessoais = document.querySelector('.confirmacao_pessoais .aviso-erro');
-    const avisoEntrega = document.querySelector('.confirmacao_entrega .aviso-erro');
-    const avisoPagamento = document.querySelector('.confirmacao_pagamento .aviso-erro');
-
-    function validarFormularioCompleto() {
-        let isValid = true;
-
-        // Validação de dados pessoais e de endereço
-        const pessoaisCompletos = dadosPessoais && dadosPessoais.nome && dadosPessoais.email && dadosPessoais.telefone && dadosPessoais.rua && dadosPessoais.cidade && dadosPessoais.cep;
-        if (!pessoaisCompletos) {
-            if (avisoPessoais) avisoPessoais.style.display = 'block';
-            if (avisoEntrega) avisoEntrega.style.display = 'block';
-            isValid = false;
-        } else {
-            if (avisoPessoais) avisoPessoais.style.display = 'none';
-            if (avisoEntrega) avisoEntrega.style.display = 'none';
-        }
-
-        // Validação de dados de pagamento
-        let pagamentoCompleto = false;
-        if (dadosPagamento && dadosPagamento.metodo) {
-            if (dadosPagamento.metodo === 'credito' || dadosPagamento.metodo === 'debito') {
-                pagamentoCompleto = dadosPagamento.detalhes && dadosPagamento.detalhes.numero && dadosPagamento.detalhes.titular && dadosPagamento.detalhes.validade && dadosPagamento.detalhes.cvv;
-            } else if (dadosPagamento.metodo === 'pix') {
-                pagamentoCompleto = dadosPagamento.detalhes && dadosPagamento.detalhes.tipo && dadosPagamento.detalhes.chave;
-            }
-        }
-        if (!pagamentoCompleto) {
-            if (avisoPagamento) avisoPagamento.style.display = 'block';
-            isValid = false;
-        } else {
-            if (avisoPagamento) avisoPagamento.style.display = 'none';
+document.addEventListener('DOMContentLoaded', function () {
+    // -------------------------
+    // 1) PREENCHER DADOS DO PEDIDO REALIZADO
+    // -------------------------
+    function preencherDadosAgradecimento() {
+        // Recuperar dados do localStorage
+        const dadosPessoais = JSON.parse(localStorage.getItem('dadosPessoais') || '{}');
+        const dadosPagamento = JSON.parse(localStorage.getItem('dadosPagamento') || '{}');
+        const carrinho = JSON.parse(localStorage.getItem('carrinho') || '[]');
+        
+        // 1. Preencher nome no título
+        const nomeTitulo = document.getElementById('form-name');
+        if (nomeTitulo && dadosPessoais.nome) {
+            nomeTitulo.textContent = dadosPessoais.nome;
         }
         
-        // Validação do carrinho
-        if (!carrinho || carrinho.length === 0) {
-             isValid = false;
+        // 2. Preencher informações pessoais
+        const nomeForm = document.getElementById('nome-form');
+        const emailForm = document.getElementById('email-form');
+        const enderecoForm = document.getElementById('endereco-form');
+        const telefoneForm = document.getElementById('telefone-form');
+        
+        if (nomeForm && dadosPessoais.nome) nomeForm.textContent = dadosPessoais.nome;
+        if (emailForm && dadosPessoais.email) emailForm.textContent = dadosPessoais.email;
+        if (enderecoForm && dadosPessoais.rua && dadosPessoais.cidade) {
+            enderecoForm.textContent = `${dadosPessoais.rua}, ${dadosPessoais.cidade}, CEP: ${dadosPessoais.cep || ''}`;
         }
-
-        return isValid;
-    }
-
-    function verificarCompletudeDados() {
-        const iconContainers = document.querySelectorAll('.icon-status');
-        const pessoaisCompletos = !!(dadosPessoais && dadosPessoais.nome && dadosPessoais.email && dadosPessoais.telefone && dadosPessoais.rua && dadosPessoais.cidade && dadosPessoais.cep);
-        exibirIconeStatus(iconContainers[0], pessoaisCompletos, !!dadosPessoais);
-
-        const entregaCompleta = !!(dadosPessoais && dadosPessoais.rua && dadosPessoais.cidade && dadosPessoais.cep);
-        exibirIconeStatus(iconContainers[1], entregaCompleta, !!dadosPessoais);
-
-        let pagamentoCompleto = false;
-        let pagamentoExiste = !!dadosPagamento;
-        if (dadosPagamento && dadosPagamento.metodo) {
-            pagamentoCompleto = dadosPagamento.metodo === 'pix' ?
-                (dadosPagamento.detalhes && dadosPagamento.detalhes.tipo && dadosPagamento.detalhes.chave) :
-                (dadosPagamento.detalhes && dadosPagamento.detalhes.numero && dadosPagamento.detalhes.titular && dadosPagamento.detalhes.validade && dadosPagamento.detalhes.cvv);
+        if (telefoneForm && dadosPessoais.telefone) telefoneForm.textContent = dadosPessoais.telefone;
+        
+        // 3. Preencher informações de pagamento
+        const pagamentoForm = document.getElementById('pagamento-form');
+        const cartaoForm = document.getElementById('cartao-form');
+        const validadeForm = document.getElementById('validade-form');
+        const cvvForm = document.getElementById('cvv-form');
+        
+        if (pagamentoForm && dadosPagamento.metodo) {
+            let metodoTexto = '';
+            switch(dadosPagamento.metodo) {
+                case 'credito': metodoTexto = 'Cartão de Crédito'; break;
+                case 'debito': metodoTexto = 'Cartão de Débito'; break;
+                case 'pix': metodoTexto = 'PIX'; break;
+                default: metodoTexto = dadosPagamento.metodo;
+            }
+            pagamentoForm.textContent = metodoTexto;
         }
-        exibirIconeStatus(iconContainers[2], pagamentoCompleto, pagamentoExiste);
+        
+        if (dadosPagamento.detalhes) {
+            if (cartaoForm && dadosPagamento.detalhes.numero) {
+                cartaoForm.textContent = `Número: ${dadosPagamento.detalhes.numero}`;
+            }
+            if (validadeForm && dadosPagamento.detalhes.validade) {
+                validadeForm.textContent = `Validade: ${dadosPagamento.detalhes.validade}`;
+            }
+            if (cvvForm && dadosPagamento.detalhes.cvv) {
+                cvvForm.textContent = `CVV: ${dadosPagamento.detalhes.cvv}`;
+            }
+        }
+        
+        // 4. Preencher informações do carrinho
+        preencherResumoPedido(carrinho);
+        
+        // 5. Verificar se todos os dados estão preenchidos e mostrar ícones de status
+        verificarStatusDados(dadosPessoais, dadosPagamento);
     }
-
-    function exibirIconeStatus(container, completo, existe) {
-        const icons = container.querySelectorAll('i');
-        icons.forEach(icon => icon.style.display = 'none');
-
-        if (completo) {
-            container.querySelector('.bi-patch-check.success').style.display = 'inline-block';
-        } else if (existe) {
-            container.querySelector('.bi-patch-exclamation.warning').style.display = 'inline-block';
-        } else {
-            container.querySelector('.bi-patch-question.error').style.display = 'inline-block';
+    
+    // -------------------------
+    // 2) PREENCHER RESUMO DO PEDIDO
+    // -------------------------
+    function preencherResumoPedido(carrinho) {
+        const quantidadeItens = document.querySelector('.quantidade-itens');
+        const quantidadeItems = document.querySelector('.quantidade-items');
+        const precoProduto = document.querySelector('.preco-produto');
+        const precoTotal = document.querySelector('.preco-total');
+        const subtotalSpan = document.querySelector('.sub-total span:last-child');
+        const freteSpan = document.querySelector('.frete span:last-child');
+        const detalhesPedido = document.querySelector('.detalhes-pedido');
+        
+        if (carrinho.length === 0) return;
+        
+        const primeiroProduto = carrinho[0];
+        const subtotal = carrinho.reduce((total, produto) => total + (produto.preco * produto.quantidade), 0);
+        const totalItens = carrinho.reduce((total, produto) => total + produto.quantidade, 0);
+        
+        // Atualizar quantidades
+        if (quantidadeItens) quantidadeItens.textContent = `(${totalItens}) ${totalItens === 1 ? 'item' : 'itens'}`;
+        if (quantidadeItems) quantidadeItems.textContent = primeiroProduto.quantidade;
+        
+        // Atualizar preços
+        if (precoProduto) precoProduto.textContent = `R$ ${primeiroProduto.preco.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+        if (precoTotal) precoTotal.textContent = `R$ ${subtotal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+        if (subtotalSpan) subtotalSpan.textContent = `R$ ${subtotal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+        if (freteSpan) freteSpan.textContent = 'R$ 0,00';
+        
+        // Atualizar imagem e nome do produto
+        const imagemProduto = detalhesPedido.querySelector('.imagem-produto img');
+        const nomeProduto = detalhesPedido.querySelector('.nome_price-produto span:first-child');
+        
+        if (imagemProduto && primeiroProduto.imagem) {
+            imagemProduto.src = primeiroProduto.imagem;
+            imagemProduto.alt = primeiroProduto.nome;
+        }
+        
+        if (nomeProduto && primeiroProduto.nome) {
+            nomeProduto.textContent = primeiroProduto.nome;
         }
     }
-
-    const formConfirmacao = document.getElementById('form-confirmacao');
-    const radiosConfirmacao = document.querySelectorAll('input[name="confirmacao-info"]');
-    const btnFinalizar = document.getElementById('btn-finalizar');
-
-    if (formConfirmacao) {
-        formConfirmacao.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const isFormValid = validarFormularioCompleto();
-
-            if (isFormValid) {
-                const concordou = document.getElementById('concordo').checked;
-                if (concordou) {
-                    alert('Compra finalizada com sucesso!');
-                    localStorage.removeItem('dadosPessoais');
-                    localStorage.removeItem('dadosPagamento');
-                    localStorage.removeItem('carrinho');
-                } else {
-                    alert('Você precisa concordar com as informações para finalizar a compra.');
-                }
+    
+    // -------------------------
+    // 3) VERIFICAR STATUS DOS DADOS
+    // -------------------------
+    function verificarStatusDados(dadosPessoais, dadosPagamento) {
+        const containers = [
+            { element: document.querySelector('.info-pessoal-container'), data: dadosPessoais },
+            { element: document.querySelector('.info-entrega-container'), data: dadosPessoais },
+            { element: document.querySelector('.info-pagamento-container'), data: dadosPagamento }
+        ];
+        
+        containers.forEach(container => {
+            if (!container.element || !container.data) return;
+            
+            const successIcon = container.element.querySelector('.success');
+            const warningIcon = container.element.querySelector('.warning');
+            const errorIcon = container.element.querySelector('.error');
+            const avisoErro = container.element.querySelector('.aviso-erro');
+            
+            // Verificar se os dados estão completos
+            const dadosCompletos = Object.keys(container.data).length > 0;
+            
+            if (dadosCompletos) {
+                if (successIcon) successIcon.style.display = 'block';
+                if (warningIcon) warningIcon.style.display = 'none';
+                if (errorIcon) errorIcon.style.display = 'none';
+                if (avisoErro) avisoErro.style.display = 'none';
             } else {
-                alert('Por favor, preencha todas as informações necessárias para finalizar a compra.');
+                if (successIcon) successIcon.style.display = 'none';
+                if (warningIcon) warningIcon.style.display = 'block';
+                if (errorIcon) errorIcon.style.display = 'none';
+                if (avisoErro) avisoErro.style.display = 'block';
             }
         });
     }
-
-    if (radiosConfirmacao && btnFinalizar) {
-        radiosConfirmacao.forEach(radio => {
-            radio.addEventListener('change', function() {
-                btnFinalizar.disabled = this.value !== 'sim' || !validarFormularioCompleto();
-            });
+    
+    // -------------------------
+    // 4) VALIDAÇÃO DO FORMULÁRIO DE CONFIRMAÇÃO
+    // -------------------------
+    function configurarValidacaoConfirmacao() {
+        const formConfirmacao = document.getElementById('form-confirmacao');
+        const btnFinalizar = document.getElementById('btn-finalizar');
+        const radioConcordo = document.getElementById('concordo');
+        const radioNaoConcordo = document.getElementById('nao-concordo');
+        
+        if (!formConfirmacao || !btnFinalizar) return;
+        
+        // Habilitar/desabilitar botão baseado na seleção
+        function atualizarEstadoBotao() {
+            btnFinalizar.disabled = !radioConcordo.checked;
+        }
+        
+        radioConcordo.addEventListener('change', atualizarEstadoBotao);
+        radioNaoConcordo.addEventListener('change', atualizarEstadoBotao);
+        
+        // Evento de submit do formulário
+        formConfirmacao.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (radioConcordo.checked) {
+                alert('Pedido confirmado com sucesso! Obrigado pela compra.');
+                // Aqui você pode redirecionar para a página inicial ou fazer outras ações
+                window.location.href = "../index.html";
+            }
         });
-
-        // Chama a validação inicial para garantir que o botão comece no estado correto
-        btnFinalizar.disabled = !validarFormularioCompleto();
     }
     
-    // Chama a função principal para iniciar o preenchimento e a verificação visual
-    verificarCompletudeDados();
-
-    // Chama a validação para exibir os avisos vermelhos na carga inicial da página
-    validarFormularioCompleto();
+    // -------------------------
+    // EXECUTAR FUNÇÕES
+    // -------------------------
+    preencherDadosAgradecimento();
+    configurarValidacaoConfirmacao();
+    
+    // Limpar carrinho após finalização (opcional)
+    const btnFinalizarCompra = document.getElementById('btn-finalizar');
+    if (btnFinalizarCompra) {
+        btnFinalizarCompra.addEventListener('click', function() {
+            // Limpar carrinho após finalização bem-sucedida
+            localStorage.removeItem('carrinho');
+            localStorage.removeItem('dadosPessoais');
+            localStorage.removeItem('dadosPagamento');
+        });
+    }
 });

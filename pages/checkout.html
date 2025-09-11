@@ -114,209 +114,173 @@
                         <label for="cep">Código Postal:</label>
                         <input type="text" id="cep" name="cep" required />
 
-                        <!-- Botão para salvar informações do endereço -->
+                        <div class="checkout-payment-info">
+                            <h2 class="titulo-secao">Informações de Pagamento</h2>
+                            <p>Escolha a forma de pagamento de sua preferência:</p>
 
-                        
-                    </form>
+                            <div class="payment-methods">
+                                <div class="payment-method">
+                                    <label for="pagamento-credito">
+                                        <input type="radio" id="pagamento-credito" name="payment-method" value="credito">
+                                        Cartão de Crédito
+                                    </label>                                
+                                    <div class="payment-fields" id="credito-fields">
+                                        <div class="form-group">
+                                            <label for="credito-numero">Número do Cartão</label>
+                                            <input type="text" id="credito-numero" name="credito_numero"
+                                                placeholder="0000 0000 0000 0000" maxlength="19" />
+                                        </div>
 
-                    <div class="checkout-payment-info">
-                        <h2 class="titulo-secao">Informações de Pagamento</h2>
-                        <p>Escolha a forma de pagamento de sua preferência:</p>
+                                        <div class="form-group">
+                                            <label for="credito-banderia">Bandeira do Cartão</label>
+                                            <select id="credito-bandeira" name="credito_bandeira">
+                                                <option value>Selecione a bandeira</option>
+                                                <option value="visa">Visa</option>
+                                                <option value="mastercard">Mastercard</option>
+                                                <option value="amex">American Express</option>
+                                                <option value="elo">Elo</option>
+                                                <option value="hipercard">Hipercard</option>
+                                                <option value="diners">Diners Club</option>
+                                            </select>
+                                        </div>
 
-                        <div class="payment-methods">
-                            <div class="payment-method">
-                                <label for="pagamento-credito">
-                                    <input type="radio" id="pagamento-credito" name="payment-method" value="credito">
-                                    Cartão de Crédito
-                                </label>                                
-                                <div class="payment-fields" id="credito-fields">
-                                    <div class="form-group">
-                                        <label for="credito-numero">Número
-                                            do Cartão</label>
-                                        <input type="text" id="credito-numero" name="credito_numero"
-                                            placeholder="0000 0000 0000 0000" maxlength="19" />
+                                        <div class="form-group">
+                                            <label for="credito-titular">Nome do Titular</label>
+                                            <input type="text" id="credito-titular" name="credito_titular"
+                                                placeholder="Como está no cartão" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="credito-validade">Validade</label>
+                                            <input type="text" id="credito-validade" name="credito_validade"
+                                                placeholder="MM/AA" maxlength="5" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="credito-cvv">CVV</label>
+                                            <input type="text" id="credito-cvv" name="credito_cvv" placeholder="123"
+                                                maxlength="3" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="credito-parcelas">Parcelas</label>
+                                            <select id="credito-parcelas" name="credito_parcelas">
+                                                <option value="1">1x sem juros</option>
+                                                <option value="2">2x sem juros</option>
+                                                <option value="3">3x sem juros</option>
+                                                <option value="4">4x sem juros</option>
+                                                <option value="5">5x sem juros</option>
+                                                <option value="6">6x sem juros</option>
+                                                <option value="7">7x com juros</option>
+                                                <option value="8">8x com juros</option>
+                                                <option value="9">9x com juros</option>
+                                                <option value="10">10x com juros</option>
+                                                <option value="11">11x com juros</option>
+                                                <option value="12">12x com juros</option>
+                                            </select>
+                                        </div>
                                     </div>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="credito-banderia">Bandeira
-                                            do Cartão</label>
-                                        <select id="credito-bandeira" name="credito_bandeira">
-                                            <option value>Selecione a
-                                                bandeira</option>
-                                            <option value="visa">Visa</option>
-                                            <option value="mastercard">Mastercard</option>
-                                            <option value="amex">American
-                                                Express</option>
-                                            <option value="elo">Elo</option>
-                                            <option value="hipercard">Hipercard</option>
-                                            <option value="diners">Diners
-                                                Club</option>
-                                        </select>
+                                <div class="payment-method">
+                                    <label for="pagamento-debito">
+                                        <input type="radio" id="pagamento-debito" name="payment-method" value="debito">
+                                        Cartão de Débito
+                                    </label>
+                                    
+                                    <div class="payment-fields" id="debito-fields">
+                                        <div class="form-group">
+                                            <label for="debito-numero">Número do Cartão</label>
+                                            <input type="text" id="debito-numero" name="debito_numero"
+                                                placeholder="0000 0000 0000 0000" maxlength="19" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="debito-titular">Nome do Titular</label>
+                                            <input type="text" id="debito-titular" name="debito_titular"
+                                                placeholder="Como está no cartão" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="debito-validade">Validade</label>
+                                            <input type="text" id="debito-validade" name="debito_validade"
+                                                placeholder="MM/AA" maxlength="5" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="debito-cvv">CVV</label>
+                                            <input type="text" id="debito-cvv" name="debito_cvv" placeholder="123"
+                                                maxlength="3" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="debito-banco">Banco Emissor</label>
+                                            <select id="debito-banco" name="debito_banco">
+                                                <option value>Selecione seu banco</option>
+                                                <option value="itau">Itaú</option>
+                                                <option value="bradesco">Bradesco</option>
+                                                <option value="santander">Santander</option>
+                                                <option value="bb">Banco do Brasil</option>
+                                                <option value="caixa">Caixa Econômica</option>
+                                                <option value="nubank">Nubank</option>
+                                                <option value="inter">Inter</option>
+                                                <option value="outro">Outro</option>
+                                            </select>
+                                        </div>
                                     </div>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="credito-titular">Nome do
-                                            Titular</label>
-                                        <input type="text" id="credito-titular" name="credito_titular"
-                                            placeholder="Como está no cartão" />
-                                    </div>
+                                <div class="payment-method">
+                                    <label for="pagamento-pix">
+                                        <input type="radio" id="pagamento-pix" name="payment-method" value="pix">
+                                        Pagamento no Pix
+                                    </label>
 
-                                    <div class="form-group">
-                                        <label for="credito-validade">Validade</label>
-                                        <input type="text" id="credito-validade" name="credito_validade"
-                                            placeholder="MM/AA" maxlength="5" />
-                                    </div>
+                                    <div class="payment-fields" id="pix-fields">
+                                        <div class="pix-info">
+                                            <p>
+                                                Ao confirmar sua compra, será gerado um QR Code e um
+                                                código Pix para pagamento.
+                                            </p>
+                                            <p>O prazo de confirmação é de até 30 minutos.</p>
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label for="credito-cvv">CVV</label>
-                                        <input type="text" id="credito-cvv" name="credito_cvv" placeholder="123"
-                                            maxlength="3" />
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="pix-tipo">Tipo de Chave Pix</label>
+                                            <select id="pix-tipo" name="pix_tipo">
+                                                <option value>Selecione o tipo de chave</option>
+                                                <option value="cpf">CPF</option>
+                                                <option value="cnpj">CNPJ</option>
+                                                <option value="email">E-mail</option>
+                                                <option value="telefone">Telefone</option>
+                                                <option value="aleatoria">Chave Aleatória</option>
+                                            </select>
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label for="credito-parcelas">Parcelas</label>
-                                        <select id="credito-parcelas" name="credito_parcelas">
-                                            <option value="1">1x sem
-                                                juros</option>
-                                            <option value="2">2x sem
-                                                juros</option>
-                                            <option value="3">3x sem
-                                                juros</option>
-                                            <option value="4">4x sem
-                                                juros</option>
-                                            <option value="5">5x sem
-                                                juros</option>
-                                            <option value="6">6x sem
-                                                juros</option>
-                                            <option value="7">7x com
-                                                juros</option>
-                                            <option value="8">8x com
-                                                juros</option>
-                                            <option value="9">9x com
-                                                juros</option>
-                                            <option value="10">10x com
-                                                juros</option>
-                                            <option value="11">11x com
-                                                juros</option>
-                                            <option value="12">12x com
-                                                juros</option>
-                                        </select>
+                                        <div class="form-group" id="pix-chave-container">
+                                            <label for="pix-chave">Sua Chave Pix</label>
+                                            <input type="text" id="pix-chave" name="pix_chave"
+                                                placeholder="Informe sua chave Pix" />
+                                        </div>
+
+                                        <div class="pix-benefits">
+                                            <h4>Vantagens do Pix:</h4>
+                                            <ul>
+                                                <li>Pagamento instantâneo</li>
+                                                <li>Sem taxas adicionais</li>
+                                                <li>Confirmado em até 30 minutos</li>
+                                                <li>Máxima segurança</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="payment-method">
-                                <label for="pagamento-debito">
-                                    <input type="radio" id="pagamento-debito" name="payment-method" value="debito">
-                                    Cartão de Débito
-                                </label>
-                                
-
-                                <div class="payment-fields" id="debito-fields">
-                                    <div class="form-group">
-                                        <label for="debito-numero">Número do
-                                            Cartão</label>
-                                        <input type="text" id="debito-numero" name="debito_numero"
-                                            placeholder="0000 0000 0000 0000" maxlength="19" />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="debito-titular">Nome do
-                                            Titular</label>
-                                        <input type="text" id="debito-titular" name="debito_titular"
-                                            placeholder="Como está no cartão" />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="debito-validade">Validade</label>
-                                        <input type="text" id="debito-validade" name="debito_validade"
-                                            placeholder="MM/AA" maxlength="5" />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="debito-cvv">CVV</label>
-                                        <input type="text" id="debito-cvv" name="debito_cvv" placeholder="123"
-                                            maxlength="3" />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="debito-banco">Banco
-                                            Emissor</label>
-                                        <select id="debito-banco" name="debito_banco">
-                                            <option value>Selecione seu
-                                                banco</option>
-                                            <option value="itau">Itaú</option>
-                                            <option value="bradesco">Bradesco</option>
-                                            <option value="santander">Santander</option>
-                                            <option value="bb">Banco do
-                                                Brasil</option>
-                                            <option value="caixa">Caixa
-                                                Econômica</option>
-                                            <option value="nubank">Nubank</option>
-                                            <option value="inter">Inter</option>
-                                            <option value="outro">Outro</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="payment-method">
-                                <label for="pagamento-pix">
-                                    <input type="radio" id="pagamento-pix" name="payment-method" value="pix">
-                                    Pagamento no Pix
-                                </label>
-
-                                <div class="payment-fields" id="pix-fields">
-                                    <div class="pix-info">
-                                        <p>
-                                            Ao confirmar sua compra, será
-                                            gerado um QR Code e um
-                                            código Pix para pagamento.
-                                        </p>
-                                        <p>O prazo de confirmação é de até
-                                            30 minutos.</p>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="pix-tipo">Tipo de Chave
-                                            Pix</label>
-                                        <select id="pix-tipo" name="pix_tipo">
-                                            <option value>Selecione o tipo
-                                                de chave</option>
-                                            <option value="cpf">CPF</option>
-                                            <option value="cnpj">CNPJ</option>
-                                            <option value="email">E-mail</option>
-                                            <option value="telefone">Telefone</option>
-                                            <option value="aleatoria">Chave
-                                                Aleatória</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group" id="pix-chave-container">
-                                        <label for="pix-chave">Sua Chave
-                                            Pix</label>
-                                        <input type="text" id="pix-chave" name="pix_chave"
-                                            placeholder="Informe sua chave Pix" />
-                                    </div>
-
-                                    <div class="pix-benefits">
-                                        <h4>Vantagens do Pix:</h4>
-                                        <ul>
-                                            <li>Pagamento instantâneo</li>
-                                            <li>Sem taxas adicionais</li>
-                                            <li>Confirmado em até 30
-                                                minutos</li>
-                                            <li>Máxima segurança</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            <button class="btn btn-formCheckout" type="submit">
+                                Salvar Informações
+                            </button>
                         </div>
-                        <button class="btn btn-formCheckout" type="submit">
-                            Salvar Informações
-                        </button>
-                    </div>
-                </div>
+                    </form>
+                </div> <!-- ← FECHAMENTO CORRETO DA DIV checkout-form -->
 
                 <div class="checkout-resumo">
                     <h2>Resumo do Pedido</h2>
@@ -346,8 +310,6 @@
                         <button class="btn finalizarCompra" type="button" id="btn-finalizarCompra">Finalizar Compra</button>
                     </div>
                 </div>
-
-                
             </div>
         </div>
     </main>

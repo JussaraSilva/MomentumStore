@@ -89,18 +89,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Código corrigido:
     if (pixChaveInput && pixTipoSelect) {
         pixChaveInput.addEventListener('input', function (e) {
             const tipo = pixTipoSelect.value;
-            let value = e.target.value.replace(/\D/g, '');
+            let value = e.target.value;
+            
+            // Aplica formatação apenas para tipos numéricos
             if (tipo === 'cpf') {
+                value = value.replace(/\D/g, '');
                 value = value.replace(/(\d{3})(\d)/, '$1.$2');
                 value = value.replace(/(\d{3})(\d)/, '$1.$2');
                 value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
             } else if (tipo === 'telefone') {
+                value = value.replace(/\D/g, '');
                 value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
                 value = value.replace(/(\d{5})(\d)/, '$1-$2');
             }
+            // Para email e aleatória, não remove caracteres não numéricos
             e.target.value = value;
         });
     }

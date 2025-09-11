@@ -519,7 +519,7 @@ main {
   /* Garante que o conteúdo fique acima do overlay */
   max-width: 800px;
   padding: 20px;
-  z-index: 999;
+  z-index: 3;
 }
 
 /* O restante do CSS para h2, p e o botão permanece o mesmo */
@@ -1074,7 +1074,7 @@ main {
 
 .btn-comprar {
   background-color: var(--secondary-color);
-  color: var(--tertiary-color);
+  color: var(--primary-color);
   border: none;
   border-radius: var(--border-radius);
   padding: 10px 20px;
@@ -1082,9 +1082,15 @@ main {
   transition: background-color 0.3s ease;
 }
 
-.btn-comprar:hover {
-  background-color: var(--primary-color);
-  transition: background-color 0.3s ease;
+.btn-comprar {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-comprar:active {
+  background-color: var(--background-secondary-dark);
+  color: var(--text-light);
+  transform: scale(0.95);
 }
 
 .selo-garantia {
@@ -1530,6 +1536,28 @@ footer a:hover {
   .swiper-button-prev {
     display: none !important;
   }
+
+  /* Diferencial section */
+  
+  .diferencial-container {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-md);
+  }
+
+  .diferencial-item {
+    /* max-width: 250px; */
+    width: 100%;
+    margin: 0 auto
+  }
+
+
+  /* Produtos em destaque */
+
+  .produtos-container {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-sm);
+  }
+
 
   .grid-contact-form {
     grid-template-columns: 1fr;

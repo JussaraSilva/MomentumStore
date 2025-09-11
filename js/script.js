@@ -82,3 +82,57 @@ document.addEventListener('DOMContentLoaded', atualizarContadorHeader);
 window.atualizarContadorHeader = atualizarContadorHeader;
 
 
+function configurarBotoesComprar() {
+  const botoesComprar = document.querySelectorAll('.btn-comprar');
+  
+  botoesComprar.forEach(botao => {
+    botao.addEventListener('click', (event) => {
+      event.preventDefault();
+      
+      // Obter informações do produto do card pai
+      const card = botao.closest('.produto-card');
+      const nomeProduto = card.querySelector('h3').textContent;
+      const precoTexto = card.querySelector('.preco').textContent;
+      const preco = parseFloat(precoTexto.replace('R$ ', '').replace('.', '').replace(',', '.'));
+      const imagem = card.querySelector('.img-principal').src;
+      
+      // Adicionar ao carrinho
+      adicionarAoCarrinho({
+        id: Date.now(), // ID temporário
+        nome: nomeProduto,
+        preco: preco,
+        imagem: imagem,
+        quantidade: 1
+      });
+      
+    });
+  });
+}
+
+// Chamar a função quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', function() {
+  configurarBotoesComprar();
+});
+
+
+function adicionarAoCarrinho(produto) {
+  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  
+  // Verificar se o produto já está no carrinho
+  const produtoExistente = carrinho.find(item => item.nome === produto.nome);
+  
+  if (produtoExistente) {
+    produtoExistente.quantidade += 1;
+  } else {
+    carrinho.push(produto);
+  }
+  
+  localStorage.setItem('carrinho', JSON.stringify(carrinho));
+  
+  // Disparar evento personalizado para atualizar o contador
+  const event = new CustomEvent('carrinho:updated');
+  document.dispatchEvent(event);
+  
+  // Feedback visual (opcional)
+  alert(`${produto.nome} adicionado ao carrinho!`);
+}
