@@ -165,7 +165,6 @@
 }
 
 section {
-  background-color: var(--background-section);
   border-radius: var(--border-radius);
   border: none;
   margin: 40px auto;

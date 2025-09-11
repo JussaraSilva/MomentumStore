@@ -115,24 +115,83 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-function adicionarAoCarrinho(produto) {
-  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-  
-  // Verificar se o produto já está no carrinho
-  const produtoExistente = carrinho.find(item => item.nome === produto.nome);
-  
-  if (produtoExistente) {
-    produtoExistente.quantidade += 1;
-  } else {
-    carrinho.push(produto);
+// Colocar no mesmo arquivo (js/script.js)
+function safeGetJSON(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return fallback;
+    return JSON.parse(raw);
+  } catch (err) {
+    console.warn('localStorage parse failed for', key, err);
+    localStorage.removeItem(key);
+    return fallback;
   }
-  
-  localStorage.setItem('carrinho', JSON.stringify(carrinho));
-  
-  // Disparar evento personalizado para atualizar o contador
-  const event = new CustomEvent('carrinho:updated');
-  document.dispatchEvent(event);
-  
-  // Feedback visual (opcional)
-  alert(`${produto.nome} adicionado ao carrinho!`);
+}
+
+function salvarCarrinho(carrinho) {
+  try {
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    document.dispatchEvent(new CustomEvent('carrinho:updated', { detail: { carrinho } }));
+  } catch (e) {
+    console.error('Erro ao salvar carrinho', e);
+  }
+}
+
+function adicionarAoCarrinho(produto, usarAlert = false) {
+  try {
+    if (!produto) throw new Error('Produto inválido');
+
+    // Garante ID único (uso preferencial: produto.id)
+    const produtoId = produto.id ? String(produto.id) : String(Date.now());
+
+    // Quantidade coerente (>=1)
+    const quantidadeToAdd = Math.max(1, Number(produto.quantidade) || 1);
+
+    // Preço numérico básico (se vier string com R$, tenta limpar)
+    let precoNumero = 0;
+    if (typeof produto.preco === 'number') precoNumero = produto.preco;
+    else if (typeof produto.preco === 'string') {
+      precoNumero = Number(String(produto.preco).replace(/[^\d,.-]/g,'').replace(',', '.')) || 0;
+    } else {
+      precoNumero = Number(produto.price) || 0;
+    }
+
+    // Pega carrinho de forma segura
+    const carrinho = safeGetJSON('carrinho', []);
+
+    // Procura por ID (não por nome)
+    const existente = carrinho.find(item => String(item.id) === produtoId);
+
+    if (existente) {
+      existente.quantidade = Math.max(1, Number(existente.quantidade || 0) + quantidadeToAdd);
+    } else {
+      // não muta o objeto original — cria novo registro
+      const novoItem = {
+        ...produto,
+        id: produtoId,
+        quantidade: quantidadeToAdd,
+        preco: precoNumero
+      };
+      carrinho.push(novoItem);
+    }
+
+    // salvar e notificar
+    salvarCarrinho(carrinho);
+
+    // evento de notificação (melhor que alert)
+    window.dispatchEvent(new CustomEvent('notificacao', {
+      detail: { type: 'success', message: `${produto.nome || 'Produto'} adicionado ao carrinho!` }
+    }));
+
+    // fallback: alert (opcional)
+    if (usarAlert) alert(`${produto.nome || 'Produto'} adicionado ao carrinho!`);
+
+    return true;
+  } catch (err) {
+    console.error('Erro ao adicionar ao carrinho:', err);
+    window.dispatchEvent(new CustomEvent('notificacao', {
+      detail: { type: 'error', message: 'Não foi possível adicionar o produto.' }
+    }));
+    return false;
+  }
 }

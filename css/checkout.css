@@ -1,389 +1,675 @@
+/* --- ESTILOS JÁ EXISTENTES --- */
+
 .main-checkout {
-  margin-top: 7rem;
+    margin-top: 7rem;
 }
 
 .container-checkout {
-  display: flex;
-  margin: 0 auto;
-  max-width: 1200px;
-  gap: 2rem;
-  padding: 2rem;
-  flex-wrap: wrap;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1200px;
+    gap: 2rem;
+    padding: 2rem;
+    flex-wrap: wrap;
 }
 
 .checkout-grid {
-  display: grid;
-  grid-template-columns: 6fr 2fr;
-  gap: var(--spacing-md);
+    display: grid;
+    grid-template-columns: 6fr 2fr;
+    gap: var(--spacing-md);
 }
 
-.checkout-form {
-  grid-column: 1 / 2; /* fica só na primeira coluna */
-  background-color: var(--background-secondary-dark);
-  color: var(--tertiary-color);
-  padding: var(--spacing-lg);
-  box-shadow: 0 4px 20px rgba(54, 54, 54, 0.822);
-  border-radius: var(--border-radius);
+.checkout-step { display: none; }
+.checkout-step.active { display: block; }
+
+.checkout-form,
+.checkout-payment-info {
+    grid-column: 1 / 2;
+    background-color: var(--background-secondary-dark);
+    color: var(--tertiary-color);
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 20px rgba(54, 54, 54, 0.822);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .titulo-secao {
-  font-size: var(--font-size-lg);
+    font-size: var(--font-size-lg);
 }
 
-.checkout-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  color: var(--tertiary-color);
-  padding: var(--spacing-lg);
-  background-color: var(--background-secondary-dark);
-  border-radius: var(--border-radius);
+.checkout-info,
+.checkout-payment-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--tertiary-color);
+    background-color: var(--background-secondary-dark);
+    border-radius: var(--border-radius);
 }
 
-.checkout-info h2 {
-  color: var(--secondary-color);
+.checkout-info h2,
+.checkout-payment-info h2 {
+    color: var(--secondary-color);
 }
 
-.checkout-info label {
-  font-size: var(--font-size-md);
-  margin-bottom: var(--spacing-xs);
+.checkout-info label,
+.checkout-payment-info label {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-xs);
 }
 
-.checkout-info input {
-  width: 100%;
-  padding: var(--spacing-sm);
-  border: none;
-  border-radius: var(--border-radius);
-  font-family: var(--font-body);
-  font-size: var(--font-size-xs);
-  box-shadow: 0 2px 15px rgba(8, 1, 1, 0.884);
-  background-color: var(--background-color);
-  color: var(--text-dark);
+.checkout-info input,
+.checkout-info select,
+.checkout-payment-info input,
+.checkout-payment-info select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    box-shadow: 0 2px 15px rgba(8, 1, 1, 0.884);
+    background-color: var(--background-color);
+    color: var(--text-dark);
 }
 
-.checkout-info input:focus {
-  outline: none;
-  border-color: var(--secondary-color);
+.checkout-info input:focus,
+.checkout-info select:focus,
+.checkout-payment-info input:focus,
+.checkout-payment-info select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
 }
-
-
-
 
 .btn-formCheckout {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-  border: none;
-  margin-top: var(--spacing-md);
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  font-size: var(--font-size-md);
-  font-weight: var(--weight-semibold);
-  transition: background-color var(--transition-speed);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    font-weight: var(--weight-semibold);
+    transition: background-color var(--transition-speed);
 }
 
 .btn-formCheckout:hover {
-  background-color: var(--cor-breitling);
-  color: var(--tertiary-color);
-  transition: background-color var(--transition-speed);
+    background-color: var(--cor-breitling);
+    color: var(--tertiary-color);
+    transition: background-color var(--transition-speed);
 }
 
-/* Estilos de informações de pagamento */
+/* --- ESTILOS PARA PAGAMENTO E RESUMO (JÁ EXISTENTES) --- */
 
-/* Checkout Section */
-
-/* Container de Informações de Pagamento */
 .checkout-payment-info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  padding: var(--spacing-sm);
-  border-radius: var(--border-radius);
-  color: var(--tertiary-color);
-  font-family: var(--font-body);
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
 }
 
-/* Título de Seção (Compartilhado entre as seções) */
-
-/* Seleção de Métodos de Pagamento */
 .payment-methods {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
 }
 
-/* O card de seleção do método de pagamento */
 .payment-method {
-  border: 1px solid var(--color-light);
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: all var(--transition-speed);
-  padding: var(
-    --spacing-sm
-  ); /* Adicionado o padding aqui para englobar toda a opção */
+    border: 1px solid var(--color-light);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    padding: var(--spacing-sm);
 }
 
-/* Estado de hover */
 .payment-method:hover {
-  border-color: var(--secondary-color);
-  box-shadow: var(--sombra-card);
+    border-color: var(--secondary-color);
+    box-shadow: var(--sombra-card);
 }
 
-/* Estado de seleção do card pai com base no radio button */
-
-/* A opção interna que contém o input e a label */
 .payment-option {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  font-weight: var(--weight-semibold);
-  color: var(--tertiary-color);
-  font-size: var(--font-size-md);
-  transition: color var(--transition-speed);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--tertiary-color);
+    font-size: var(--font-size-md);
+    transition: color var(--transition-speed);
 }
-
-/* Estilizando a label da opção selecionada */
 
 .payment-method input[type="radio"] {
-  display: none;
+    display: none;
 }
 
-/* Campos do Formulário de Pagamento */
 .payment-fields {
-  display: none;
-  padding-top: var(--spacing-sm);
-  border-top: 1px dashed var(--color-light);
-  margin-top: var(--spacing-sm);
+    display: none;
+    padding-top: var(--spacing-sm);
+    border-top: 1px dashed var(--color-light);
+    margin-top: var(--spacing-sm);
 }
 
-/* Mostra os campos quando o radio button dentro de .payment-method está selecionado */
 .payment-method:has(input[type="radio"]:checked) .payment-fields {
-  display: block;
+    display: block;
 }
 
 .form-group {
-  margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
 }
 
 .form-group label {
-  font-size: var(--font-size-md);
-  color: var(--tertiary-color);
-  margin-bottom: var(--spacing-xs);
+    display: block;
+    margin-bottom: var(--spacing-xs);
 }
 
-/* Inputs de Texto e Select */
-.payment-fields input,
-.payment-fields select {
-  width: 100%;
-  padding: var(--spacing-sm);
-  border: none;
-  border-radius: var(--border-radius);
-  font-family: var(--font-body);
-  font-size: var(--font-size-xs);
-  background-color: var(--background-color);
-  color: var(--text-dark);
-  box-shadow: 0 2px 15px rgba(8, 1, 1, 0.884);
-}
-
-.payment-fields input:focus,
-.payment-fields select:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--secondary-color), 0 2px 15px rgba(8, 1, 1, 0.884);
-}
-
-/* Estilos específicos para a seção Pix */
 .pix-info {
-  background-color: var(--background-color);
-  border: 1px solid var(--color-light);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-sm);
-  margin-top: var(--spacing-sm);
-  color: var(--text-dark);
+    background-color: var(--background-color);
+    border: 1px solid var(--color-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+    color: var(--text-dark);
 }
 
 .pix-benefits h4 {
-  color: var(--text-light);
-  font-weight: var(--weight-bold);
-  margin-top: 0;
+    color: var(--text-light);
+    font-weight: var(--weight-bold);
+    margin-top: 0;
 }
 
 .pix-benefits li {
-  color: var(--text-light);
+    color: var(--text-light);
 }
 
-/* Icone de check para a lista do Pix */
 .pix-benefits li::before {
-  content: "✓";
-  color: var(--secondary-color);
-  font-weight: var(--weight-bold);
-  margin-right: 0.5rem;
+    content: "✓";
+    color: var(--secondary-color);
+    font-weight: var(--weight-bold);
+    margin-right: 0.5rem;
 }
 
-/* INTENSIFICA o estilo da opção selecionada */
-
-/* VERSÃO ELEGANTE E DISCRETA */
 .payment-method:has(input[type="radio"]:checked) {
-  border: 2px solid var(--secondary-color) !important;
-  background-color: rgba(26, 26, 26, 0.98) !important;
-  box-shadow: 0 5px 20px rgba(192, 178, 131, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
+    border: 2px solid var(--secondary-color) !important;
+    background-color: rgba(26, 26, 26, 0.98) !important;
+    box-shadow: 0 5px 20px rgba(192, 178, 131, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 .payment-method:has(input[type="radio"]:checked) .payment-option {
-  color: var(--secondary-color) !important;
-  letter-spacing: 0.5px;
+    color: var(--secondary-color) !important;
+    letter-spacing: 0.5px;
 }
 
 .payment-method:has(input[type="radio"]:checked) .payment-option::before {
-  content: "•";
-  color: var(--secondary-color);
-  font-size: 1.8em;
-  margin-right: 10px;
-  vertical-align: middle;
+    content: "•";
+    color: var(--secondary-color);
+    font-size: 1.8em;
+    margin-right: 10px;
+    vertical-align: middle;
 }
 
-/* Resumo do Pedido */
-
 .checkout-resumo {
-  grid-column: 2 / 3; /* fica na segunda coluna */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm);
-  border: 1px solid var(--color-light);
-  border-radius: var(--border-radius);
-  background-color: var(--background-secondary-dark);
-  box-shadow: var(--sombra-card);
+    grid-column: 2 / 3;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-light);
+    border-radius: var(--border-radius);
+    background-color: var(--background-secondary-dark);
+    box-shadow: var(--sombra-card);
 }
 
 .checkout-resumo h2 {
-  color: var(--tertiary-color);
-  text-align: center;
-  margin-bottom: var(--spacing-xs);
+    color: var(--tertiary-color);
+    text-align: center;
+    margin-bottom: var(--spacing-xs);
 }
 
 .resumo-items {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
 }
 
 .resumo-item {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm);
-  border: 1px solid var(--color-light);
-  border-radius: var(--border-radius);
-  background-color: var(--background-secondary-dark);
-  box-shadow: 0 5px 20px rgba(192, 178, 131, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-light);
+    border-radius: var(--border-radius);
+    background-color: var(--background-secondary-dark);
+    box-shadow: 0 5px 20px rgba(192, 178, 131, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .header-produto {
-  display: flex;
-  flex-direction: row;
-  gap: var(--spacing-xs);
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-xs);
 }
 
 .item-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    color: var(--text-light);
 }
 
 .item-details .item-name {
-  font-size: var(--font-size-md);
-  font-weight: var(--weight-semibold);
-  color: var(--text-light);
+    font-size: var(--font-size-md);
+    font-weight: var(--weight-semibold);
+    color: var(--text-light);
 }
 
 .item-image {
-  width: 150px;
-  height: 100px;
-  border-radius: var(--border-radius);
-  overflow: hidden;
+    width: 150px;
+    height: 100px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
 
 .item-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.item-details {
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .item-subtotal {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--spacing-xs);
-  font-size: var(--font-size-md);
-  font-weight: var(--weight-semibold);
-  color: var(--text-light);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-md);
+    font-weight: var(--weight-semibold);
+    color: var(--text-light);
 }
 
 .container-editarCart {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: var(--spacing-xs);
-  gap: var(--spacing-xs);
-  color: var(--text-dark);
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--spacing-xs);
+    gap: var(--spacing-xs);
+    color: var(--text-dark);
 }
 
 .container-editarCart a {
-  padding: var(--spacing-xs);
-  background-color: var(--secondary-color);
-  color: var(--text-dark);
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  font-size: var(--font-size-md);
-  font-weight: var(--weight-semibold);
-  transition: background-color var(--transition-speed);
+    padding: var(--spacing-xs);
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    font-weight: var(--weight-semibold);
+    transition: background-color var(--transition-speed);
 }
 
-/* Valores totais do resumo do pedido */
-
 .resumo-totals {
-  display: grid;
-  color: var(--primary-color);
-  margin-top: var(--spacing-lg);
-  grid-template-rows: auto auto;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm);
-  border: 1px solid rgba(235, 182, 10, 0.89);
-  border-radius: var(--border-radius);
-  background-color: var(--tertiary-color);
-  box-shadow: 0 5px 20px rgba(87, 71, 19, 0.315),
-    inset 0 1px 0 rgba(255, 255, 255, 0.521);
+    display: grid;
+    color: var(--primary-color);
+    margin-top: var(--spacing-lg);
+    grid-template-rows: auto auto;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border: 1px solid rgba(235, 182, 10, 0.89);
+    border-radius: var(--border-radius);
+    background-color: var(--tertiary-color);
+    box-shadow: 0 5px 20px rgba(87, 71, 19, 0.315), inset 0 1px 0 rgba(255, 255, 255, 0.521);
+}
+
+/* --- NOVOS ESTILOS PARA OS STEPS --- */
+
+.checkout-progress {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin: 1rem 0 1.5rem;
+    padding: 0 1rem;
+}
+
+.checkout-progress .step-indicator {
+    flex: 1;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.checkout-progress .step-indicator .fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--secondary-color); /* Usando sua cor */
+    transition: width 0.3s ease;
+}
+
+.checkout-steps {
+    margin-top: 1rem;
+}
+
+.checkout-step {
+    display: none;
+}
+
+.checkout-step.active {
+    display: block;
+}
+
+.wizard-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+}
+
+.wizard-controls .btn {
+    padding: 0.6rem 1rem;
+    border-radius: var(--border-radius);
+    border: 0;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);
+    font-weight: var(--weight-semibold);
+    transition: background-color var(--transition-speed);
+}
+
+.btn-secondary {
+    background-color: var(--background-secondary-dark);
+    color: var(--tertiary-color);
+    border: 1px solid var(--color-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--background-color);
+    color: var(--text-dark);
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--cor-breitling);
+    color: var(--tertiary-color);
+}
+
+.step-badge {
+    font-size: var(--font-size-sm);
+    color: var(--tertiary-color);
+    margin-bottom: var(--spacing-xs);
+    display: block;
+    text-align: center;
+    font-weight: var(--weight-bold);
+    background-color: rgba(26, 26, 26, 0.98);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+}
+
+.checkout-finalizar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: 1.25rem;
+}
+
+.checkout-finalizar .btn {
+    flex-grow: 1;
 }
 
 .finalizarCompra {
-  width: 100%;
-  padding: var(--spacing-sm);
-  background-color: var(--secondary-color);
-  color: var(--text-dark);
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  font-size: var(--font-size-md);
-  font-weight: var(--weight-semibold);
-  transition: background-color var(--transition-speed);
-  margin: 2rem 0;
+    width: 100%;
+    padding: var(--spacing-sm);
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    font-weight: var(--weight-semibold);
+    transition: background-color var(--transition-speed);
 }
 
 .finalizarCompra:hover {
-  background-color: var(--cor-breitling);
-  color: var(--tertiary-color);
+    background-color: var(--cor-breitling);
+    color: var(--tertiary-color);
+}
+
+/* Ajustes para a seção de revisão */
+#resumo-checkout-final {
+    background-color: var(--background-secondary-dark);
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-light);
+    border-radius: var(--border-radius);
+}
+
+#resumo-checkout-final .sub-total,
+#resumo-checkout-final .frete,
+#resumo-checkout-final .total {
+    display: flex;
+    justify-content: space-between;
+    color: var(--tertiary-color);
+}
+
+#resumo-checkout-final .total {
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-md);
+    font-weight: var(--weight-semibold);
+    border-top: 1px solid var(--color-light);
+    padding-top: var(--spacing-sm);
+}
+
+#form-confirmacao label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: var(--tertiary-color);
+    margin-top: 0.5rem;
+}
+
+#form-confirmacao input[type="radio"] {
+    display: inline-block;
+    width: auto;
+}
+
+/* Estilos para a tela de pedido finalizado */
+
+.pedido-finalizado {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--background-secondary-dark); /* Fundo escuro */
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra mais visível */
+    color: var(--tertiary-color); /* Cor do texto principal */
+}
+
+.titulo-finalizado {
+    color: var(--secondary-color); /* Cor do título principal */
+    margin-bottom: 1.5rem;
+}
+
+.texto-agradecimento {
+    font-size: var(--font-size-lg);
+    margin-bottom: 2rem;
+}
+
+.bloco-resumo {
+    background-color: var(--background-color); /* Fundo dos blocos de resumo */
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    text-align: left;
+    color: var(--text-dark); /* Cor do texto dentro dos blocos */
+}
+
+.subtitulo-resumo {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.lista-itens-resumo {
+    list-style: none;
+    padding: 0;
+}
+
+.item-resumo {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-light); /* Linha divisória */
+}
+
+.item-resumo:last-child {
+    border-bottom: none;
+}
+
+.total-resumo-valor {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--color-light);
+    font-size: var(--font-size-lg);
+    color: var(--text-dark);
+}
+
+.email-confirmacao {
+    margin-bottom: 2rem;
+    color: var(--tertiary-color);
+}
+
+
+.checkout-finalizar .btn-primary {
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-md);
+  font-weight: var(--weight-semibold);
   transition: background-color var(--transition-speed);
 }
+
+.checkout-finalizar .btn-secondary {
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-md);
+  font-weight: var(--weight-semibold);
+  transition: background-color var(--transition-speed);
+}
+
+
+
+
+.btn-voltar-loja {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: var(--weight-semibold);
+    transition: background-color var(--transition-speed);
+}
+
+.btn-voltar-loja:hover {
+    background-color: var(--cor-breitling);
+    color: var(--tertiary-color);
+}
+
+
+/* Estilos para o select de frete*/
+
+/* Estilos para o novo select customizado */
+
+.custom-select-container {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    height: var(--spacing-xxl); /* Defina uma altura fixa para a caixa */
+    line-height: var(--spacing-xxl);
+}
+
+.select-selected {
+    background-color: var(--background-color);
+    box-shadow: 0 2px 15px rgba(8, 1, 1, 0.884);
+    color: var(--text-dark);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    position: relative;
+    font-size: var(--font-size-xs);
+    border: none;
+}
+
+/* Seta para indicar que é um menu suspenso */
+.select-selected:after {
+    content: "▼"; /* Usando um caractere Unicode para a seta */
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: var(--font-size-xs);
+    color: var(--text-dark);
+}
+
+.select-items {
+    background-color: var(--background-color);
+    box-shadow: 0 2px 15px rgba(8, 1, 1, 0.884);
+    border-radius: var(--border-radius);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    top: 100%; /* Posiciona a lista abaixo do botão */
+    left: 0;
+    right: 0;
+    z-index: 99; /* Garante que o menu fique por cima de outros elementos */
+    margin-top: 5px;
+    border: 1px solid var(--color-light);
+}
+
+.select-items li {
+    padding: var(--spacing-sm);
+    color: var(--text-dark);
+    cursor: pointer;
+    font-size: var(--font-size-xs);
+}
+
+.select-items li:hover, .select-items .same-as-selected {
+    background-color: var(--color-light); /* Destaque ao passar o mouse */
+    color: var(--primary-color);
+}
+
+/* Classe para esconder a lista de opções */
+.select-hide {
+    display: none;
+}
+
+/* Classe para esconder o select nativo, mas mantê-lo acessível */
+.hidden-select {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.input-instrucoes {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    box-shadow: 0 2px 15px rgba(8, 1, 1, 0.884);
+    background-color: var(--background-color);
+    color: var(--text-dark);
+}
+
+
 
 /* Media query responsividade */
 
